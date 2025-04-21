@@ -186,7 +186,7 @@ export default function Module1Page() {
               <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
               
               <div className="space-y-4">
-                {questions['1.1'].map(q => (
+                {questions['1.1'] && questions['1.1'].map(q => (
                   <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                     <button 
                       className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -321,7 +321,7 @@ export default function Module1Page() {
               <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
               
               <div className="space-y-4">
-                {questions['1.2'].map(q => (
+                {questions['1.2'] && questions['1.2'].map(q => (
                   <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                     <button 
                       className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -468,7 +468,7 @@ export default function Module1Page() {
               <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
               
               <div className="space-y-4">
-                {questions['1.3'].map(q => (
+                {questions['1.3'] && questions['1.3'].map(q => (
                   <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                     <button 
                       className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -702,7 +702,7 @@ export default function Module1Page() {
           
           {/* Section Navigation */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {sections.map(section => (
+            {sections && sections.map(section => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}

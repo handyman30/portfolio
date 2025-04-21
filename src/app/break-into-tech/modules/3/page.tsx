@@ -312,7 +312,7 @@ export default function Module3Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['3.1'].map(q => (
+            {questions['3.1'] && questions['3.1'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -621,7 +621,7 @@ export default function Module3Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['3.2'].map(q => (
+            {questions['3.2'] && questions['3.2'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -1065,7 +1065,7 @@ export default function Module3Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['3.3'].map(q => (
+            {questions['3.3'] && questions['3.3'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -1488,7 +1488,7 @@ export default function Module3Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['3.4'].map(q => (
+            {questions['3.4'] && questions['3.4'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -1545,6 +1545,42 @@ export default function Module3Page() {
   };
   
   const renderResources = () => {
+    // Define resources data
+    const resources = [
+      {
+        id: 'cheatsheet',
+        icon: <FaCode className="text-emerald-600 text-xl mr-3" />,
+        title: 'Technical Interview Cheat Sheet',
+        description: 'A comprehensive guide covering common algorithm patterns, time complexity analysis, and problem-solving frameworks tailored for technical interviews.',
+        downloadLink: '/downloads/technical-cheatsheet.txt',
+        linkText: 'Download Cheat Sheet'
+      },
+      {
+        id: 'leetcode',
+        icon: <FaCodeBranch className="text-emerald-600 text-xl mr-3" />,
+        title: 'LeetCode Problem Patterns',
+        description: 'Classification of 75 essential LeetCode problems by pattern with strategies for solving each type. Focus on these patterns rather than memorizing solutions.',
+        downloadLink: '/downloads/leetcode-patterns.txt',
+        linkText: 'Download Patterns'
+      },
+      {
+        id: 'system-design',
+        icon: <FaDatabase className="text-emerald-600 text-xl mr-3" />,
+        title: 'System Design Templates',
+        description: 'Ready-to-use templates and diagrams for common system design interview questions, including URL shorteners, notification systems, and more.',
+        downloadLink: '/downloads/system-design.txt',
+        linkText: 'Download Templates'
+      },
+      {
+        id: 'aus-problems',
+        icon: <FaCodeBranch className="text-emerald-600 text-xl mr-3" />,
+        title: 'Australian Tech Company Problems',
+        description: 'A collection of technical problems and system design questions frequently asked at top Australian tech companies like Atlassian, Canva, and REA Group.',
+        downloadLink: '/downloads/australian-tech-problems.txt',
+        linkText: 'Download Problems'
+      }
+    ];
+
     return (
       <div className="space-y-8">
         <h2 className="text-2xl font-bold mb-6">Resources & Downloads</h2>
@@ -1554,77 +1590,25 @@ export default function Module3Page() {
           <p className="mb-6">These resources will help you prepare for technical interviews and coding challenges. I've compiled them based on my experience interviewing at Australian tech companies.</p>
           
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-lg shadow-sm">
-              <div className="flex items-center mb-4">
-                <FaCode className="text-emerald-600 text-xl mr-3" />
-                <h4 className="font-medium text-lg">Technical Interview Cheat Sheet</h4>
+            {resources && resources.map(resource => (
+              <div key={resource.id} className="bg-white dark:bg-slate-800 p-5 rounded-lg shadow-sm">
+                <div className="flex items-center mb-4">
+                  {resource.icon}
+                  <h4 className="font-medium text-lg">{resource.title}</h4>
+                </div>
+                <p className="text-slate-600 dark:text-slate-300 mb-4">
+                  {resource.description}
+                </p>
+                <a 
+                  href={resource.downloadLink} 
+                  className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaDownload className="mr-2" /> {resource.linkText}
+                </a>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 mb-4">
-                A comprehensive guide covering common algorithm patterns, time complexity analysis, and problem-solving frameworks tailored for technical interviews.
-              </p>
-              <a 
-                href="/downloads/technical-cheatsheet.pdf" 
-                className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaDownload className="mr-2" /> Download Cheat Sheet
-              </a>
-            </div>
-            
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-lg shadow-sm">
-              <div className="flex items-center mb-4">
-                <FaCodeBranch className="text-emerald-600 text-xl mr-3" />
-                <h4 className="font-medium text-lg">LeetCode Problem Patterns</h4>
-              </div>
-              <p className="text-slate-600 dark:text-slate-300 mb-4">
-                Classification of 75 essential LeetCode problems by pattern with strategies for solving each type. Focus on these patterns rather than memorizing solutions.
-              </p>
-              <a 
-                href="/downloads/leetcode-patterns.pdf" 
-                className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaDownload className="mr-2" /> Download Patterns
-              </a>
-            </div>
-            
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-lg shadow-sm">
-              <div className="flex items-center mb-4">
-                <FaDatabase className="text-emerald-600 text-xl mr-3" />
-                <h4 className="font-medium text-lg">System Design Templates</h4>
-              </div>
-              <p className="text-slate-600 dark:text-slate-300 mb-4">
-                Ready-to-use templates and diagrams for common system design interview questions, including URL shorteners, notification systems, and more.
-              </p>
-              <a 
-                href="/downloads/system-design.pdf" 
-                className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaDownload className="mr-2" /> Download Templates
-              </a>
-            </div>
-            
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-lg shadow-sm">
-              <div className="flex items-center mb-4">
-                <FaCodeBranch className="text-emerald-600 text-xl mr-3" />
-                <h4 className="font-medium text-lg">Australian Tech Company Problems</h4>
-              </div>
-              <p className="text-slate-600 dark:text-slate-300 mb-4">
-                A collection of technical problems and system design questions frequently asked at top Australian tech companies like Atlassian, Canva, and REA Group.
-              </p>
-              <a 
-                href="/downloads/australian-tech-problems.pdf" 
-                className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaDownload className="mr-2" /> Download Problems
-              </a>
-            </div>
+            ))}
           </div>
         </div>
         
@@ -1668,7 +1652,7 @@ export default function Module3Page() {
             </p>
             
             <p>
-              The patterns and frameworks you've learned here will serve as your foundation. With consistent practice and the right mindset, you'll be well-prepared to showcase your skills and land your dream tech role in Australia.
+              The patterns and frameworks you&apos;ve learned here will serve as your foundation. With consistent practice and the right mindset, you&apos;ll be well-prepared to showcase your skills and land your dream tech role in Australia.
             </p>
             
             <div className="mt-6 p-4 bg-emerald-100 dark:bg-emerald-800/50 rounded-lg text-emerald-800 dark:text-emerald-200">
@@ -1761,7 +1745,7 @@ export default function Module3Page() {
           
           {/* Section Navigation */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {sections.map(section => (
+            {sections && sections.map(section => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}

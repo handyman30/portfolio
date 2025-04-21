@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaCheckCircle, FaArrowLeft, FaArrowRight, FaDownload, FaQuestionCircle, FaLightbulb } from 'react-icons/fa';
+import { FaCheckCircle, FaArrowLeft, FaArrowRight, FaDownload, FaQuestionCircle, FaLightbulb, FaUsers, FaDollarSign, FaHandshake, FaHome } from 'react-icons/fa';
 
 export default function Module4Page() {
   const [activeSection, setActiveSection] = useState('4.1');
@@ -283,7 +283,7 @@ export default function Module4Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['4.1'].map(q => (
+            {questions['4.1'] && questions['4.1'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -548,7 +548,7 @@ export default function Module4Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['4.2'].map(q => (
+            {questions['4.2'] && questions['4.2'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -771,7 +771,7 @@ export default function Module4Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['4.3'].map(q => (
+            {questions['4.3'] && questions['4.3'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -1075,7 +1075,7 @@ export default function Module4Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['4.4'].map(q => (
+            {questions['4.4'] && questions['4.4'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -1153,89 +1153,118 @@ export default function Module4Page() {
   };
   
   const renderResources = () => {
+    // Define resources data
+    const resources = [
+      {
+        id: 'career-strategy',
+        icon: <FaLightbulb className="text-emerald-600 text-xl mr-3" />,
+        title: 'Career Strategy Workbook',
+        description: 'A comprehensive guide to planning your tech career path with templates for setting short and long-term goals and tracking your progress.',
+        downloadLink: '/downloads/career-strategy-workbook.pdf',
+        linkText: 'Download Workbook'
+      },
+      {
+        id: 'tech-community',
+        icon: <FaUsers className="text-emerald-600 text-xl mr-3" />,
+        title: 'Tech Community Directory',
+        description: 'A curated list of Australian tech communities, meetups, and networking groups, with tips on how to make the most of each.',
+        downloadLink: '/downloads/tech-community-directory.pdf',
+        linkText: 'Download Directory'
+      },
+      {
+        id: 'salary-scripts',
+        icon: <FaDollarSign className="text-emerald-600 text-xl mr-3" />,
+        title: 'Salary Negotiation Scripts',
+        description: 'Word-for-word scripts and email templates for negotiating your salary and benefits, specifically tailored for the Australian tech industry.',
+        downloadLink: '/downloads/salary-scripts.pdf',
+        linkText: 'Download Scripts'
+      },
+      {
+        id: 'networking',
+        icon: <FaHandshake className="text-emerald-600 text-xl mr-3" />,
+        title: 'Networking Templates & Cold Outreach',
+        description: 'Templates for LinkedIn messages, cold emails, and follow-ups that have resulted in interviews and job offers in the Australian market.',
+        downloadLink: '/downloads/networking-templates.pdf',
+        linkText: 'Download Templates'
+      }
+    ];
+
     return (
-      <div className="space-y-6">
+      <div className="space-y-8">
         <h2 className="text-2xl font-bold mb-6">Resources & Downloads</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md">
-            <h3 className="text-xl font-semibold mb-4">Strategic Networking Templates</h3>
-            <p className="text-slate-600 dark:text-slate-300 mb-6">
-              A collection of proven message templates for connecting with industry professionals, requesting informational interviews, and following up after meetings.
-            </p>
-            <a 
-              href="/downloads/networking-templates.pdf" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded"
-            >
-              <FaDownload className="mr-2" /> Download Templates
-            </a>
-          </div>
+        <div className="bg-emerald-50 dark:bg-emerald-900/30 p-6 rounded-xl mb-8">
+          <h3 className="text-xl font-semibold mb-4">Career Strategy Resources</h3>
+          <p className="mb-6">These resources will help you implement the career strategies covered in this module. I've created these based on my experience navigating the Australian tech industry.</p>
           
-          <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md">
-            <h3 className="text-xl font-semibold mb-4">Salary Negotiation Scripts</h3>
-            <p className="text-slate-600 dark:text-slate-300 mb-6">
-              Word-for-word scripts for handling different negotiation scenarios, including counter-offers, benefits discussions, and navigating compensation limitations.
-            </p>
-            <a 
-              href="/downloads/salary-scripts.pdf" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded"
-            >
-              <FaDownload className="mr-2" /> Download Scripts
-            </a>
-          </div>
-          
-          <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md">
-            <h3 className="text-xl font-semibold mb-4">Australian Tech Community Directory</h3>
-            <p className="text-slate-600 dark:text-slate-300 mb-6">
-              A comprehensive list of tech communities, meetups, slack channels, and networking opportunities across Australia, organized by city and technology focus.
-            </p>
-            <a 
-              href="/downloads/tech-community-directory.pdf" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded"
-            >
-              <FaDownload className="mr-2" /> Download Directory
-            </a>
-          </div>
-          
-          <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md">
-            <h3 className="text-xl font-semibold mb-4">Career Strategy Workbook</h3>
-            <p className="text-slate-600 dark:text-slate-300 mb-6">
-              An interactive workbook to help you define your career goals, create an actionable plan, and track your progress. Includes exercises and templates for ongoing career management.
-            </p>
-            <a 
-              href="/downloads/career-strategy-workbook.pdf" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded"
-            >
-              <FaDownload className="mr-2" /> Download Workbook
-            </a>
+          <div className="grid md:grid-cols-2 gap-6">
+            {resources && resources.map(resource => (
+              <div key={resource.id} className="bg-white dark:bg-slate-800 p-5 rounded-lg shadow-sm">
+                <div className="flex items-center mb-4">
+                  {resource.icon}
+                  <h4 className="font-medium text-lg">{resource.title}</h4>
+                </div>
+                <p className="text-slate-600 dark:text-slate-300 mb-4">
+                  {resource.description}
+                </p>
+                <a 
+                  href={resource.downloadLink} 
+                  className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaDownload className="mr-2" /> {resource.linkText}
+                </a>
+              </div>
+            ))}
           </div>
         </div>
         
-        <div className="bg-emerald-50 dark:bg-emerald-900/30 p-6 rounded-xl mb-8">
-          <h3 className="text-xl font-semibold mb-4">Module 4 Complete!</h3>
-          <p className="mb-4">Congratulations on completing the final module of the Break Into Tech program! You now have a comprehensive toolkit for launching and advancing your tech career.</p>
+        <div className="bg-emerald-50 dark:bg-emerald-900/30 p-8 rounded-xl mb-8">
+          <h3 className="text-2xl font-bold mb-4 text-center">Course Complete!</h3>
           
-          <div className="mt-6 bg-white dark:bg-slate-800 p-5 rounded-xl">
-            <h4 className="font-semibold text-lg mb-3">Next Steps for Success:</h4>
-            <ol className="list-decimal ml-5 space-y-3">
-              <li>Complete your career strategy workbook to define your specific goals and path</li>
-              <li>Join at least two tech communities from the directory relevant to your interests</li>
-              <li>Schedule 2-3 informational interviews using the networking templates</li>
-              <li>Practice your negotiation scripts with a friend to build confidence</li>
-              <li>Revisit all modules as needed during your job search journey</li>
-            </ol>
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="mb-6">
+              Congratulations on completing the entire Break Into Tech course! You now have all the tools, templates, and strategies needed to launch your tech career in Australia.
+            </p>
             
-            <div className="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/30 rounded-lg">
-              <p className="italic">Remember, breaking into tech is a journey that requires patience and persistence. The strategies you've learned in this program have been proven effective for hundreds of career changers. Stay consistent, keep refining your approach, and success will follow.</p>
-              <p className="font-medium mt-3">— Handy Hasan</p>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md mb-6">
+              <h4 className="font-semibold mb-4">Your Next Steps:</h4>
+              
+              <ul className="text-left space-y-3">
+                <li className="flex items-start">
+                  <FaCheckCircle className="text-emerald-500 mt-1 mr-3 flex-shrink-0" />
+                  <span>Set specific weekly goals using the Career Strategy Workbook</span>
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="text-emerald-500 mt-1 mr-3 flex-shrink-0" />
+                  <span>Join at least 2-3 communities from the Tech Community Directory</span>
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="text-emerald-500 mt-1 mr-3 flex-shrink-0" />
+                  <span>Send 5 personalized connection requests each week using the networking templates</span>
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="text-emerald-500 mt-1 mr-3 flex-shrink-0" />
+                  <span>Practice your salary negotiation scripts with a friend or mentor</span>
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="text-emerald-500 mt-1 mr-3 flex-shrink-0" />
+                  <span>Return to previous modules as needed when you reach different stages of your job search</span>
+                </li>
+              </ul>
+            </div>
+            
+            <p className="text-lg font-medium mb-4">
+              Remember: Success in tech is about persistence, continuous learning, and strategic networking.
+            </p>
+            
+            <p>
+              I'm excited to hear about your journey and success stories. Don't forget to reach out and let me know when you land your dream role!
+            </p>
+            
+            <div className="mt-6 p-4 bg-emerald-100 dark:bg-emerald-800/50 rounded-lg text-emerald-800 dark:text-emerald-200">
+              <p className="font-medium">Have questions or need help? Email support@breakintotech.com.au</p>
             </div>
           </div>
         </div>
@@ -1268,7 +1297,7 @@ export default function Module4Page() {
               href="/break-into-tech/dashboard"
               className="flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded"
             >
-              Return to Dashboard <FaArrowRight className="ml-2" />
+              Return to Dashboard <FaHome className="ml-2" />
             </Link>
           </div>
         </div>
@@ -1324,7 +1353,7 @@ export default function Module4Page() {
           
           {/* Section Navigation */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {sections.map(section => (
+            {sections && sections.map(section => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}

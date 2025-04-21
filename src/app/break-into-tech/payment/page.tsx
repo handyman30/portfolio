@@ -1,277 +1,323 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { FaCheckCircle } from 'react-icons/fa';
 
-export default function PaymentPage() {
+function PaymentPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [accessCode, setAccessCode] = useState('');
-  const [showAccessCode, setShowAccessCode] = useState(false);
+  const router = useRouter();
   const searchParams = useSearchParams();
   
-  // Generate a simple unique-ish access code
-  const generateAccessCode = () => {
-    const prefix = 'BIT';
-    const timestamp = Date.now().toString().slice(-6);
-    const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-    return `${prefix}-${timestamp}-${random}`;
-  };
-  
-  // Check for payment_success flag in URL when component loads
+  // Effect to check URL parameters for success or session_id
   useEffect(() => {
-    const paymentSuccess = searchParams?.get('payment_success');
-    const sessionId = searchParams?.get('session_id');
+    const checkSuccess = async () => {
+      // Check if redirected with success flag
+      const success = searchParams?.get('success');
+      if (success === 'true') {
+        // Generate a unique access code (in real app, would be from database)
+        const code = generateAccessCode();
+        setAccessCode(code);
+        setShowSuccess(true);
+        
+        // Save access to localStorage
+        localStorage.setItem('breakIntoTechAccess', 'paid-access-granted');
+        localStorage.setItem('breakIntoTechCode', code);
+      }
+    };
     
-    if (paymentSuccess === 'true' && sessionId) {
-      // Verify the payment with our backend
-      verifyPayment(sessionId);
-    }
+    checkSuccess();
   }, [searchParams]);
   
-  // Verify the payment with our backend
   const verifyPayment = async (sessionId: string) => {
-    setIsLoading(true);
-    
-    try {
-      // In a real app, you would make an API call to verify the session
-      // For now, we'll simulate a successful verification
-      
-      // Generate a code for this verified purchase
-      const newAccessCode = generateAccessCode();
-      setAccessCode(newAccessCode);
-      
-      // Store access in localStorage
-      localStorage.setItem('breakIntoTechAccess', 'paid-access-granted');
-      localStorage.setItem('breakIntoTechCode', newAccessCode);
-      
-      // Show the success screen
-      setShowAccessCode(true);
-      setIsLoading(false);
-    } catch (error) {
-      console.error('Error verifying payment:', error);
-      setIsLoading(false);
-    }
+    // In a real application, this would verify with your backend
+    // For now, we'll simulate success
+    console.log('Verifying payment session:', sessionId);
+    return true;
   };
-
+  
   const handleCheckout = async () => {
     setIsLoading(true);
     
     try {
-      // Don't generate the code yet - we'll do that after successful payment
-      
-      // Use direct amount - simpler approach
-      const amount = 20; // $20 AUD
-      
+      // In a real app, this would redirect to your API route
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
-          amount,
-          successUrl: `${window.location.origin}/break-into-tech/payment?payment_success=true`,
-          cancelUrl: `${window.location.origin}/break-into-tech/payment?payment_canceled=true`
+        body: JSON.stringify({
+          productName: 'Break Into Tech Course',
+          productPrice: 2000, // $20.00 in cents
+          successUrl: `${window.location.origin}/break-into-tech/payment?success=true`,
+          cancelUrl: `${window.location.origin}/break-into-tech/payment?canceled=true`,
         }),
       });
       
-      const data = await response.json();
+      const { url } = await response.json();
       
-      if (data.url) {
-        // Redirect to Stripe checkout
-        window.location.href = data.url;
-      } else {
-        console.error('No checkout URL returned:', data);
-        setIsLoading(false);
-      }
+      // Redirect to checkout
+      window.location.href = url;
     } catch (error) {
       console.error('Error during checkout:', error);
       setIsLoading(false);
     }
   };
-
-  const features = [
-    "Four comprehensive modules covering tech fundamentals",
-    "Step-by-step guidance to transition into tech",
-    "Interview preparation strategies",
-    "Resume and portfolio templates",
-    "Lifetime access to course materials"
-  ];
-
+  
+  // Generate a course access code
+  const generateAccessCode = () => {
+    const prefix = 'BIT';
+    const numbers1 = Math.floor(100000 + Math.random() * 900000); // 6-digit number
+    const numbers2 = Math.floor(1000 + Math.random() * 9000); // 4-digit number
+    return `${prefix}-${numbers1}-${numbers2}`;
+  };
+  
+  if (showSuccess) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12">
+        <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8 space-y-6">
+          <div className="text-center">
+            <FaCheckCircle className="mx-auto h-16 w-16 text-emerald-500" />
+            <h1 className="mt-4 text-2xl font-bold text-gray-900">Payment Successful!</h1>
+            <p className="mt-2 text-gray-600">Thank you for purchasing the Break Into Tech course.</p>
+          </div>
+          
+          <div className="bg-emerald-50 p-4 rounded-md">
+            <h2 className="font-medium text-emerald-800">Your Access Code:</h2>
+            <div className="mt-2 p-3 bg-white border border-emerald-200 rounded-md text-center">
+              <p className="text-xl font-mono">{accessCode}</p>
+            </div>
+            <p className="mt-2 text-xs text-emerald-700">
+              Keep this code safe. You can use it to access the course on any device.
+            </p>
+          </div>
+          
+          <div className="space-y-4">
+            <Link href="/break-into-tech/dashboard" className="block w-full py-2 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-center rounded-md shadow-sm">
+              Go to Course Dashboard
+            </Link>
+            
+            <Link href="/break-into-tech" className="block w-full py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 text-center rounded-md">
+              Return to Course Page
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-            Break Into Tech Mini-Course
-          </h1>
-          <p className="mt-5 text-xl text-gray-500">
-            Your roadmap to a successful career transition into the tech industry
-          </p>
-        </div>
-
-        {showAccessCode ? (
-          <div className="bg-white shadow-lg rounded-lg p-8 mb-12 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="mb-4 flex justify-center">
-                <svg className="h-12 w-12 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Payment Successful!</h2>
-              <p className="text-gray-600 mb-6">Thank you for purchasing the Break Into Tech course. Here's your access code:</p>
-              
-              <div className="bg-emerald-50 p-4 rounded-md mb-6 flex items-center justify-center">
-                <span className="font-mono text-xl font-bold tracking-wider text-emerald-800">{accessCode}</span>
-              </div>
-              
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 text-left">
-                <div className="flex">
-                  <div className="flex-shrink-0">
-                    <svg className="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                    </svg>
+      <div className="pt-12 sm:pt-16 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              Break Into Tech
+            </h1>
+            <p className="mt-4 text-xl text-gray-600">
+              Your journey into the tech industry starts today
+            </p>
+          </div>
+          
+          <div className="mt-16 bg-white rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-x-8">
+            <div className="p-8 sm:p-12 lg:py-24">
+              <div className="max-w-md mx-auto lg:max-w-none">
+                <div className="text-center lg:text-left">
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    Complete Course Access
+                  </h2>
+                  <p className="mt-4 text-lg text-gray-600">
+                    Get access to all 4 modules of the Break Into Tech course, including:
+                  </p>
+                </div>
+                
+                <div className="mt-10">
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <FaCheckCircle className="h-6 w-6 text-emerald-500" />
+                      </div>
+                      <p className="ml-3 text-base text-gray-700">
+                        <span className="font-medium text-gray-900">Module 1:</span> Resume building and personal branding for tech roles
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <FaCheckCircle className="h-6 w-6 text-emerald-500" />
+                      </div>
+                      <p className="ml-3 text-base text-gray-700">
+                        <span className="font-medium text-gray-900">Module 2:</span> Interview preparation and communication strategies
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <FaCheckCircle className="h-6 w-6 text-emerald-500" />
+                      </div>
+                      <p className="ml-3 text-base text-gray-700">
+                        <span className="font-medium text-gray-900">Module 3:</span> Technical interview preparation with real-world examples
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <FaCheckCircle className="h-6 w-6 text-emerald-500" />
+                      </div>
+                      <p className="ml-3 text-base text-gray-700">
+                        <span className="font-medium text-gray-900">Module 4:</span> Strategy, mindset and career leverage techniques
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <FaCheckCircle className="h-6 w-6 text-emerald-500" />
+                      </div>
+                      <p className="ml-3 text-base text-gray-700">
+                        Downloadable resources and worksheets
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <FaCheckCircle className="h-6 w-6 text-emerald-500" />
+                      </div>
+                      <p className="ml-3 text-base text-gray-700">
+                        Lifetime access to all future updates
+                      </p>
+                    </div>
                   </div>
-                  <div className="ml-3">
-                    <p className="text-sm text-yellow-700">
-                      <strong>Important:</strong> Please save this code somewhere safe. You'll need it to access the course if you clear your browser data or switch devices.
-                    </p>
+                  
+                  <div className="mt-10">
+                    <div className="bg-gray-50 p-6 rounded-lg">
+                      <div className="flex items-center">
+                        <div className="flex-1">
+                          <p className="text-sm text-gray-500">Student testimonial</p>
+                          <p className="mt-1 text-base text-gray-900">
+                            "I wasn't getting any interviews until I applied the techniques from Module 1. Within two weeks, I had three interviews lined up!"
+                          </p>
+                          <p className="mt-2 text-sm text-gray-500">— Alex K., Software Engineer</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-4 bg-gray-50 p-6 rounded-lg">
+                      <div className="flex items-center">
+                        <div className="flex-1">
+                          <p className="text-sm text-gray-500">Student testimonial</p>
+                          <p className="mt-1 text-base text-gray-900">
+                            "The technical interview preparation was extremely practical. I felt so much more confident in my interview and got the job!"
+                          </p>
+                          <p className="mt-2 text-sm text-gray-500">— Jamie T., Web Developer</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link 
-                  href={`/break-into-tech/login?code=${accessCode}`} 
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-                >
-                  Start Learning Now
-                </Link>
-                <button
-                  onClick={() => window.print()}
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-                >
-                  Print Access Code
-                </button>
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="bg-white shadow overflow-hidden rounded-lg">
-            <div className="px-4 py-5 sm:p-6">
-              {searchParams?.get('payment_canceled') === 'true' && (
-                <div className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700">
-                  <p>Your payment was canceled. Please try again or contact support if you need assistance.</p>
-                </div>
-              )}
-              
-              <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-8">
-                
-                {/* Features Column */}
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">What You'll Get</h2>
-                  <ul className="space-y-4">
-                    {features.map((feature, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="flex-shrink-0">
-                          <svg className="h-6 w-6 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <p className="ml-3 text-base text-gray-700">{feature}</p>
-                      </li>
-                    ))}
-                  </ul>
+            
+            <div className="py-12 px-6 bg-gray-50 lg:px-12 lg:py-24">
+              <div className="max-w-md mx-auto lg:max-w-none">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Unlock Your Tech Career
+                  </h3>
                   
-                  <div className="mt-10 border-t border-gray-200 pt-10">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">What People Are Saying</h3>
-                    <div className="italic text-gray-600 mb-4">
-                      "This course provided me with the exact roadmap I needed to transition from marketing to product management. Worth every penny!" 
-                      <p className="mt-2 font-medium text-gray-900">— Alex R., Product Manager</p>
-                    </div>
-                    <div className="italic text-gray-600">
-                      "The structured approach and practical tips helped me land my first developer role after just 6 months of learning to code." 
-                      <p className="mt-2 font-medium text-gray-900">— Jamie T., Junior Developer</p>
+                  <div className="mt-6 flex items-center justify-center">
+                    <p className="text-5xl font-extrabold text-gray-900">$20</p>
+                    <div className="ml-3">
+                      <p className="text-sm text-gray-500">AUD</p>
+                      <p className="text-sm line-through text-gray-500">$80</p>
                     </div>
                   </div>
-                </div>
-                
-                {/* Payment Column */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Complete Course</h2>
-                  <div className="flex items-baseline text-gray-900">
-                    <span className="text-5xl font-extrabold tracking-tight">$20</span>
-                    <span className="ml-1 text-2xl font-semibold">AUD</span>
-                  </div>
-                  <p className="mt-1 text-lg text-gray-600"><s>$80</s> — 75% off</p>
-                  <p className="mt-4 text-gray-500">One-time payment, lifetime access</p>
+                  
+                  <p className="mt-2 text-sm text-emerald-600 font-semibold">
+                    75% off - Limited Time Offer
+                  </p>
                   
                   <div className="mt-8">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className={`w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-md font-semibold text-lg transition duration-200 ease-in-out ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    <button
                       onClick={handleCheckout}
                       disabled={isLoading}
+                      className={`w-full bg-emerald-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 ${
+                        isLoading ? 'opacity-75 cursor-not-allowed' : ''
+                      }`}
                     >
-                      {isLoading ? (
-                        <div className="flex items-center justify-center">
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Processing...
-                        </div>
-                      ) : 'Secure Checkout'}
-                    </motion.button>
+                      {isLoading ? 'Processing...' : 'Checkout Now'}
+                    </button>
+                    
+                    <p className="mt-2 text-xs text-gray-500">
+                      Secure payment processing
+                    </p>
                   </div>
                   
-                  <div className="mt-6 text-center text-gray-500 text-sm">
-                    <div className="flex items-center justify-center mb-2">
-                      <svg className="h-5 w-5 text-gray-400 mr-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                      </svg>
-                      Secure payment
-                    </div>
-                    <p>30-day money-back guarantee</p>
+                  <div className="mt-10 border-t border-gray-200 pt-6">
+                    <h4 className="text-lg font-medium text-gray-900">
+                      100% Money-Back Guarantee
+                    </h4>
+                    <p className="mt-2 text-sm text-gray-600">
+                      If you're not completely satisfied with the course, just let us know within 30 days for a full refund.
+                    </p>
+                  </div>
+                  
+                  <div className="mt-8 border-t border-gray-200 pt-6">
+                    <h4 className="text-lg font-medium text-gray-900">Frequently Asked Questions</h4>
+                    
+                    <dl className="mt-4 space-y-6 text-left">
+                      <div>
+                        <dt className="text-base font-medium text-gray-900">How long do I have access?</dt>
+                        <dd className="mt-1 text-sm text-gray-600">
+                          You have lifetime access to all course materials and future updates.
+                        </dd>
+                      </div>
+                      
+                      <div>
+                        <dt className="text-base font-medium text-gray-900">Can I access on mobile devices?</dt>
+                        <dd className="mt-1 text-sm text-gray-600">
+                          Yes, the course is accessible on all devices - desktop, tablet, and mobile.
+                        </dd>
+                      </div>
+                      
+                      <div>
+                        <dt className="text-base font-medium text-gray-900">Is there support available?</dt>
+                        <dd className="mt-1 text-sm text-gray-600">
+                          Yes, you can email questions to handy.hasan@yahoo.com and get personalized help.
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                  
+                  <div className="mt-8 border-t border-gray-200 pt-6">
+                    <Link href="/break-into-tech" className="text-emerald-600 font-medium hover:text-emerald-500">
+                      Return to course overview
+                    </Link>
                   </div>
                 </div>
               </div>
-              
-              {/* FAQ Section */}
-              <div className="mt-16">
-                <h2 className="text-2xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
-                <dl className="space-y-8">
-                  <div>
-                    <dt className="text-lg font-medium text-gray-900">How do I access the course materials?</dt>
-                    <dd className="mt-2 text-base text-gray-500">After purchase, you'll receive a unique access code that you can use to log in to the course dashboard. Be sure to save this code as you'll need it to regain access if you switch devices or clear your browser data.</dd>
-                  </div>
-                  <div>
-                    <dt className="text-lg font-medium text-gray-900">Is this course suitable for beginners?</dt>
-                    <dd className="mt-2 text-base text-gray-500">Absolutely! The course is designed for people at all stages, especially those looking to transition into tech from other industries.</dd>
-                  </div>
-                  <div>
-                    <dt className="text-lg font-medium text-gray-900">What if I'm not satisfied with the course?</dt>
-                    <dd className="mt-2 text-base text-gray-500">We offer a 30-day money-back guarantee. If you're not completely satisfied, just email us for a full refund.</dd>
-                  </div>
-                  <div>
-                    <dt className="text-lg font-medium text-gray-900">What if I lose my access code?</dt>
-                    <dd className="mt-2 text-base text-gray-500">If you lose your access code, simply email us at handy.hasan@yahoo.com with your purchase information, and we'll resend your code.</dd>
-                  </div>
-                </dl>
-              </div>
             </div>
           </div>
-        )}
-        
-        <div className="mt-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Handy Hasan. All rights reserved.</p>
-          <p className="mt-1">Questions? Contact <a href="mailto:handy.hasan@yahoo.com" className="text-emerald-600 hover:text-emerald-500">handy.hasan@yahoo.com</a></p>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold text-gray-900">Loading payment page...</h2>
+          <p className="mt-2 text-gray-600">Please wait while we prepare your checkout experience.</p>
+        </div>
+      </div>
+    }>
+      <PaymentPage />
+    </Suspense>
   );
 } 

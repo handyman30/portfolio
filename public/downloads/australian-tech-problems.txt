@@ -1,0 +1,228 @@
+=================================================
+AUSTRALIAN TECH COMPANY INTERVIEW PROBLEMS
+=================================================
+
+This guide compiles common technical interview questions from major Australian tech companies.
+
+--------------------- ATLASSIAN ---------------------
+
+CODING QUESTIONS:
+
+1. Design a Rate Limiter
+   - Implement a class that can limit the number of requests within a time window
+   - Should handle concurrent requests
+   - Time complexity: O(1) for allow/reject decision
+
+2. Find Duplicate Files
+   - Given a directory, find all duplicate files (identical content)
+   - Optimize for minimal disk reads
+   - Consider memory constraints with large files
+
+3. Design a Task Scheduler
+   - Implement a scheduler that can add, cancel, and execute tasks
+   - Tasks can be one-time or recurring
+   - Optimize for fast lookup and minimal CPU usage
+
+4. Implement a Basic Version Control System
+   - Support operations: commit, checkout, branch
+   - Focus on efficient storage of file differences
+   - Design for collaboration
+
+SYSTEM DESIGN:
+
+1. Design JIRA's Issue Tracking System
+   - Focus on data model for issues, workflows, projects
+   - Consider search functionality
+   - Address scaling for large enterprises
+
+2. Design Bitbucket's Pull Request System
+   - Code review workflow
+   - Comment threading
+   - Merge conflict resolution
+   - Branch management
+
+--------------------- CANVA ---------------------
+
+CODING QUESTIONS:
+
+1. Implement a Simple Design Editor
+   - Support adding/moving/deleting elements on a canvas
+   - Implement undo/redo functionality
+   - Support grouping of elements
+
+2. Image Processing Pipeline
+   - Design a system to process images (resize, filter, etc.)
+   - Handle processing queue efficiently
+   - Consider parallelization
+
+3. Font Rendering Engine
+   - Implement basic text layout algorithm
+   - Handle different alignment options
+   - Support basic styling (bold, italic)
+
+SYSTEM DESIGN:
+
+1. Design Canva's Template System
+   - Storage of templates and assets
+   - Fast retrieval based on categories
+   - Personalization and recommendations
+
+2. Design Collaborative Editing Feature
+   - Real-time updates between users
+   - Conflict resolution
+   - Cursor presence and highlighting
+
+--------------------- REA GROUP ---------------------
+
+CODING QUESTIONS:
+
+1. Property Search Algorithm
+   - Implement search with multiple filters (price, location, features)
+   - Optimize for fast results with large dataset
+   - Implement relevance scoring
+
+2. Mortgage Calculator
+   - Calculate monthly payments based on principal, interest rate, and term
+   - Handle different compounding methods
+   - Implement amortization schedule
+
+3. Implement a Geospatial Index
+   - Index properties by location for radius searches
+   - Support efficient range queries
+   - Update index with minimal rebalancing
+
+SYSTEM DESIGN:
+
+1. Design realestate.com.au's Property Listing System
+   - Data model for properties
+   - Search and filter functionality
+   - Photo storage and delivery
+   - User saved searches and alerts
+
+2. Design a Real-time Auction Platform
+   - Bidding mechanism
+   - Concurrent bid handling
+   - Notification system
+   - Fraud prevention
+
+--------------------- AFTERPAY/BLOCK ---------------------
+
+CODING QUESTIONS:
+
+1. Implement a Fraud Detection System
+   - Flag suspicious transactions based on patterns
+   - Balance false positives/negatives
+   - Real-time decision making
+
+2. Payment Processing Pipeline
+   - Handle different payment methods
+   - Implement retry logic
+   - Ensure transaction consistency
+
+3. Implement a Custom Rate Limiting Algorithm
+   - Limit based on user, IP, and request type
+   - Support burst allowances
+   - Distributed implementation
+
+SYSTEM DESIGN:
+
+1. Design a Buy Now, Pay Later System
+   - User registration and verification
+   - Merchant integration
+   - Payment scheduling
+   - Risk assessment
+
+2. Design a Digital Wallet
+   - Account balance management
+   - Transaction history
+   - Security features
+   - Multiple currency support
+
+--------------------- ACONEX/ORACLE ---------------------
+
+CODING QUESTIONS:
+
+1. Document Version Control
+   - Track document changes and versions
+   - Efficient storage of differences
+   - Support branching and merging
+
+2. Permission System
+   - Implement role-based access control
+   - Support custom permission sets
+   - Efficient permission checking
+
+3. Implement a Search Index for Documents
+   - Index document content for full-text search
+   - Support metadata filtering
+   - Handle document updates efficiently
+
+SYSTEM DESIGN:
+
+1. Design a Construction Project Management System
+   - Document management
+   - Task tracking
+   - User collaboration
+   - Reporting functionality
+
+2. Design a Distributed File Storage System
+   - File upload/download
+   - Versioning
+   - Access control
+   - High availability
+
+--------------------- XERO ---------------------
+
+CODING QUESTIONS:
+
+1. Implement Double-Entry Accounting
+   - Design data structures for transactions
+   - Ensure balance consistency
+   - Support different account types
+
+2. Invoice Matching Algorithm
+   - Match bank transactions to invoices
+   - Handle partial payments
+   - Support bulk matching
+
+3. Date-based Reporting Engine
+   - Generate financial reports for arbitrary time periods
+   - Handle fiscal years, quarters, months
+   - Support different accounting standards
+
+SYSTEM DESIGN:
+
+1. Design an Accounting System
+   - Chart of accounts
+   - Transaction processing
+   - Reporting functionality
+   - Multi-currency support
+   - Tax calculation
+
+2. Design a Bank Feed Integration
+   - Connect to multiple banks
+   - Secure credential management
+   - Transaction categorization
+   - Reconciliation process
+
+--------------------- INTERVIEW PREPARATION TIPS ---------------------
+
+1. AUSTRALIAN TECH INTERVIEW FOCUS:
+   - Practical problem-solving over theoretical knowledge
+   - System scalability for the APAC region
+   - Clear communication and collaboration
+   - Business value and user impact
+
+2. PREPARATION STRATEGIES:
+   - Study company products in depth
+   - Practice explaining technical concepts simply
+   - Prepare examples of past work relevant to the company
+   - Research Australia-specific compliance (privacy, data storage)
+
+3. CULTURAL NOTES:
+   - Australian work culture values work-life balance
+   - Emphasis on "cultural fit" and teamwork
+   - Less hierarchical structures than some global companies
+   - Growing focus on diverse and inclusive hiring
+
+COMPILED BY HANDY HASAN FOR BREAK INTO TECH COURSE 

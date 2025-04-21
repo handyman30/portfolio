@@ -1,0 +1,234 @@
+================================================
+LEETCODE PROBLEM PATTERNS
+================================================
+
+This guide categorizes common LeetCode problems by pattern to help you recognize and solve them efficiently.
+
+-------------- PATTERN 1: SLIDING WINDOW --------------
+
+Description: Useful for finding subarrays/substring in an array that satisfy given conditions.
+
+Examples:
+1. Maximum Sum Subarray of Size K (Easy)
+2. Longest Substring with K Distinct Characters (Medium)
+3. Fruits into Baskets (Medium)
+4. Longest Substring without Repeating Characters (Medium) - #3 on LeetCode
+5. Longest Substring with Same Letters after Replacement (Hard)
+
+Implementation Template:
+```
+function slidingWindowPattern(arr, k) {
+    let windowStart = 0;
+    let result = 0; // Or other appropriate initial value
+    
+    for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+        // Add the next element to the window
+        
+        // Shrink the window if needed
+        while (/* condition */) {
+            // Remove element at windowStart from consideration
+            windowStart++;
+        }
+        
+        // Update the result
+        result = Math.max(result, windowEnd - windowStart + 1);
+    }
+    
+    return result;
+}
+```
+
+-------------- PATTERN 2: TWO POINTERS --------------
+
+Description: Useful for searching pairs in a sorted array or linked list problems.
+
+Examples:
+1. Two Sum (Easy) - #1 on LeetCode
+2. Remove Duplicates (Easy)
+3. Squaring a Sorted Array (Easy)
+4. 3Sum (Medium) - #15 on LeetCode
+5. Container With Most Water (Medium) - #11 on LeetCode
+
+Implementation Template:
+```
+function twoPointerPattern(arr) {
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left < right) {
+        // Check current elements
+        
+        if (/* condition */) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+}
+```
+
+-------------- PATTERN 3: FAST & SLOW POINTERS --------------
+
+Description: Useful for cycle detection in linked lists or arrays.
+
+Examples:
+1. Linked List Cycle (Easy) - #141 on LeetCode
+2. Middle of the Linked List (Easy)
+3. Palindrome Linked List (Easy)
+4. Cycle in a Circular Array (Hard)
+
+Implementation Template:
+```
+function fastSlowPattern(head) {
+    let slow = head;
+    let fast = head;
+    
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        
+        // For cycle detection
+        if (slow === fast) {
+            return true; // Cycle detected
+        }
+    }
+    
+    return false; // No cycle
+}
+```
+
+-------------- PATTERN 4: MERGE INTERVALS --------------
+
+Description: Useful for problems involving overlapping intervals.
+
+Examples:
+1. Merge Intervals (Medium) - #56 on LeetCode
+2. Insert Interval (Medium)
+3. Intervals Intersection (Medium)
+4. Conflicting Appointments (Medium)
+
+Implementation Template:
+```
+function mergeIntervals(intervals) {
+    if (intervals.length < 2) return intervals;
+    
+    // Sort intervals by start time
+    intervals.sort((a, b) => a[0] - b[0]);
+    
+    const result = [intervals[0]];
+    
+    for (let i = 1; i < intervals.length; i++) {
+        const currentInterval = intervals[i];
+        const lastMergedInterval = result[result.length - 1];
+        
+        // If current interval overlaps with the last merged interval
+        if (currentInterval[0] <= lastMergedInterval[1]) {
+            // Merge them
+            lastMergedInterval[1] = Math.max(lastMergedInterval[1], currentInterval[1]);
+        } else {
+            // Add current interval to result
+            result.push(currentInterval);
+        }
+    }
+    
+    return result;
+}
+```
+
+-------------- PATTERN 5: BREADTH-FIRST SEARCH --------------
+
+Description: Useful for traversing trees/graphs level by level.
+
+Examples:
+1. Level Order Traversal (Medium) - #102 on LeetCode
+2. Minimum Depth of Binary Tree (Easy)
+3. Connect Level Order Siblings (Medium)
+4. Binary Tree Right Side View (Medium) - #199 on LeetCode
+
+Implementation Template:
+```
+function bfsPattern(root) {
+    if (!root) return [];
+    
+    const queue = [root];
+    const result = [];
+    
+    while (queue.length > 0) {
+        const levelSize = queue.length;
+        const currentLevel = [];
+        
+        for (let i = 0; i < levelSize; i++) {
+            const currentNode = queue.shift();
+            currentLevel.push(currentNode.val);
+            
+            if (currentNode.left) queue.push(currentNode.left);
+            if (currentNode.right) queue.push(currentNode.right);
+        }
+        
+        result.push(currentLevel);
+    }
+    
+    return result;
+}
+```
+
+-------------- PATTERN 6: DEPTH-FIRST SEARCH --------------
+
+Description: Useful for exploring paths in trees/graphs as far as possible.
+
+Examples:
+1. Path Sum (Easy) - #112 on LeetCode
+2. All Paths for a Sum (Medium)
+3. Maximum Depth of Binary Tree (Easy) - #104 on LeetCode
+4. Diameter of Binary Tree (Easy) - #543 on LeetCode
+
+Implementation Template:
+```
+function dfsPattern(root) {
+    const result = [];
+    
+    function dfs(node, path) {
+        if (!node) return;
+        
+        path.push(node.val);
+        
+        // If leaf node and satisfies condition
+        if (!node.left && !node.right && /* condition */) {
+            result.push([...path]);
+        }
+        
+        dfs(node.left, path);
+        dfs(node.right, path);
+        
+        // Backtrack
+        path.pop();
+    }
+    
+    dfs(root, []);
+    return result;
+}
+```
+
+-------------- ADVANCED PATTERNS --------------
+
+1. DYNAMIC PROGRAMMING
+   - Fibonacci Numbers, Knapsack Problems, Longest Common Subsequence
+
+2. BACKTRACKING
+   - Subsets, Permutations, Combination Sum
+
+3. BINARY SEARCH
+   - Order-agnostic Binary Search, Search in a Sorted Infinite Array
+
+4. TOPOLOGICAL SORT
+   - Tasks Scheduling, Alien Dictionary
+
+5. CYCLIC SORT
+   - Find Missing Number, Find Duplicate
+
+6. MONOTONIC STACK
+   - Next Greater Element, Largest Rectangle in Histogram
+
+REMEMBER: Pattern recognition is more important than memorizing solutions. Focus on understanding the core approach for each pattern rather than the specific implementation details.
+
+COMPILED BY HANDY HASAN FOR BREAK INTO TECH COURSE 

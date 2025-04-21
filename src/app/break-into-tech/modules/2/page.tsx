@@ -110,6 +110,13 @@ export default function Module2Page() {
         question: "How do I follow up if I haven't heard back after an interview?",
         answer: "If you haven't received a response: 1) Wait one week after the expected timeline before following up, 2) Send a brief, professional email to your main contact (usually the recruiter), 3) Reference the specific role and interview date, 4) Express continued interest without sounding desperate, 5) Ask for an updated timeline, and 6) If no response after another week, send one final follow-up before moving on. Throughout this process, continue applying to other positions—never pause your job search while waiting."
       }
+    ],
+    'resources': [
+      {
+        id: 'r2.1',
+        question: "Where can I find the interview preparation resources?",
+        answer: "All the resources are available in the 'Resources & Downloads' section of this module. These include ASX Company Interview Questions, STAR Method Response Templates, Company Research Template, and Interview Preparation Checklist."
+      }
     ]
   };
   
@@ -217,7 +224,7 @@ export default function Module2Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['2.1'].map(q => (
+            {questions['2.1'] && questions['2.1'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -415,7 +422,7 @@ export default function Module2Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['2.2'].map(q => (
+            {questions['2.2'] && questions['2.2'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -605,7 +612,7 @@ export default function Module2Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['2.3'].map(q => (
+            {questions['2.3'] && questions['2.3'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -793,7 +800,7 @@ export default function Module2Page() {
           <h3 className="text-xl font-semibold mb-4">Check Your Understanding</h3>
           
           <div className="space-y-4">
-            {questions['2.4'].map(q => (
+            {questions['2.4'] && questions['2.4'].map(q => (
               <div key={q.id} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
                 <button 
                   className="w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-700"
@@ -1083,7 +1090,7 @@ export default function Module2Page() {
           
           {/* Section Navigation */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {sections.map(section => (
+            {sections && sections.map(section => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}

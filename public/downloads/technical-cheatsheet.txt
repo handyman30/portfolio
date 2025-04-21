@@ -1,0 +1,124 @@
+===============================================
+TECHNICAL INTERVIEW CHEAT SHEET
+===============================================
+
+TIME COMPLEXITY REFERENCE
+-------------------------
+O(1)        - Constant time: Looking up an array element by index
+O(log n)    - Logarithmic: Binary search, balanced BST operations
+O(n)        - Linear: Simple loops through n elements
+O(n log n)  - Linearithmic: Efficient sorting algorithms (merge sort, heap sort)
+O(n²)       - Quadratic: Nested loops, simple sorting algorithms (bubble, insertion)
+O(2^n)      - Exponential: Recursive solutions without memoization
+O(n!)       - Factorial: Permutations, Traveling Salesman Problem
+
+COMMON ALGORITHM PATTERNS
+-------------------------
+1. TWO POINTERS
+   - Use for: Finding pairs in sorted arrays, palindrome checks, removing duplicates
+   - Example: Find if a sorted array has a pair that sums to a target value
+   - Time complexity: Usually O(n)
+
+2. SLIDING WINDOW
+   - Use for: Subarrays/substring problems, finding max/min elements in a window
+   - Example: Find longest substring without repeating characters
+   - Time complexity: Usually O(n)
+
+3. BINARY SEARCH
+   - Use for: Searching in sorted arrays, finding first/last occurrence
+   - Example: Find if a number exists in a sorted array
+   - Time complexity: O(log n)
+
+4. DEPTH-FIRST SEARCH (DFS)
+   - Use for: Tree/Graph traversal, path finding, connected components
+   - Example: Find if a path exists between two nodes in a graph
+   - Implementation: Use recursion or stack
+
+5. BREADTH-FIRST SEARCH (BFS)
+   - Use for: Shortest path, level-order traversal
+   - Example: Find shortest path in an unweighted graph
+   - Implementation: Use queue
+
+6. DYNAMIC PROGRAMMING
+   - Use for: Problems with overlapping subproblems and optimal substructure
+   - Example: Fibonacci, knapsack, longest common subsequence
+   - Implementation: Memoization (top-down) or tabulation (bottom-up)
+
+PROBLEM-SOLVING FRAMEWORK
+-------------------------
+1. UNDERSTAND THE PROBLEM
+   - Clarify inputs and outputs
+   - Ask about edge cases
+   - Understand constraints
+
+2. EXPLORE EXAMPLES
+   - Start with simple examples
+   - Progress to more complex ones
+   - Consider edge cases
+
+3. BREAK IT DOWN
+   - Think aloud about your approach
+   - Write pseudocode
+
+4. SOLVE OR SIMPLIFY
+   - Start with a brute force solution
+   - Optimize if possible
+   - If stuck, solve a simpler version first
+
+5. TEST
+   - Walk through with examples
+   - Test edge cases
+
+COMMON DATA STRUCTURES
+----------------------
+ARRAYS
+- Access: O(1)
+- Search: O(n)
+- Insert/Delete at end: O(1)
+- Insert/Delete at arbitrary position: O(n)
+
+HASH TABLES
+- Access/Insert/Delete: O(1) average
+- Search: O(1) average
+- Use for: Quick lookups, counting, caching
+
+LINKED LISTS
+- Access: O(n)
+- Search: O(n)
+- Insert/Delete at beginning: O(1)
+- Insert/Delete at end: O(n) [O(1) with tail pointer]
+- Use for: Implementation of stacks, queues, hash tables
+
+STACKS
+- Push/Pop: O(1)
+- Use for: Function calls, backtracking, expression evaluation
+
+QUEUES
+- Enqueue/Dequeue: O(1)
+- Use for: BFS, scheduling, simulations
+
+TREES
+- BST operations: O(log n) average
+- Use for: Hierarchical data, searching
+
+HEAPS
+- Insert/Delete-max: O(log n)
+- Get-max: O(1)
+- Heapify: O(n)
+- Use for: Priority queues, scheduling
+
+GRAPHS
+- Representation: Adjacency matrix or adjacency list
+- Use for: Networks, routes, social connections
+
+INTERVIEW COMMUNICATION TIPS
+---------------------------
+1. Think out loud - verbalize your thought process
+2. Use proper terminology
+3. Ask clarifying questions
+4. Discuss trade-offs between approaches
+5. Analyze time and space complexity
+6. Consider edge cases
+7. Test your solution with examples
+
+COMPILED BY HANDY HASAN FOR BREAK INTO TECH COURSE 

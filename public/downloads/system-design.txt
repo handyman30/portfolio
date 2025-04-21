@@ -1,0 +1,294 @@
+=================================================
+SYSTEM DESIGN TEMPLATES & FRAMEWORKS
+=================================================
+
+This guide provides frameworks and templates for approaching common system design interview questions.
+
+--------------------- GENERAL APPROACH ---------------------
+
+Use this step-by-step framework for any system design problem:
+
+1. CLARIFY REQUIREMENTS (2-3 minutes)
+   - Functional requirements (what the system should do)
+   - Non-functional requirements (scalability, reliability, availability, consistency)
+   - Constraints and assumptions (traffic, data volume, budget)
+   - Ask questions to narrow down scope
+
+2. BACK-OF-THE-ENVELOPE CALCULATIONS (2-3 minutes)
+   - Estimate scale: users, requests per second, data size
+   - Storage requirements
+   - Bandwidth requirements
+   - Memory requirements
+
+3. SYSTEM INTERFACE DESIGN (2-3 minutes)
+   - Define APIs and their parameters
+   - Sketch major endpoints and data contracts
+
+4. HIGH-LEVEL DESIGN (5-10 minutes)
+   - Draw main components (clients, servers, databases, caches)
+   - Show interactions between components
+   - Discuss data flow
+
+5. DETAILED DESIGN (10-15 minutes)
+   - Drill down into critical components
+   - Database schema
+   - Algorithm choices
+   - Data partitioning approach
+
+6. BOTTLENECKS AND SOLUTIONS (5 minutes)
+   - Identify potential bottlenecks
+   - Discuss solutions (sharding, caching, load balancing)
+   - Address single points of failure
+
+7. SUMMARY (1-2 minutes)
+   - Recap the design
+   - Discuss trade-offs made
+
+--------------------- URL SHORTENER ---------------------
+
+REQUIREMENTS:
+- Convert long URLs to short ones
+- Redirect short URLs to original ones
+- Custom short URLs (optional)
+- Analytics (optional)
+- Fast redirect response time
+- High availability
+
+CALCULATIONS:
+- Assume 100M new URLs per month
+- Each entry: ~500 bytes (URL + shortened URL + metadata)
+- Storage needed: ~50GB per month, ~600GB per year
+- 100M URLs / (30 days * 24 hours * 3600 seconds) ≈ 40 URLs/second
+
+API DESIGN:
+1. POST /api/shorten
+   - Request: { longUrl: string, customAlias?: string }
+   - Response: { shortUrl: string }
+
+2. GET /:shortCode
+   - Redirects to the original URL
+
+HIGH-LEVEL COMPONENTS:
+1. Application servers
+2. Database (stores URL mappings)
+3. Cache (for frequently accessed URLs)
+4. Load balancer
+
+DETAILED DESIGN:
+- URL Generation: Base62 encoding (a-zA-Z0-9) of an auto-incrementing ID or MD5 hash
+- Database Schema:
+  - Table: `url_mappings`
+    - id: bigint, primary key
+    - short_code: varchar(10), indexed
+    - original_url: text
+    - created_at: timestamp
+    - user_id: bigint (if user authentication is implemented)
+
+- Caching strategy:
+  - Cache recently accessed URLs in Redis
+  - LRU eviction policy
+  - TTL of 24 hours
+
+SCALING CONSIDERATIONS:
+- Database sharding by short_code
+- Read replicas for database
+- CDN for static resources
+- Consistent hashing for cache nodes
+
+--------------------- NOTIFICATION SYSTEM ---------------------
+
+REQUIREMENTS:
+- Support multiple notification types (push, SMS, email)
+- Delivery guarantees
+- User preferences management
+- Rate limiting to prevent spam
+- Analytics on delivery/open rates
+
+CALCULATIONS:
+- Assume 10M users, 5 notifications/user/day
+- 50M notifications per day = ~580 notifications/second
+- Each notification: ~1KB (including metadata)
+- Storage per day: ~50GB
+
+API DESIGN:
+1. POST /api/notifications
+   - Request: { userId: string, message: string, type: string[], metadata?: object }
+   - Response: { notificationId: string, status: string }
+
+2. GET /api/users/:userId/preferences
+   - Response: { push: boolean, sms: boolean, email: boolean, ... }
+
+3. PUT /api/users/:userId/preferences
+   - Request: { push: boolean, sms: boolean, email: boolean, ... }
+   - Response: { success: boolean }
+
+HIGH-LEVEL COMPONENTS:
+1. API Gateway
+2. Notification Service
+3. Template Service
+4. User Preference Service
+5. Push/SMS/Email Delivery Services
+6. Message Queue (Kafka/RabbitMQ)
+7. Databases for user preferences and notification history
+
+DETAILED DESIGN:
+- Notification Flow:
+  1. Request received by API Gateway
+  2. Notification Service validates request
+  3. Template Service generates notification content
+  4. Notification placed in queue
+  5. Delivery services consume from queue and send notifications
+  6. Status updates recorded in database
+
+- Database Schema:
+  - User Preferences Table:
+    - user_id: string, primary key
+    - push_enabled: boolean
+    - email_enabled: boolean
+    - sms_enabled: boolean
+    - quiet_hours_start: time
+    - quiet_hours_end: time
+
+  - Notifications Table:
+    - notification_id: string, primary key
+    - user_id: string, indexed
+    - content: text
+    - type: string
+    - status: string
+    - created_at: timestamp
+    - delivered_at: timestamp
+
+SCALING CONSIDERATIONS:
+- Use a distributed message queue (Kafka)
+- Partition by user_id or notification type
+- Rate limiting per user
+- Circuit breakers for external services
+- Retry mechanism with exponential backoff
+
+--------------------- NEWSFEED SYSTEM ---------------------
+
+REQUIREMENTS:
+- Display posts from followed users
+- Create and publish posts
+- Real-time updates
+- Media support (images, videos)
+- Pagination of feed
+
+CALCULATIONS:
+- Assume 50M daily active users
+- Average 2 posts/day/user = 100M posts/day
+- Feed refreshes: 5 times/day/user = 250M feed generations/day
+- Average followings per user: 200
+- Storage per post: ~1KB text + ~5MB media = ~5-6MB
+- Daily storage: ~500TB
+
+API DESIGN:
+1. POST /api/posts
+   - Request: { content: string, mediaUrls?: string[] }
+   - Response: { postId: string, createdAt: timestamp }
+
+2. GET /api/feed
+   - Query: { page: number, pageSize: number }
+   - Response: { posts: Post[], nextPage: number }
+
+3. GET /api/users/:userId/posts
+   - Query: { page: number, pageSize: number }
+   - Response: { posts: Post[], nextPage: number }
+
+HIGH-LEVEL COMPONENTS:
+1. Application servers
+2. Post storage service
+3. Feed generation service
+4. Notification service
+5. Media storage service
+6. Caching layer
+7. Load balancers
+
+DETAILED DESIGN:
+- Feed Generation Approaches:
+  1. Push approach: Fan-out on write (pre-compute feeds)
+  2. Pull approach: Generate feed on-demand
+  3. Hybrid approach: Push for users with few followers, pull for celebrities
+
+- Database Schema:
+  - Users Table
+  - Posts Table
+  - Follow Relationships Table
+  - User Feeds Table (if using push model)
+
+- Optimization Techniques:
+  - Cache hot posts and user feeds
+  - Use a graph database for social connections
+  - Content delivery network (CDN) for media
+
+SCALING CONSIDERATIONS:
+- Shard databases by user_id
+- Separate read and write paths
+- Asynchronous processing for feed generation
+- Redis for caching recent feeds
+- Limit feed items per request
+- Lazy loading of media content
+
+--------------------- RIDE-SHARING SYSTEM ---------------------
+
+REQUIREMENTS:
+- Rider and driver apps
+- Ride matching
+- Route calculation
+- Fare estimation and payment
+- Real-time location tracking
+- Rating system
+
+CALCULATIONS:
+- Assume 1M rides per day
+- Peak: 100K concurrent rides
+- Location updates: every 5 seconds
+- Storage per ride: ~10KB (including locations, timestamps, etc.)
+- Daily storage: ~10GB
+
+API DESIGN:
+1. POST /api/rides/request
+   - Request: { pickupLocation: Location, dropoffLocation: Location, rideType: string }
+   - Response: { rideId: string, estimatedFare: number, estimatedArrival: timestamp }
+
+2. GET /api/drivers/nearby
+   - Query: { location: Location, radius: number }
+   - Response: { drivers: Driver[] }
+
+3. PUT /api/rides/:rideId/accept
+   - Request: { driverId: string }
+   - Response: { success: boolean }
+
+HIGH-LEVEL COMPONENTS:
+1. Rider and driver applications
+2. Matching service
+3. Routing service
+4. Pricing service
+5. Payment service
+6. Real-time location service
+7. Notification service
+
+DETAILED DESIGN:
+- Matching Algorithm:
+  1. Find nearby drivers within radius
+  2. Filter based on driver type, rating, etc.
+  3. Optimize for ETA and rider wait time
+
+- Geospatial Index:
+  - Use a geohash or quadtree for efficient proximity queries
+  - Update driver locations in real-time
+
+- Database Schema:
+  - Users Table (both riders and drivers)
+  - Rides Table
+  - Locations Table (time-series data)
+  - Payments Table
+
+SCALING CONSIDERATIONS:
+- Geographically distributed services
+- Sharding by city or region
+- Caching of routes and maps
+- WebSockets for real-time communication
+- Eventual consistency for non-critical data
+
+COMPILED BY HANDY HASAN FOR BREAK INTO TECH COURSE 

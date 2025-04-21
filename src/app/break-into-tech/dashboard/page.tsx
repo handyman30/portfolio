@@ -159,7 +159,7 @@ export default function CourseModulesDashboard() {
         
         {/* Modules Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {modules.map((module, index) => (
+          {modules && modules.map((module, index) => (
             <motion.div
               key={module.id}
               initial="hidden"
@@ -181,7 +181,7 @@ export default function CourseModulesDashboard() {
                 <div className="mb-6">
                   <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">What You'll Learn</h3>
                   <ul className="space-y-2">
-                    {module.sections.map((section, i) => (
+                    {module.sections && module.sections.map((section, i) => (
                       <li key={i} className="flex items-start">
                         <span className="text-emerald-500 mr-2">•</span>
                         <span className="text-gray-700">{section}</span>
