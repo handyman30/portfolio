@@ -1,0 +1,57 @@
+# Resume Template for Tech Roles
+
+This is a placeholder text file that represents what would normally be a DOCX or PDF template.
+
+In a real implementation, this would be a properly formatted resume template that users can download and customize.
+
+## Template Structure
+
+### Contact Information
+Your Name
+Phone Number
+Email
+LinkedIn Profile
+GitHub (if applicable)
+
+### Professional Summary
+3-4 sentences highlighting your years of experience, key skills, and most impressive accomplishment.
+
+### Technical Skills
+Languages: 
+Frameworks:
+Tools & Technologies:
+Databases:
+Other:
+
+### Work Experience
+
+#### Company Name (Date - Present)
+Job Title
+- Accomplishment using the X to achieve Y measured by Z formula
+- Another accomplishment with quantifiable results
+- Technical achievement relevant to the role you're applying for
+
+#### Previous Company (Date - Date)
+Job Title
+- Key accomplishment with metrics
+- Relevant technical contribution
+- Problem you solved and its impact
+
+### Education
+Degree, Institution (Year)
+Relevant Coursework: List courses relevant to the position
+
+### Projects (optional)
+Project Name
+- Brief description
+- Technologies used
+- Your role and contribution
+- Link to GitHub repository or live demo
+
+## Tips for Customization
+- Tailor each submission to match keywords from the job description
+- Prioritize achievements over responsibilities
+- Use strong action verbs to begin each bullet point
+- Quantify your achievements whenever possible
+- Keep formatting clean and consistent
+- Limit to 1-2 pages maximum 

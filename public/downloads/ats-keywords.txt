@@ -1,0 +1,164 @@
+# ATS Keywords for Tech Roles
+
+This list contains common keywords and phrases that are frequently used in Applicant Tracking Systems (ATS) for technical positions. Including relevant terms from this list can help your resume pass automated screenings.
+
+## Programming Languages
+- JavaScript (+ ES6, ES2020, etc.)
+- TypeScript
+- Python
+- Java
+- C# (C Sharp)
+- C++
+- Go (Golang)
+- Rust
+- PHP
+- Ruby
+- Swift
+- Kotlin
+- Scala
+- R
+
+## Frontend Development
+- HTML5
+- CSS3
+- SCSS/SASS
+- React.js
+- Next.js
+- Vue.js
+- Nuxt.js
+- Angular
+- Redux
+- MobX
+- Webpack
+- Responsive Design
+- Progressive Web Apps (PWA)
+- Accessibility (a11y)
+- Web Components
+- Single Page Application (SPA)
+- WebAssembly
+
+## Backend Development
+- Node.js
+- Express.js
+- Django
+- Flask
+- Spring Boot
+- ASP.NET Core
+- Laravel
+- Ruby on Rails
+- REST API
+- GraphQL
+- API Design
+- Microservices
+- Authentication
+- Authorization
+- OAuth
+- JWT (JSON Web Tokens)
+- WebSockets
+
+## Database & Data Management
+- SQL
+- NoSQL
+- PostgreSQL
+- MySQL
+- MongoDB
+- DynamoDB
+- Redis
+- Elasticsearch
+- Database Design
+- Data Modeling
+- ORM (Object-Relational Mapping)
+- ETL (Extract, Transform, Load)
+- Data Pipelines
+- Data Migration
+
+## DevOps & Infrastructure
+- AWS (Amazon Web Services)
+- Azure
+- Google Cloud Platform (GCP)
+- Docker
+- Kubernetes
+- CI/CD
+- Jenkins
+- GitHub Actions
+- CircleCI
+- Terraform
+- Infrastructure as Code (IaC)
+- Cloud Architecture
+- Serverless
+- Linux
+- Bash/Shell Scripting
+- Monitoring
+- Logging
+
+## Testing
+- Unit Testing
+- Integration Testing
+- End-to-End Testing
+- Test-Driven Development (TDD)
+- Jest
+- Mocha
+- Selenium
+- Cypress
+- Automated Testing
+- Test Coverage
+- Quality Assurance (QA)
+
+## Software Development Practices
+- Agile
+- Scrum
+- Kanban
+- Git
+- Version Control
+- Code Review
+- Pair Programming
+- Continuous Integration
+- Continuous Deployment
+- SOLID Principles
+- Design Patterns
+- Object-Oriented Programming (OOP)
+- Functional Programming
+- Refactoring
+- Technical Documentation
+
+## Mobile Development
+- iOS Development
+- Android Development
+- React Native
+- Flutter
+- Mobile UI/UX
+- Mobile Testing
+- App Store Optimization
+- Push Notifications
+
+## Soft Skills & Role-Based Keywords
+- Problem-Solving
+- Critical Thinking
+- Communication
+- Collaboration
+- Technical Leadership
+- Mentoring
+- Project Management
+- Product Development
+- Full Stack Development
+- Software Architecture
+- System Design
+- Performance Optimization
+- Debugging
+- Troubleshooting
+- Cross-Functional Teams
+
+## Industry-Specific (Financial/ASX Companies)
+- Regulatory Compliance
+- Security Protocols
+- PCI DSS
+- Financial Systems
+- Trading Platforms
+- Risk Management
+- Enterprise Architecture
+- High-Performance Computing
+- Data Security
+- Scalable Systems
+- High Availability
+- Disaster Recovery
+- Business Continuity 

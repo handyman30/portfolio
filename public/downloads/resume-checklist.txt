@@ -1,0 +1,69 @@
+# Ultimate Tech Resume Checklist
+
+Use this checklist to ensure your resume is optimized for tech roles.
+
+## Overall Structure and Format
+- [ ] Resume is 1-2 pages maximum (1 page preferred for < 10 years experience)
+- [ ] Clean, consistent formatting with sufficient white space
+- [ ] Uses standard, ATS-friendly font (Arial, Calibri, Helvetica)
+- [ ] Font size between 10-12pt for body text
+- [ ] All margins at least 0.5 inches
+- [ ] Consistent spacing between sections
+- [ ] No tables, text boxes, headers/footers (can confuse ATS)
+- [ ] Saved as PDF with clear filename (FirstName_LastName_Resume.pdf)
+
+## Contact Information
+- [ ] Full name prominently displayed
+- [ ] Professional email address (not cutekitten88@email.com)
+- [ ] Phone number with area code
+- [ ] LinkedIn URL (customized URL preferred)
+- [ ] GitHub/portfolio link (if relevant)
+- [ ] Location (city, state is sufficient)
+
+## Professional Summary/Profile
+- [ ] Contains years of experience
+- [ ] Lists 2-3 key technical skills relevant to the role
+- [ ] Mentions most impressive achievement with metrics
+- [ ] Clearly communicates value proposition
+- [ ] Is 3-4 sentences maximum
+- [ ] No generic statements like "passionate professional seeking opportunity"
+
+## Skills Section
+- [ ] Organized into clear categories (Languages, Frameworks, etc.)
+- [ ] Includes keywords from the job description
+- [ ] Lists both technical and relevant soft skills
+- [ ] Avoids rating systems (no "JavaScript ★★★★☆")
+- [ ] Includes both spelled-out terms and acronyms where applicable
+
+## Work Experience
+- [ ] Reverse chronological order (most recent first)
+- [ ] Each role includes: company name, job title, location, dates
+- [ ] Bullet points start with strong action verbs
+- [ ] 3-5 bullet points per role
+- [ ] Each bullet follows "Did X to achieve Y measured by Z" when possible
+- [ ] Quantifiable achievements included (%, $, time saved)
+- [ ] Technical specifics included (languages, frameworks used)
+- [ ] No responsibilities without achievements
+- [ ] No first-person pronouns (I, me, my)
+
+## Projects (if included)
+- [ ] Project name and brief description
+- [ ] Technologies used clearly listed
+- [ ] Your specific role/contribution highlighted
+- [ ] Links to GitHub/live demos provided
+- [ ] Results or impact mentioned
+
+## Education
+- [ ] Degree, institution, graduation year
+- [ ] Relevant coursework (if recent graduate)
+- [ ] Academic achievements/honors (if impressive)
+- [ ] No high school information (unless you're a recent graduate)
+
+## Before Submission
+- [ ] Tailored to the specific job description
+- [ ] All technical terms spelled correctly
+- [ ] No spelling or grammar errors
+- [ ] No personal info (age, marital status, photo)
+- [ ] All links working and up-to-date
+- [ ] Reviewed by at least one person in tech
+- [ ] Saved as PDF and tested with ATS checker 

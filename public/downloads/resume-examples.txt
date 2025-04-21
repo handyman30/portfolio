@@ -1,0 +1,48 @@
+# Resume Before & After Examples
+
+This is a placeholder text file that represents what would normally be a PDF with visual examples.
+
+## Example 1: Technical Summary Transformation
+
+### BEFORE:
+Experienced software developer with a passion for coding and solving complex problems. Proficient in multiple programming languages and frameworks. Team player with strong communication skills.
+
+### AFTER:
+Full Stack Developer with 5+ years of experience building high-performance web applications using React and Node.js. Reduced page load times by 40% and increased user engagement by 27% at XYZ Company. Implemented CI/CD pipelines that decreased deployment times from 2 hours to 15 minutes.
+
+## Example 2: Work Experience Bullet Point Transformation
+
+### BEFORE:
+- Responsible for maintaining the company's e-commerce platform
+- Worked on bug fixes and new features
+- Participated in code reviews and team meetings
+
+### AFTER:
+- Rebuilt the product recommendation engine using React and GraphQL, increasing average order value by 22% and decreasing bounce rate by 15%
+- Implemented automated testing suite with Jest and Cypress, reducing production bugs by 64% and saving 12 developer-hours per week
+- Led migration from legacy MySQL database to MongoDB, improving query response times by 75% for the product catalog (10M+ SKUs)
+
+## Example 3: Skills Section Transformation
+
+### BEFORE:
+Skills: JavaScript, HTML, CSS, React, Node.js, Express, MongoDB, Git, Agile
+
+### AFTER:
+**Languages:** JavaScript (ES6+), TypeScript, Python, HTML5, CSS3/SCSS
+**Frontend:** React, Redux, Next.js, Styled Components, Tailwind CSS
+**Backend:** Node.js, Express, GraphQL, REST API design
+**Database:** MongoDB, PostgreSQL, Redis
+**DevOps:** Docker, AWS (EC2, S3, Lambda), CI/CD, GitHub Actions
+**Testing:** Jest, React Testing Library, Cypress
+
+## Example 4: Project Description Transformation
+
+### BEFORE:
+E-commerce Website - Built an online store using MERN stack.
+
+### AFTER:
+**E-commerce Platform (github.com/username/project)**
+- Developed a scalable e-commerce platform using the MERN stack (MongoDB, Express, React, Node.js)
+- Implemented Stripe payment processing with custom checkout flow, resulting in 8% higher conversion rate
+- Built responsive design with mobile-first approach, achieving 99/100 Google Lighthouse performance score
+- Deployed with Docker and AWS, set up CI/CD pipeline with automatic testing 
