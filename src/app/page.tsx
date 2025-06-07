@@ -38,7 +38,7 @@ export default function Home() {
   };
   
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-white relative">
+    <div className="min-h-screen bg-gray-50 text-gray-900 relative">
       {/* Sticky CTA */}
       <div className="fixed right-8 top-24 z-50 hidden md:block">
         <motion.div
@@ -65,21 +65,21 @@ export default function Home() {
       </div>
 
       {/* Header/Navigation */}
-      <header className="sticky top-0 bg-white dark:bg-slate-900 shadow-sm z-10">
+      <header className="sticky top-0 bg-white shadow-sm z-10 border-b border-gray-200">
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="font-bold text-xl">Handy Hasan</div>
+          <div className="font-bold text-xl text-gray-900">Handy Hasan</div>
           <div className="flex space-x-6">
-            <a href="#experience" className="hover:text-slate-700 dark:hover:text-slate-400 transition-colors">Experience</a>
-            <a href="#projects" className="hover:text-slate-700 dark:hover:text-slate-400 transition-colors">Projects</a>
-            <a href="#blog" className="hover:text-slate-700 dark:hover:text-slate-400 transition-colors">Blog</a>
-            <Link href="/break-into-tech" className="text-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 font-medium transition-colors">Course</Link>
-            <a href="#contact" className="hover:text-slate-700 dark:hover:text-slate-400 transition-colors">Contact</a>
+            <a href="#experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
+            <a href="#projects" className="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+            <a href="#blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+            <Link href="/break-into-tech" className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors">Course</Link>
+            <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
           </div>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-50 to-slate-100 dark:from-gray-800 dark:to-gray-900">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div 
             className="w-full flex flex-col items-center text-center"
@@ -89,13 +89,13 @@ export default function Home() {
           >
             <motion.span 
               variants={fadeIn}
-              className="text-lg text-slate-600 dark:text-slate-400 mb-2"
+              className="text-lg text-gray-600 mb-2"
             >
               Hello, I&apos;m
             </motion.span>
             <motion.h1 
               variants={fadeIn}
-              className="text-5xl font-bold mb-4"
+              className="text-5xl font-bold mb-4 text-gray-900"
             >
               Handy Hasan
             </motion.h1>
@@ -103,7 +103,7 @@ export default function Home() {
               variants={fadeIn}
               className="flex flex-wrap items-center justify-center gap-3 mb-6"
             >
-              <h2 className="text-2xl text-slate-600 dark:text-slate-300">Full-Stack Software Engineer</h2>
+              <h2 className="text-2xl text-gray-700">Full-Stack Software Engineer</h2>
             </motion.div>
             <motion.div 
               variants={fadeIn}
@@ -111,7 +111,7 @@ export default function Home() {
             >
               <TypeAnimation 
                 text="👋 Hi! I'm Handy — a passionate Software Engineer specializing in Full-Stack Web and Mobile Development." 
-                className="text-lg"
+                className="text-lg text-gray-600"
               />
             </motion.div>
             <motion.div 
@@ -120,7 +120,7 @@ export default function Home() {
             >
               <a 
                 href="#contact" 
-                className="bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 rounded-lg transition-colors"
+                className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors"
               >
                 Hire Me
               </a>
@@ -135,7 +135,7 @@ export default function Home() {
               </a>
               <a 
                 href="#projects" 
-                className="border border-slate-700 text-slate-700 hover:bg-slate-50 dark:text-slate-400 dark:border-slate-400 dark:hover:bg-gray-800 px-6 py-3 rounded-lg transition-colors"
+                className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
               >
                 View My Work
               </a>
@@ -150,7 +150,7 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5 }}
-        className="py-8 bg-white dark:bg-slate-800"
+        className="py-8 bg-gray-50"
       >
         <div className="container mx-auto px-6">
           <motion.div 
@@ -164,11 +164,11 @@ export default function Home() {
               <motion.div
                 key={skill}
                 variants={highlightVariant}
-                className="px-5 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full font-medium shadow-sm"
+                className="px-5 py-2 bg-white text-gray-700 rounded-full font-medium shadow-sm border border-gray-200"
                 whileHover={{ 
                   scale: 1.05, 
-                  backgroundColor: "rgb(226, 232, 240)",
-                  color: "rgb(51, 65, 85)" 
+                  backgroundColor: "rgb(249, 250, 251)",
+                  borderColor: "rgb(209, 213, 219)" 
                 }}
               >
                 {skill}
@@ -179,10 +179,10 @@ export default function Home() {
       </motion.div>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20">
+      <section id="experience" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-3xl font-bold mb-12 text-center"
+            className="text-3xl font-bold mb-12 text-center text-gray-900"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -194,7 +194,7 @@ export default function Home() {
           <div className="relative">
             {/* Timeline Line */}
             <motion.div 
-              className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-slate-200 dark:bg-slate-700"
+              className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"
               initial={{ height: 0 }}
               whileInView={{ height: "100%" }}
               viewport={{ once: true, margin: "-100px" }}
@@ -211,26 +211,26 @@ export default function Home() {
                 transition={{ duration: 0.7 }}
               >
                 <div className="md:w-1/2 md:pr-16 mb-6 md:mb-0 md:order-1">
-                  <div className="bg-white dark:bg-slate-700 p-6 rounded-lg shadow-md border border-slate-200 dark:border-slate-600 md:ml-8 relative">
+                  <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 md:ml-8 relative">
                     <motion.div 
-                      className="hidden md:block absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-slate-600 border-4 border-white dark:border-slate-800"
+                      className="hidden md:block absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gray-600 border-4 border-white"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ type: "spring", stiffness: 300, delay: 0.2 }}
                     ></motion.div>
                     <div className="flex flex-col md:flex-row justify-between mb-4">
-                      <h3 className="text-xl font-bold">Software Engineer</h3>
-                      <div className="text-slate-600 dark:text-slate-300">Oct 2021 - Mar 2025</div>
+                      <h3 className="text-xl font-bold text-gray-900">Software Engineer</h3>
+                      <div className="text-gray-600">Oct 2021 - Mar 2025</div>
                     </div>
-                    <div className="text-slate-700 dark:text-slate-300 mb-2">4DMedical (ASX: 4DX)</div>
-                    <p className="text-slate-600 dark:text-slate-400 mb-4">
+                    <div className="text-gray-700 mb-2">4DMedical (ASX: 4DX)</div>
+                    <p className="text-gray-600 mb-4">
                       Led the development of critical components for 4DMedical's lung imaging platform, processing 1GB+ DICOM files from CT scans. Built a scalable architecture handling 3,290+ daily scans across clinics with pub/sub messaging for reliable data flow.
                     </p>
                     
-                    <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg shadow-inner border border-slate-200 dark:border-slate-700 mb-4">
-                      <h4 className="font-semibold mb-3 text-slate-900 dark:text-white">Technical Architecture Highlights</h4>
-                      <ul className="space-y-2 text-slate-700 dark:text-slate-300 text-sm">
+                    <div className="bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200 mb-4">
+                      <h4 className="font-semibold mb-3 text-gray-900">Technical Architecture Highlights</h4>
+                      <ul className="space-y-2 text-gray-700 text-sm">
                         <li className="flex items-start">
                           <span className="text-emerald-500 mr-2">•</span>
                           <span>Designed pub/sub system processing 1GB+ DICOM files from CT scans</span>
@@ -383,10 +383,10 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-50 dark:bg-slate-800">
+      <section id="projects" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-3xl font-bold mb-12 text-center"
+            className="text-3xl font-bold mb-12 text-center text-gray-900"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -399,9 +399,9 @@ export default function Home() {
             {/* Hangtime Melbourne */}
             <motion.a 
               href="https://apps.apple.com/au/app/hangtime-basketball/id6450975691" 
-            target="_blank"
-            rel="noopener noreferrer"
-              className="block bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-600 transition-all hover:scale-105 hover:shadow-xl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -409,8 +409,8 @@ export default function Home() {
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="h-48 bg-white dark:bg-slate-600 relative">
-            <Image
+              <div className="h-48 bg-white relative">
+                <Image
                   src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/d7/86/60d78611-8a19-5e58-02e0-c636059f564c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/230x0w.webp"
                   alt="Hangtime Basketball App Icon"
                   fill
@@ -418,15 +418,15 @@ export default function Home() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Hangtime Melbourne</h3>
-                <p className="text-slate-600 dark:text-slate-300 mb-4">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">Hangtime Melbourne</h3>
+                <p className="text-gray-600 mb-4">
                   A mobile app connecting local basketball players and creating social sport opportunities. Used by more than 10,000+ Melbourne residents.
                 </p>
                 <div className="flex items-center space-x-4">
-                  <span className="text-slate-700 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-300 transition-colors">
+                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
                     App Store
                   </span>
-                  <span className="text-sm px-2 py-1 bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-200 rounded-full">
+                  <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
                     10,000+ Users
                   </span>
                 </div>
@@ -438,7 +438,7 @@ export default function Home() {
               href="https://recruiter-copilot-ai-production.up.railway.app/dashboard" 
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-600 transition-all hover:scale-105 hover:shadow-xl"
+              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -446,7 +446,7 @@ export default function Home() {
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="h-48 bg-white dark:bg-slate-600 relative">
+              <div className="h-48 bg-white relative">
                 <Image
                   src="https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
                   alt="Recruiter Copilot AI Dashboard"
@@ -455,15 +455,15 @@ export default function Home() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Recruiter Copilot AI</h3>
-                <p className="text-slate-600 dark:text-slate-300 mb-4">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">Recruiter Copilot AI</h3>
+                <p className="text-gray-600 mb-4">
                   AI-powered recruitment dashboard that streamlines the hiring process with intelligent candidate matching, automated screening, and data-driven insights for HR teams.
                 </p>
                 <div className="flex items-center space-x-4">
-                  <span className="text-slate-700 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-300 transition-colors">
+                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
                     View Dashboard
                   </span>
-                  <span className="text-sm px-2 py-1 bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-200 rounded-full">
+                  <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
                     AI-Powered
                   </span>
                 </div>
@@ -474,10 +474,10 @@ export default function Home() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 bg-white dark:bg-slate-900">
+      <section id="blog" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-3xl font-bold mb-4 text-center"
+            className="text-3xl font-bold mb-4 text-center text-gray-900"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -486,7 +486,7 @@ export default function Home() {
             Blog
           </motion.h2>
           <motion.p 
-            className="text-slate-600 dark:text-slate-400 mb-12 text-center max-w-2xl mx-auto"
+            className="text-gray-600 mb-12 text-center max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -1453,10 +1453,10 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-3xl font-bold mb-12 text-center"
+            className="text-3xl font-bold mb-12 text-center text-gray-900"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -1466,43 +1466,43 @@ export default function Home() {
           </motion.h2>
           
           <motion.div 
-            className="max-w-3xl mx-auto bg-white dark:bg-slate-800 rounded-lg shadow-md p-8"
+            className="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8 border border-gray-200"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
           >
             <div className="mb-8 text-center">
-              <p className="text-lg text-slate-600 dark:text-slate-300">
+              <p className="text-lg text-gray-600">
                 Whether you&apos;re looking for a collaborator, contractor, or just want to chat tech — I&apos;d love to hear from you!
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold mb-4">Contact Information</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Contact Information</h3>
                 <ul className="space-y-4">
                   <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <a href="mailto:handy.hasan@yahoo.com" className="text-slate-600 dark:text-slate-300 hover:text-slate-700 dark:hover:text-slate-400 transition-colors">
+                    <a href="mailto:handy.hasan@yahoo.com" className="text-gray-600 hover:text-gray-700 transition-colors">
                       handy.hasan@yahoo.com
                     </a>
                   </li>
                   <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
-                    <a href="https://linkedin.com/in/handy-hasan" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-300 hover:text-slate-700 dark:hover:text-slate-400 transition-colors">
+                    <a href="https://linkedin.com/in/handy-hasan" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-700 transition-colors">
                       LinkedIn Profile
                     </a>
                   </li>
                   <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
                     </svg>
-                    <span className="text-slate-600 dark:text-slate-300">
+                    <span className="text-gray-600">
                       Melbourne, Australia
                     </span>
                   </li>
@@ -1510,41 +1510,41 @@ export default function Home() {
               </div>
               
               <div>
-                <h3 className="text-xl font-bold mb-4">Send Me a Message</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Send Me a Message</h3>
                 <form className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                       Name
                     </label>
                     <input
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500 bg-white dark:bg-slate-700"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                       Email
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500 bg-white dark:bg-slate-700"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                       Message
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
-                      className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500 bg-white dark:bg-slate-700"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
                       required
                     ></textarea>
                   </div>
