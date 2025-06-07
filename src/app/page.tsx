@@ -433,11 +433,11 @@ export default function Home() {
               </div>
             </motion.a>
             
-            {/* Sports Connect */}
+            {/* Recruiter Copilot AI */}
             <motion.a 
-              href="https://sportsconnect-client-327656444e46.herokuapp.com/" 
-          target="_blank"
-          rel="noopener noreferrer"
+              href="https://recruiter-copilot-ai-production.up.railway.app/dashboard" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="block bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-600 transition-all hover:scale-105 hover:shadow-xl"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -447,24 +447,24 @@ export default function Home() {
               whileTap={{ scale: 0.98 }}
             >
               <div className="h-48 bg-white dark:bg-slate-600 relative">
-          <Image
-                  src="https://studyadelaide.com/storage/app/media/life/discover-adelaide/things-to-do/sport/sport-1300x1300.jpg"
-                  alt="Sports Connect"
+                <Image
+                  src="https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                  alt="Recruiter Copilot AI Dashboard"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Sports Connect</h3>
+                <h3 className="text-xl font-bold mb-2">Recruiter Copilot AI</h3>
                 <p className="text-slate-600 dark:text-slate-300 mb-4">
-                  A platform designed to connect people within the community through sports. Helping sports enthusiasts find teams, events, and fellow players in their local area.
+                  AI-powered recruitment dashboard that streamlines the hiring process with intelligent candidate matching, automated screening, and data-driven insights for HR teams.
                 </p>
                 <div className="flex items-center space-x-4">
                   <span className="text-slate-700 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-300 transition-colors">
-                    View Project
+                    View Dashboard
                   </span>
                   <span className="text-sm px-2 py-1 bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-200 rounded-full">
-                    Featured
+                    AI-Powered
                   </span>
                 </div>
               </div>
