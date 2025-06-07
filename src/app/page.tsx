@@ -213,7 +213,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pr-16 mb-6 md:mb-0 md:order-1">
                   <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 md:ml-8 relative">
                     <motion.div 
-                      className="hidden md:block absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gray-600 border-4 border-white"
+                      className="hidden md:block absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-emerald-500 border-4 border-white"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true, margin: "-100px" }}
@@ -253,9 +253,9 @@ export default function Home() {
                     {/* 4DMedical News Link Preview */}
                     <a href="https://www.health.gov.au/ministers/the-hon-greg-hunt-mp/media/worlds-first-lung-scanner-to-change-millions-of-lives" 
                       target="_blank" rel="noopener noreferrer" 
-                      className="block mt-4 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
+                      className="block mt-4 overflow-hidden rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                       <div className="flex flex-col sm:flex-row">
-                        <div className="w-full sm:w-1/3 bg-white dark:bg-slate-600 h-32 sm:h-auto relative">
+                        <div className="w-full sm:w-1/3 bg-white h-32 sm:h-auto relative">
                           <Image
                             src="https://alhi.com.au/wp-content/uploads/2020/05/4DMedical_Logo_RGB-2.png"
                             alt="4DMedical Logo"
@@ -264,11 +264,11 @@ export default function Home() {
                           />
                         </div>
                         <div className="w-full sm:w-2/3 p-4">
-                          <h4 className="font-semibold text-slate-900 dark:text-white">World&apos;s first lung scanner to change millions of lives</h4>
-                          <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 line-clamp-2">
+                          <h4 className="font-semibold text-gray-900">World&apos;s first lung scanner to change millions of lives</h4>
+                          <p className="text-sm text-gray-600 mt-1 line-clamp-2">
                             Revolutionary lung imaging technology developed by 4DMedical is set to transform respiratory diagnostics and treatment globally.
                           </p>
-                          <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">health.gov.au</div>
+                          <div className="text-xs text-gray-500 mt-2">health.gov.au</div>
                         </div>
                       </div>
                     </a>
@@ -281,17 +281,17 @@ export default function Home() {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7, delay: 0.2 }}
                 >
-                  <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg shadow-inner w-full max-w-md border border-slate-200 dark:border-slate-700">
-                    <h4 className="font-semibold mb-3 text-lg text-slate-900 dark:text-white">Technologies</h4>
+                  <div className="bg-gray-50 p-4 rounded-lg shadow-inner w-full max-w-md border border-gray-200">
+                    <h4 className="font-semibold mb-3 text-lg text-gray-900">Technologies</h4>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm border border-slate-200 dark:border-slate-600">Python</span>
-                      <span className="px-3 py-1 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm border border-slate-200 dark:border-slate-600">React</span>
-                      <span className="px-3 py-1 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm border border-slate-200 dark:border-slate-600">TypeScript</span>
-                      <span className="px-3 py-1 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm border border-slate-200 dark:border-slate-600">AWS</span>
-                      <span className="px-3 py-1 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm border border-slate-200 dark:border-slate-600">TensorFlow</span>
-                      <span className="px-3 py-1 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm border border-slate-200 dark:border-slate-600">DICOM</span>
-                      <span className="px-3 py-1 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm border border-slate-200 dark:border-slate-600">Docker</span>
-                      <span className="px-3 py-1 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm border border-slate-200 dark:border-slate-600">CI/CD</span>
+                      <span className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200">Python</span>
+                      <span className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200">React</span>
+                      <span className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200">TypeScript</span>
+                      <span className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200">AWS</span>
+                      <span className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200">TensorFlow</span>
+                      <span className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200">DICOM</span>
+                      <span className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200">Docker</span>
+                      <span className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200">CI/CD</span>
                     </div>
                   </div>
                 </motion.div>
@@ -306,29 +306,29 @@ export default function Home() {
                 transition={{ duration: 0.7 }}
               >
                 <div className="md:w-1/2 md:pr-16 mb-6 md:mb-0">
-                  <div className="bg-white dark:bg-slate-700 p-6 rounded-lg shadow-md border border-slate-200 dark:border-slate-600 md:ml-auto md:mr-8 relative">
+                  <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 md:ml-auto md:mr-8 relative">
                     <motion.div 
-                      className="hidden md:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-slate-600 border-4 border-white dark:border-slate-800"
+                      className="hidden md:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-emerald-500 border-4 border-white"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ type: "spring", stiffness: 300, delay: 0.2 }}
                     ></motion.div>
                     <div className="flex flex-col md:flex-row justify-between mb-4">
-                      <h3 className="text-xl font-bold">Software Developer</h3>
-                      <div className="text-slate-600 dark:text-slate-300">Oct 2019 - Oct 2021</div>
+                      <h3 className="text-xl font-bold text-gray-900">Software Developer</h3>
+                      <div className="text-gray-600">Oct 2019 - Oct 2021</div>
                     </div>
-                    <div className="text-slate-700 dark:text-slate-300 mb-2">The Good Guys (JB Hi-Fi Group, ASX: JBH)</div>
-                    <p className="text-slate-600 dark:text-slate-400 mb-4">
+                    <div className="text-gray-700 mb-2">The Good Guys (JB Hi-Fi Group, ASX: JBH)</div>
+                    <p className="text-gray-600 mb-4">
                       Developed and maintained e-commerce platform features, ensuring seamless customer experiences across web and mobile interfaces. Implemented key features such as product catalog enhancements, checkout flow improvements, and dynamic pricing logic.
                     </p>
                     
                     {/* The Good Guys Link Preview */}
                     <a href="https://www.nationalretail.org.au/jb-hi-fi-buys-the-good-guys/" 
                       target="_blank" rel="noopener noreferrer" 
-                      className="block mt-4 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
+                      className="block mt-4 overflow-hidden rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                       <div className="flex flex-col sm:flex-row">
-                        <div className="w-full sm:w-1/3 bg-white dark:bg-slate-600 h-32 sm:h-auto relative">
+                        <div className="w-full sm:w-1/3 bg-white h-32 sm:h-auto relative">
                           <Image
                             src="https://www.nationalproductreview.com.au/wp-content/uploads/TGG_DesktopBanner.jpg.optimal.jpg"
                             alt="The Good Guys Logo"
@@ -337,11 +337,11 @@ export default function Home() {
                           />
                         </div>
                         <div className="w-full sm:w-2/3 p-4">
-                          <h4 className="font-semibold text-slate-900 dark:text-white">JB Hi-Fi buys The Good Guys</h4>
-                          <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 line-clamp-2">
+                          <h4 className="font-semibold text-gray-900">JB Hi-Fi buys The Good Guys</h4>
+                          <p className="text-sm text-gray-600 mt-1 line-clamp-2">
                             JB Hi-Fi placed a bid believed to be worth $870 million to acquire the 101-store Good Guys network, boosting their total store count to 295 across Australia and New Zealand.
                           </p>
-                          <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">nationalretail.org.au</div>
+                          <div className="text-xs text-gray-500 mt-2">nationalretail.org.au</div>
                         </div>
                       </div>
                     </a>
@@ -354,23 +354,23 @@ export default function Home() {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7, delay: 0.2 }}
                 >
-                  <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg shadow-inner w-full max-w-md border border-slate-200 dark:border-slate-700">
-                    <h4 className="font-semibold mb-3 text-lg text-slate-900 dark:text-white">Achievements</h4>
-                    <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <div className="bg-gray-50 p-4 rounded-lg shadow-inner w-full max-w-md border border-gray-200">
+                    <h4 className="font-semibold mb-3 text-lg text-gray-900">Achievements</h4>
+                    <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
-                        <span className="text-slate-500 mr-2">•</span>
+                        <span className="text-emerald-500 mr-2">•</span>
                         <span>Reduced page load times by 35% through optimization</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-slate-500 mr-2">•</span>
+                        <span className="text-emerald-500 mr-2">•</span>
                         <span>Implemented real-time inventory tracking system</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-slate-500 mr-2">•</span>
+                        <span className="text-emerald-500 mr-2">•</span>
                         <span>Developed mobile-optimized checkout experience</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-slate-500 mr-2">•</span>
+                        <span className="text-emerald-500 mr-2">•</span>
                         <span>Improved A/B testing framework for product pages</span>
                       </li>
                     </ul>
@@ -499,7 +499,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             {/* Microservices Post */}
             <motion.div 
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 col-span-1 md:col-span-2"
+              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 col-span-1 md:col-span-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -509,26 +509,26 @@ export default function Home() {
             >
               <div className="p-6 md:p-8">
                 <div className="flex flex-wrap items-center mb-4 gap-2">
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     E-commerce
                   </span>
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     Architecture
                   </span>
-                  <span className="px-3 py-1 bg-emerald-500 dark:bg-emerald-600 text-white rounded-full text-sm">
+                  <span className="px-3 py-1 bg-emerald-500 text-white rounded-full text-sm">
                     Latest
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">From Monolith to Microservices: How E-Commerce Platforms Evolve at Scale</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">From Monolith to Microservices: How E-Commerce Platforms Evolve at Scale</h3>
+                <p className="text-gray-600 mb-4">
                   April 25, 2024 • 8 min read
                 </p>
                 
-                <div className="mb-6 bg-white dark:bg-slate-700 p-4 rounded-lg shadow-inner border border-slate-200 dark:border-slate-600">
+                <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-semibold mb-3">Typical E-commerce Services</h4>
-                      <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                      <h4 className="font-semibold mb-3 text-gray-900">Typical E-commerce Services</h4>
+                      <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start">
                           <span className="text-emerald-500 mr-2">🛒</span>
                           <span><strong>Cart service</strong></span>
@@ -552,8 +552,8 @@ export default function Home() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-3">Microservice Challenges</h4>
-                      <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                      <h4 className="font-semibold mb-3 text-gray-900">Microservice Challenges</h4>
+                      <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start">
                           <span className="text-emerald-500 mr-2">🔐</span>
                           <span><strong>Complex auth</strong> across services</span>
@@ -579,16 +579,16 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   Most e-commerce platforms start with a monolith — and for good reason. It&apos;s fast to build, easy to deploy, and keeps everything in one place. But as scale, complexity, and team size grow, cracks start to appear. That&apos;s where the shift to microservices becomes not just a tech choice, but a product-enabling strategy.
                 </p>
                 
-                <div className="mb-6 bg-slate-100 dark:bg-slate-750 p-5 rounded-lg border border-slate-200 dark:border-slate-600">
-                  <h4 className="font-semibold mb-3">Netflix Case Study</h4>
-                  <p className="text-slate-700 dark:text-slate-300 mb-4">
+                <div className="mb-6 bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="font-semibold mb-3 text-gray-900">Netflix Case Study</h4>
+                  <p className="text-gray-700 mb-4">
                     Netflix was one of the first major tech companies to go all-in on microservices. After suffering a major outage in 2008 that brought down their DVD rental and streaming services, they began breaking apart their monolithic architecture. What followed was a complete transformation:
                   </p>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-emerald-500 mr-2">📦</span>
                       <span>Each team became responsible for a specific service — like content recommendation, billing, or user accounts.</span>
@@ -609,11 +609,11 @@ export default function Home() {
                 </div>
                 
                 <div className="mb-8">
-                  <h4 className="font-semibold mb-3">When to Consider Microservices</h4>
-                  <p className="text-slate-700 dark:text-slate-300 mb-4">
+                  <h4 className="font-semibold mb-3 text-gray-900">When to Consider Microservices</h4>
+                  <p className="text-gray-700 mb-4">
                     Look for signs like:
                   </p>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-emerald-500 mr-2">•</span>
                       <span>Teams blocked by unrelated code changes</span>
@@ -633,18 +633,18 @@ export default function Home() {
                   </ul>
                 </div>
                 
-                <p className="text-slate-600 dark:text-slate-400 mb-6 italic">
+                <p className="text-gray-600 mb-6 italic">
                   Moving from a monolith to microservices isn&apos;t about chasing trends — it&apos;s about unlocking product velocity while keeping systems reliable and teams autonomous.
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Share:</span>
+                    <span className="text-sm text-gray-600">Share:</span>
                     <a 
                       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.microservices : '')}`}
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on LinkedIn"
                       id="share-linkedin-microservices"
                       onClick={(e) => {
@@ -667,7 +667,7 @@ export default function Home() {
                       href={`https://twitter.com/intent/tweet?text=From Monolith to Microservices: How E-Commerce Platforms Evolve at Scale&url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.microservices : '')}`}
             target="_blank"
             rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on Twitter"
                       onClick={(e) => {
                         e.preventDefault();
@@ -692,7 +692,7 @@ export default function Home() {
             
             {/* Observability Post */}
             <motion.div 
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 col-span-1 md:col-span-2"
+              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 col-span-1 md:col-span-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -702,26 +702,26 @@ export default function Home() {
             >
               <div className="p-6 md:p-8">
                 <div className="flex flex-wrap items-center mb-4 gap-2">
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     E-commerce
                   </span>
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     DevOps
                   </span>
-                  <span className="px-3 py-1 bg-emerald-500 dark:bg-emerald-600 text-white rounded-full text-sm">
+                  <span className="px-3 py-1 bg-emerald-500 text-white rounded-full text-sm">
                     New
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">The Invisible Layer of E-Commerce: Observability, Alerting, and Real-Time Feedback</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">The Invisible Layer of E-Commerce: Observability, Alerting, and Real-Time Feedback</h3>
+                <p className="text-gray-600 mb-4">
                   April 22, 2024 • 7 min read
                 </p>
                 
-                <div className="mb-6 bg-white dark:bg-slate-700 p-4 rounded-lg shadow-inner border border-slate-200 dark:border-slate-600">
+                <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold mb-3">Key Monitoring Areas</h4>
-                      <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                      <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start">
                           <span className="text-emerald-500 mr-2">💳</span>
                           <span><strong>Checkout & Payments</strong> – Success rates, failures</span>
@@ -742,7 +742,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-3">Effective Feedback Loop</h4>
-                      <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                      <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start">
                           <span className="text-emerald-500 mr-2">•</span>
                           <span><strong>Instrumentation first</strong> – Metrics and structured logging</span>
@@ -764,16 +764,16 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   E-commerce platforms live and die by the experience they deliver in real time. A few seconds of latency, a failed payment flow, or a sudden drop in checkout conversions can cost millions. That&apos;s why building great features isn&apos;t enough — you need an invisible layer of observability that helps you catch issues before customers feel them.
                 </p>
                 
                 <div className="mb-6">
                   <h4 className="font-semibold mb-3">What Is Observability in E-Commerce?</h4>
-                  <p className="text-slate-700 dark:text-slate-300 mb-4">
+                  <p className="text-gray-700 mb-4">
                     It&apos;s more than logs and dashboards. Observability is about answering the question: <em>&quot;Is everything working as expected — for users, business, and systems — right now?&quot;</em>
                   </p>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-emerald-500 mr-2">•</span>
                       <span><strong>Metrics</strong> – Page load times, API latency, conversion rate</span>
@@ -793,22 +793,22 @@ export default function Home() {
                   </ul>
                 </div>
                 
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   Real-time alerting is not just about catching errors — it&apos;s about defending trust and experience. Questions like &quot;Why are iOS users suddenly dropping off after the payment step?&quot; or &quot;Why did conversion rate drop 20% in the last hour in NSW only?&quot; become answerable with the right observability system in place.
                 </p>
                 
-                <p className="text-slate-600 dark:text-slate-400 mb-6 italic">
+                <p className="text-gray-600 mb-6 italic">
                   In a high-volume e-commerce environment, proactive observability is not a luxury — it&apos;s a competitive advantage. It&apos;s what allows teams to move fast, break fewer things, and catch what actually matters.
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Share:</span>
+                    <span className="text-sm text-gray-600">Share:</span>
                     <a 
                       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.observability : '')}`}
           target="_blank"
           rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on LinkedIn"
                       id="share-linkedin-observability"
                       onClick={(e) => {
@@ -831,7 +831,7 @@ export default function Home() {
                       href={`https://twitter.com/intent/tweet?text=The Invisible Layer of E-Commerce: Observability, Alerting, and Real-Time Feedback&url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.observability : '')}`}
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on Twitter"
                       onClick={(e) => {
                         e.preventDefault();
@@ -856,7 +856,7 @@ export default function Home() {
             
             {/* E-commerce from Asia Post */}
             <motion.div 
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 col-span-1 md:col-span-2"
+              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 col-span-1 md:col-span-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -866,26 +866,26 @@ export default function Home() {
             >
               <div className="p-6 md:p-8">
                 <div className="flex flex-wrap items-center mb-4 gap-2">
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     E-commerce
                   </span>
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     UX Design
                   </span>
-                  <span className="px-3 py-1 bg-emerald-500 dark:bg-emerald-600 text-white rounded-full text-sm">
+                  <span className="px-3 py-1 bg-emerald-500 text-white rounded-full text-sm">
                     Latest
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">What Aussie E-Commerce Can Learn from Asia&apos;s Tech Titans</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">What Aussie E-Commerce Can Learn from Asia&apos;s Tech Titans</h3>
+                <p className="text-gray-600 mb-4">
                   April 12, 2024 • 8 min read
                 </p>
                 
-                <div className="mb-6 bg-white dark:bg-slate-700 p-4 rounded-lg shadow-inner border border-slate-200 dark:border-slate-600">
+                <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-semibold mb-3">Asian UX Innovations</h4>
-                      <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                      <h4 className="font-semibold mb-3 text-gray-900">Asian UX Innovations</h4>
+                      <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start">
                           <span className="text-emerald-500 mr-2">🧩</span>
                           <span><strong>Gamification:</strong> Daily check-ins, vouchers, in-app games</span>
@@ -905,8 +905,8 @@ export default function Home() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-3">Market Acquisition Tactics</h4>
-                      <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                      <h4 className="font-semibold mb-3 text-gray-900">Market Acquisition Tactics</h4>
+                      <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start">
                           <span className="text-emerald-500 mr-2">💰</span>
                           <span><strong>Subsidies:</strong> Vouchers, free shipping, cashback</span>
@@ -928,13 +928,13 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   The e-commerce space in Australia is growing, but when you look across the ocean at the rapid rise of platforms like Temu, Shopee, and Lazada, it&apos;s clear that there are lessons to be learned from Asia&apos;s approach to online retail. These companies aren&apos;t just scaling fast — they&apos;re redefining how users interact with e-commerce platforms, and how to acquire and retain customers at massive scale.
                 </p>
                 
                 <div className="mb-8">
-                  <h4 className="font-semibold mb-3">Key Takeaways for Aussie Platforms</h4>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <h4 className="font-semibold mb-3 text-gray-900">Key Takeaways for Aussie Platforms</h4>
+                  <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-emerald-500 mr-2">•</span>
                       <span><strong>Design with emotion and habit in mind</strong> – Don&apos;t just build a clean UI, build a sticky experience.</span>
@@ -958,18 +958,18 @@ export default function Home() {
                   </ul>
                 </div>
                 
-                <p className="text-slate-600 dark:text-slate-400 mb-6 italic">
+                <p className="text-gray-600 mb-6 italic">
                   Stay tuned for more posts on e-commerce trends and strategies.
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Share:</span>
+                    <span className="text-sm text-gray-600">Share:</span>
                     <a 
                       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.ecommerce : '')}`}
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on LinkedIn"
                       id="share-linkedin-ecommerce"
                       onClick={(e) => {
@@ -992,7 +992,7 @@ export default function Home() {
                       href={`https://twitter.com/intent/tweet?text=What Aussie E-Commerce Can Learn from Asia's Tech Titans&url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.ecommerce : '')}`}
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on Twitter"
                       onClick={(e) => {
                         e.preventDefault();
@@ -1017,7 +1017,7 @@ export default function Home() {
             
             {/* Hangtime App Post */}
             <motion.div 
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 col-span-1 md:col-span-2"
+              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 col-span-1 md:col-span-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -1027,24 +1027,24 @@ export default function Home() {
             >
               <div className="p-6 md:p-8">
                 <div className="flex flex-wrap items-center mb-4 gap-2">
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     Mobile App
                   </span>
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     Basketball
                   </span>
-                  <span className="px-3 py-1 bg-emerald-500 dark:bg-emerald-600 text-white rounded-full text-sm">
+                  <span className="px-3 py-1 bg-emerald-500 text-white rounded-full text-sm">
                     Success Story
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Building Hangtime: When Passion for Basketball Meets Software Engineering</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Building Hangtime: When Passion for Basketball Meets Software Engineering</h3>
+                <p className="text-gray-600 mb-4">
                   April 5, 2024 • 10 min read
                 </p>
                 
-                <div className="mb-6 bg-white dark:bg-slate-700 p-4 rounded-lg shadow-inner border border-slate-200 dark:border-slate-600">
+                <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
                   <div className="aspect-w-16 aspect-h-9 relative overflow-hidden rounded-lg mb-4">
-                    <div className="w-full h-64 relative bg-slate-100 dark:bg-slate-600 rounded-lg">
+                    <div className="w-full h-64 relative bg-gray-100 rounded-lg">
           <Image
                         src="/images/blog/hangtime/booking-flow.svg"
                         alt="Hangtime Booking System Architecture"
@@ -1053,19 +1053,19 @@ export default function Home() {
                       />
                     </div>
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 italic text-center">
+                  <p className="text-xs text-gray-500 italic text-center">
                     Real-time booking system with WebSockets to prevent concurrent booking collisions
                   </p>
                 </div>
                 
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   As both a basketball enthusiast and software engineer, I saw an opportunity to solve a pain point in Melbourne's basketball community. This article details how I approached Hangtime's creator with a no-cost, commission-based app development proposal, the business strategy behind it, and how I tackled the complex technical challenge of concurrent bookings using WebSockets.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-white dark:bg-slate-700 p-5 rounded-lg shadow-inner border border-slate-200 dark:border-slate-600">
-                    <h4 className="font-semibold mb-3">Business Approach</h4>
-                    <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                  <div className="bg-gray-50 p-5 rounded-lg shadow-inner border border-gray-200">
+                    <h4 className="font-semibold mb-3 text-gray-900">Business Approach</h4>
+                    <ul className="space-y-2 text-sm text-gray-600">
                       <li className="flex items-start">
                         <span className="text-emerald-500 mr-2">•</span>
                         <span>No upfront cost for the organizer</span>
@@ -1085,9 +1085,9 @@ export default function Home() {
                     </ul>
                   </div>
                   
-                  <div className="bg-white dark:bg-slate-700 p-5 rounded-lg shadow-inner border border-slate-200 dark:border-slate-600">
-                    <h4 className="font-semibold mb-3">Technical Challenge</h4>
-                    <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                  <div className="bg-gray-50 p-5 rounded-lg shadow-inner border border-gray-200">
+                    <h4 className="font-semibold mb-3 text-gray-900">Technical Challenge</h4>
+                    <ul className="space-y-2 text-sm text-gray-600">
                       <li className="flex items-start">
                         <span className="text-emerald-500 mr-2">•</span>
                         <span>Multiple users trying to book the same spot</span>
@@ -1109,8 +1109,8 @@ export default function Home() {
                 </div>
                 
                 <div className="mb-8">
-                  <h4 className="font-semibold mb-3">Key Takeaways</h4>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <h4 className="font-semibold mb-3 text-gray-900">Key Takeaways</h4>
+                  <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-emerald-500 mr-2">•</span>
                       <span><strong>Start with the MVP:</strong> For small user bases (100-1000), focus on core functionality first and refine later</span>
@@ -1132,12 +1132,12 @@ export default function Home() {
                 
                 <div className="flex flex-wrap items-center gap-4 mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Share:</span>
+                    <span className="text-sm text-gray-600">Share:</span>
                     <a 
                       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.hangtime : '')}`}
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on LinkedIn"
                       id="share-linkedin-hangtime"
                       onClick={(e) => {
@@ -1160,7 +1160,7 @@ export default function Home() {
                       href={`https://twitter.com/intent/tweet?text=Building Hangtime: When Passion for Basketball Meets Software Engineering&url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.hangtime : '')}`}
           target="_blank"
           rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on Twitter"
                       onClick={(e) => {
                         e.preventDefault();
@@ -1185,7 +1185,7 @@ export default function Home() {
             
             {/* Medical Imaging Post */}
             <motion.div 
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 col-span-1 md:col-span-2"
+              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 col-span-1 md:col-span-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -1195,24 +1195,24 @@ export default function Home() {
             >
               <div className="p-6 md:p-8">
                 <div className="flex flex-wrap items-center mb-4 gap-2">
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     Medical Tech
                   </span>
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     Cloud Architecture
                   </span>
-                  <span className="px-3 py-1 bg-emerald-500 dark:bg-emerald-600 text-white rounded-full text-sm">
+                  <span className="px-3 py-1 bg-emerald-500 text-white rounded-full text-sm">
                     New
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Scaling Medical Imaging: How We Process 3,000+ 1GB DICOM Scans Daily</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Scaling Medical Imaging: How We Process 3,000+ 1GB DICOM Scans Daily</h3>
+                <p className="text-gray-600 mb-4">
                   April 8, 2024 • 12 min read
                 </p>
                 
-                <div className="mb-6 bg-white dark:bg-slate-700 p-4 rounded-lg shadow-inner border border-slate-200 dark:border-slate-600">
+                <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
                   <div className="aspect-w-16 aspect-h-9 relative overflow-hidden rounded-lg mb-4">
-                    <div className="w-full h-64 relative bg-slate-100 dark:bg-slate-600 rounded-lg">
+                    <div className="w-full h-64 relative bg-gray-100 rounded-lg">
           <Image
                         src="/images/blog/dicom-architecture.svg"
                         alt="DICOM Processing Architecture"
@@ -1221,18 +1221,18 @@ export default function Home() {
                       />
                     </div>
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 italic text-center">
+                  <p className="text-xs text-gray-500 italic text-center">
                     High-level architecture of our medical imaging processing pipeline
                   </p>
                 </div>
                 
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   At 4DMedical, we faced a significant engineering challenge: processing over 3,290 DICOM files daily, each averaging 1GB in size. This article details the cloud-native architecture we built that processes these massive files, extracts critical metadata, and delivers 10x more accurate analysis to clinicians and patients.
                 </p>
                 
                 <div className="mb-8">
-                  <h4 className="font-semibold mb-3">Architecture Components</h4>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <h4 className="font-semibold mb-3 text-gray-900">Architecture Components</h4>
+                  <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-emerald-500 mr-2">•</span>
                       <span><strong>Secure Ingestion Layer:</strong> High-throughput upload system with clinic-specific channels</span>
@@ -1258,12 +1258,12 @@ export default function Home() {
                 
                 <div className="flex flex-wrap items-center gap-4 mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Share:</span>
+                    <span className="text-sm text-gray-600">Share:</span>
                     <a 
                       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.medical : '')}`}
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on LinkedIn"
                       id="share-linkedin-medical"
                       onClick={(e) => {
@@ -1286,7 +1286,7 @@ export default function Home() {
                       href={`https://twitter.com/intent/tweet?text=Scaling Medical Imaging: How We Process 3,000+ 1GB DICOM Scans Daily&url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.medical : '')}`}
           target="_blank"
           rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on Twitter"
                       onClick={(e) => {
                         e.preventDefault();
@@ -1311,7 +1311,7 @@ export default function Home() {
             
             {/* Payment Gateway Post */}
             <motion.div 
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 col-span-1 md:col-span-2"
+              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 col-span-1 md:col-span-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -1321,30 +1321,30 @@ export default function Home() {
             >
               <div className="p-6 md:p-8">
                 <div className="flex flex-wrap items-center mb-4 gap-2">
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     Payments
                   </span>
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                     E-commerce
                   </span>
-                  <span className="px-3 py-1 bg-slate-700 dark:bg-slate-600 text-white rounded-full text-sm">
+                  <span className="px-3 py-1 bg-gray-700 text-white rounded-full text-sm">
                     Featured
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Beyond Stripe: Why Small Businesses Should Consider Alternative Payment Gateways</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Beyond Stripe: Why Small Businesses Should Consider Alternative Payment Gateways</h3>
+                <p className="text-gray-600 mb-4">
                   April 10, 2024 • 8 min read
                 </p>
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   While Stripe has become the default payment gateway for many online businesses, it may not always be the most cost-effective solution. For small businesses processing $10,000+ monthly, implementing a custom payment solution with alternative gateways could significantly reduce transaction costs and increase flexibility.
                 </p>
                 
-                <div className="bg-white dark:bg-slate-700 rounded-lg p-5 mb-6 shadow-inner border border-slate-200 dark:border-slate-600">
-                  <h4 className="font-semibold mb-3">Fee Comparison Highlights</h4>
+                <div className="bg-gray-50 rounded-lg p-5 mb-6 shadow-inner border border-gray-200">
+                  <h4 className="font-semibold mb-3 text-gray-900">Fee Comparison Highlights</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <h5 className="font-medium mb-2 text-slate-900 dark:text-white">Stripe</h5>
-                      <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
+                      <h5 className="font-medium mb-2 text-gray-900">Stripe</h5>
+                      <ul className="space-y-1 text-sm text-gray-600">
                         <li>• Domestic Cards: 1.70% + A$0.30</li>
                         <li>• International Cards: 3.5% + A$0.30</li>
                         <li>• Currency Conversion: Additional 2%</li>
@@ -1352,8 +1352,8 @@ export default function Home() {
                       </ul>
                     </div>
                     <div>
-                      <h5 className="font-medium mb-2 text-slate-900 dark:text-white">Alternatives</h5>
-                      <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
+                      <h5 className="font-medium mb-2 text-gray-900">Alternatives</h5>
+                      <ul className="space-y-1 text-sm text-gray-600">
                         <li>• Adyen: ~0.8% + interchange fees</li>
                         <li>• Google/Apple Pay: ~0.6% + interchange fees</li>
                         <li>• Direct Debit: 0.8% (capped at A$5.00)</li>
@@ -1364,18 +1364,18 @@ export default function Home() {
                 </div>
                 
                 <div className="mb-8">
-                  <h4 className="font-semibold mb-3">Key Takeaways</h4>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <h4 className="font-semibold mb-3 text-gray-900">Key Takeaways</h4>
+                  <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
-                      <span className="text-slate-500 mr-2">•</span>
+                      <span className="text-emerald-500 mr-2">•</span>
                       <span>For businesses processing $10,000+/month, custom payment implementations can save thousands annually</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-slate-500 mr-2">•</span>
+                      <span className="text-emerald-500 mr-2">•</span>
                       <span>Alternative gateways like Adyen offer more competitive rates for growing businesses</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-slate-500 mr-2">•</span>
+                      <span className="text-emerald-500 mr-2">•</span>
                       <span>Custom solutions allow for business-specific logic and optimizations</span>
                     </li>
                   </ul>
@@ -1383,12 +1383,12 @@ export default function Home() {
                 
                 <div className="flex flex-wrap items-center gap-4 mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Share:</span>
+                    <span className="text-sm text-gray-600">Share:</span>
                     <a 
                       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.payments : '')}`}
             target="_blank"
             rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on LinkedIn"
                       id="share-linkedin-payments"
                       onClick={(e) => {
@@ -1411,7 +1411,7 @@ export default function Home() {
                       href={`https://twitter.com/intent/tweet?text=Beyond Stripe: Why Small Businesses Should Consider Alternative Payment Gateways&url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.payments : '')}`}
           target="_blank"
           rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
                       aria-label="Share on Twitter"
                       onClick={(e) => {
                         e.preventDefault();
@@ -1444,7 +1444,7 @@ export default function Home() {
           >
             <a 
               href="#blog" 
-              className="inline-block border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 px-6 py-3 rounded-lg transition-colors"
+              className="inline-block border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
             >
               View All Posts
             </a>
@@ -1550,7 +1550,7 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-slate-700 hover:bg-slate-800 text-white py-2 px-4 rounded-md transition-colors"
+                    className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded-md transition-colors"
                   >
                     Send Message
                   </button>
@@ -1562,22 +1562,22 @@ export default function Home() {
       </section>
       
       {/* Footer */}
-      <footer className="bg-slate-100 dark:bg-slate-800 py-8">
+      <footer className="bg-gray-100 py-8">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-slate-600 dark:text-slate-300">
+          <p className="text-gray-600">
             © {new Date().getFullYear()} Handy Hasan. All rights reserved.
           </p>
           <div className="flex justify-center space-x-6 mt-4">
-            <a href="https://linkedin.com/in/handy-hasan" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-slate-700 transition-colors">
+            <a href="https://linkedin.com/in/handy-hasan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-700 transition-colors">
               <span className="sr-only">LinkedIn</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             </a>
-            <a href="https://github.com/handyhasan" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 transition-colors">
+            <a href="https://github.com/handyhasan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
               <span className="sr-only">GitHub</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.85-3.37-1.85-3.601 0-4.267 2.37-4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" clipRule="evenodd" />
+                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
               </svg>
             </a>
           </div>
