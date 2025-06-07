@@ -72,7 +72,6 @@ export default function Home() {
             <a href="#experience" className="hover:text-slate-700 dark:hover:text-slate-400 transition-colors">Experience</a>
             <a href="#projects" className="hover:text-slate-700 dark:hover:text-slate-400 transition-colors">Projects</a>
             <a href="#blog" className="hover:text-slate-700 dark:hover:text-slate-400 transition-colors">Blog</a>
-            <Link href="/break-into-tech" className="text-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 font-medium transition-colors">Course</Link>
             <a href="#contact" className="hover:text-slate-700 dark:hover:text-slate-400 transition-colors">Contact</a>
           </div>
         </nav>

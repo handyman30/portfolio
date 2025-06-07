@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
       'www.nationalproductreview.com.au'
     ],
   },
+  output: 'export',
 };
 
 export default nextConfig;
