@@ -33,7 +33,6 @@ export default function Home() {
     medical: '/blog/medical-imaging',
     hangtime: '/blog/hangtime-app',
     ecommerce: '/blog/aussie-ecommerce-asia',
-    subscriptions: '/blog/subscriptions-memberships-ecommerce',
     observability: '/blog/ecommerce-observability',
     microservices: '/blog/monolith-to-microservices'
   };
@@ -104,13 +103,7 @@ export default function Home() {
               variants={fadeIn}
               className="flex flex-wrap items-center justify-center gap-3 mb-6"
             >
-              <h2 className="text-2xl text-slate-600 dark:text-slate-300">Software Engineer at</h2>
-              <motion.span
-                variants={highlightVariant}
-                className="text-2xl font-semibold px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-md"
-              >
-                Kogan.com
-              </motion.span>
+              <h2 className="text-2xl text-slate-600 dark:text-slate-300">Full-Stack Software Engineer</h2>
             </motion.div>
             <motion.div 
               variants={fadeIn}
@@ -209,82 +202,6 @@ export default function Home() {
             ></motion.div>
             
             <div className="space-y-0">
-              {/* Kogan.com */}
-              <motion.div 
-                className="flex flex-col md:flex-row md:items-center mb-12"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7 }}
-              >
-                <div className="md:w-1/2 md:pr-16 mb-6 md:mb-0">
-                  <div className="bg-white dark:bg-slate-700 p-6 rounded-lg shadow-md border border-slate-200 dark:border-slate-600 md:ml-auto md:mr-8 relative">
-                    <motion.div 
-                      className="hidden md:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-slate-600 border-4 border-white dark:border-slate-800"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ type: "spring", stiffness: 300, delay: 0.2 }}
-                    ></motion.div>
-                    <div className="flex flex-col md:flex-row justify-between mb-4">
-                      <h3 className="text-xl font-bold">Software Engineer</h3>
-                      <div className="text-slate-600 dark:text-slate-300">Mar 2025 - Present</div>
-                    </div>
-                    <div className="text-slate-700 dark:text-slate-300 mb-2">Kogan.com (ASX: KGN)</div>
-                    <p className="text-slate-600 dark:text-slate-400 mb-4">
-                      Working in the Payments Team, building and optimizing robust, scalable e-commerce solutions with a focus on transaction processing, platform performance, and seamless user experiences.
-                    </p>
-                    
-                    {/* Kogan Link Preview */}
-                    <a href="https://www.kogan.com/au/" target="_blank" rel="noopener noreferrer" 
-                      className="block mt-4 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
-                      <div className="flex flex-col sm:flex-row">
-                        <div className="w-full sm:w-1/3 bg-white dark:bg-slate-600 h-32 sm:h-auto relative">
-        <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/6/67/Kogan_logo.jpg"
-                            alt="Kogan.com Logo"
-                            fill
-                            className="object-contain p-4"
-                          />
-                        </div>
-                        <div className="w-full sm:w-2/3 p-4">
-                          <h4 className="font-semibold text-slate-900 dark:text-white">Kogan.com | Clickin&apos; Awesome - Shop Online & Save</h4>
-                          <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 line-clamp-2">
-                            Australia&apos;s premier online retailer, with millions of products at better prices.
-                          </p>
-                          <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">www.kogan.com</div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <motion.div 
-                  className="md:w-1/2 md:pl-16 flex justify-center md:justify-start"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7, delay: 0.2 }}
-                >
-                  <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg shadow-inner w-full max-w-md border border-slate-200 dark:border-slate-700">
-                    <h4 className="font-semibold mb-3 text-lg text-slate-900 dark:text-white">Key Responsibilities</h4>
-                    <ul className="space-y-2 text-slate-700 dark:text-slate-300">
-                      <li className="flex items-start">
-                        <span className="text-slate-500 mr-2">•</span>
-                        <span>Maintaining and improving payment processing systems</span>
-          </li>
-                      <li className="flex items-start">
-                        <span className="text-slate-500 mr-2">•</span>
-                        <span>Implementing new payment methods and integrations</span>
-          </li>
-                      <li className="flex items-start">
-                        <span className="text-slate-500 mr-2">•</span>
-                        <span>Optimizing checkout flow for better conversion rates</span>
-                      </li>
-                    </ul>
-                  </div>
-                </motion.div>
-              </motion.div>
-
               {/* 4DMedical */}
               <motion.div 
                 className="flex flex-col md:flex-row md:items-center mb-12"
@@ -937,189 +854,6 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* Subscriptions and Memberships Post */}
-            <motion.div 
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 col-span-1 md:col-span-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              whileHover={{ y: -5 }}
-              id="blog-subscriptions-memberships"
-            >
-              <div className="p-6 md:p-8">
-                <div className="flex flex-wrap items-center mb-4 gap-2">
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
-                    E-commerce
-                  </span>
-                  <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm">
-                    Business Strategy
-                  </span>
-                  <span className="px-3 py-1 bg-emerald-500 dark:bg-emerald-600 text-white rounded-full text-sm">
-                    New
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold mb-3">Why Subscriptions and Memberships Are Powering the Next Wave of E-Commerce</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  April 18, 2024 • 9 min read
-                </p>
-                
-                <div className="mb-6 bg-white dark:bg-slate-700 p-4 rounded-lg shadow-inner border border-slate-200 dark:border-slate-600">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold mb-3">Psychology of Subscriptions</h4>
-                      <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                        <li className="flex items-start">
-                          <span className="text-emerald-500 mr-2">🧠</span>
-                          <span><strong>Commitment bias</strong> – Users shop more to "get value"</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-emerald-500 mr-2">🌟</span>
-                          <span><strong>Perceived exclusivity</strong> – Member-only perks</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-emerald-500 mr-2">🔁</span>
-                          <span><strong>Habit formation</strong> – Regular usage patterns</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-emerald-500 mr-2">💳</span>
-                          <span><strong>Frictionless buying</strong> – Lower mental hurdles</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-3">Technical Requirements</h4>
-                      <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                        <li className="flex items-start">
-                          <span className="text-emerald-500 mr-2">🧱</span>
-                          <span><strong>Feature flagging</strong> – A/B testing and rollouts</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-emerald-500 mr-2">🔁</span>
-                          <span><strong>Billing logic</strong> – Trials, renewals, downgrades</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-emerald-500 mr-2">🔐</span>
-                          <span><strong>Access control</strong> – Members-only capabilities</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-emerald-500 mr-2">📊</span>
-                          <span><strong>Analytics</strong> – Engagement, churn, LTV tracking</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
-                  From Amazon Prime to Uber One, subscriptions have quietly become one of the most powerful strategies in modern e-commerce. No longer reserved for SaaS or streaming, memberships are reshaping how consumers shop, and how companies build long-term loyalty and recurring revenue.
-                </p>
-                
-                <div className="mb-6 bg-slate-100 dark:bg-slate-750 p-5 rounded-lg border border-slate-200 dark:border-slate-600">
-                  <h4 className="font-semibold mb-3">Uber One: A Case Study</h4>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
-                    <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">🚗</span>
-                      <span>Covers rides and Uber Eats — increasing use across multiple verticals</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">🤑</span>
-                      <span>$0 delivery + 5–10% off perks — ensures that even moderate users feel it's worth it</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">🧠</span>
-                      <span>Framing: "If you order 2–3 times, it pays for itself"</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">📈</span>
-                      <span>Result: Uber has seen higher retention and frequency among One members</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
-                  At Kogan, we&apos;re currently rolling out Kogan FIRST MAX, a premium membership designed to offer enhanced perks for our most loyal customers. While building this, I&apos;ve been reflecting on the deeper psychology, business strategy, and tech that makes subscription models so powerful.
-                </p>
-                
-                <div className="mb-8">
-                  <h4 className="font-semibold mb-3">Benefits for E-Commerce</h4>
-                  <ul className="space-y-2 text-slate-700 dark:text-slate-300">
-                    <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">•</span>
-                      <span><strong>Stable revenue</strong> – Subscriptions smooth out the peaks and troughs of retail sales.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">•</span>
-                      <span><strong>Deeper data</strong> – You learn more about your most valuable customers: behavior, frequency, preferences.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">•</span>
-                      <span><strong>Predictable logistics</strong> – Easier to plan inventory, fulfillment, and supply chain for loyal members.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">•</span>
-                      <span><strong>Powerful upsell base</strong> – Members are more open to new offerings if the core experience is strong.</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <p className="text-slate-600 dark:text-slate-400 mb-6 italic">
-                  Memberships aren&apos;t just about recurring revenue — they&apos;re about building relationships. When done right, they align user and company incentives in a way that drives both loyalty and growth.
-                </p>
-                
-                <div className="flex flex-wrap items-center gap-4 mb-6">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Share:</span>
-                    <a 
-                      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.subscriptions : '')}`}
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
-                      aria-label="Share on LinkedIn"
-                      id="share-linkedin-subscriptions"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (typeof window !== 'undefined') {
-                          window.open(
-                            `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(baseUrl + blogPaths.subscriptions)}`,
-                            'linkedin-share',
-                            'width=800,height=600'
-                          );
-                        }
-                        return false;
-                      }}
-                    >
-                      <svg className="h-5 w-5 text-[#0077b5]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                      </svg>
-                    </a>
-                    <a 
-                      href={`https://twitter.com/intent/tweet?text=Why Subscriptions and Memberships Are Powering the Next Wave of E-Commerce&url=${encodeURIComponent(baseUrl ? baseUrl + blogPaths.subscriptions : '')}`}
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
-                      aria-label="Share on Twitter"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (typeof window !== 'undefined') {
-                          window.open(
-                            `https://twitter.com/intent/tweet?text=Why Subscriptions and Memberships Are Powering the Next Wave of E-Commerce&url=${encodeURIComponent(baseUrl + blogPaths.subscriptions)}`,
-                            'twitter-share',
-                            'width=800,height=600'
-                          );
-                        }
-                        return false;
-                      }}
-                    >
-                      <svg className="h-5 w-5 text-[#1DA1F2]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            
             {/* E-commerce from Asia Post */}
             <motion.div 
               className="bg-slate-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 col-span-1 md:col-span-2"
@@ -1225,7 +959,7 @@ export default function Home() {
                 </div>
                 
                 <p className="text-slate-600 dark:text-slate-400 mb-6 italic">
-                  Stay tuned — in the next post, I&apos;ll explore how subscriptions and memberships are reshaping e-commerce, and why they&apos;re so powerful for user retention and long-term growth.
+                  Stay tuned for more posts on e-commerce trends and strategies.
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-6">

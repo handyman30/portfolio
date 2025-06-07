@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     domains: [
       'media.licdn.com',
-      'www.kogan.com',
       'www.health.gov.au',
       'www.nationalretail.org.au',
       'www.jbhifi.com.au',

@@ -166,7 +166,7 @@ export default function BreakIntoTechPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-4">Learn From Someone Who's Been There</h2>
                 <p className="text-slate-700 dark:text-slate-300 mb-4">
-                  Hi, I'm Handy. I work as a Software Engineer at various ASX-listed companies, including some of Australia's largest e-commerce platforms. I've been through the application and interview process at numerous tech companies, and I've learned what works and what doesn't.
+                  Hi, I'm Handy. I work as a Software Engineer with experience across various tech companies and e-commerce platforms. I've been through the application and interview process at numerous tech companies, and I've learned what works and what doesn't.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
                   I'm not a recruiter or career coach - I'm an engineer who's been in your shoes and successfully made the jump. I've distilled everything I've learned into this practical, no-fluff mini-course to help you do the same.

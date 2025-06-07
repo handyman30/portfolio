@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   eslint: {
     // Disable ESLint during builds
     ignoreDuringBuilds: true,
@@ -27,6 +28,7 @@ const nextConfig = {
         hostname: 'studyadelaide.com',
       },
     ],
+    unoptimized: true,
   },
 };
 
