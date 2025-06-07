@@ -24,7 +24,7 @@ export default function PaymentPage() {
     
     // Load PayPal SDK
     const script = document.createElement('script');
-    script.src = 'https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD';
+    script.src = 'https://www.paypal.com/sdk/js?client-id=AZZbBDtORoBh0ZRh_UeH3dx83MX0qr9Ss2-9seqJmEIfCwcltFWnMfBTKsx0CaehkeD7l7BjxpRZZLix&currency=USD';
     script.onload = () => {
       setPaypalLoaded(true);
       if (window.paypal) {
