@@ -399,7 +399,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            Personal Apps
+            Featured Projects
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -507,6 +507,41 @@ export default function Home() {
                   </span>
                   <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
                     Trending
+                  </span>
+                </div>
+              </div>
+            </motion.a>
+
+            {/* LifeGPT */}
+            <motion.a 
+              href="https://hesitant-dock-production.up.railway.app/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 relative flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🧠</div>
+                  <div className="text-xl font-bold">LifeGPT</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">LifeGPT</h3>
+                <p className="text-gray-600 mb-4">
+                  AI reflection buddy for personal growth. Chat with your future self, 60-year-old self, biggest fan, and brutally honest friend for deeper self-awareness.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
+                    Start Reflecting
+                  </span>
+                  <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
+                    Personal Growth
                   </span>
                 </div>
               </div>

@@ -74,50 +74,28 @@ const projects = [
   },
   {
     id: 4,
-    name: "LocalEats",
-    tagline: "Hyper-local food delivery",
-    description: "Community-focused food delivery platform connecting local restaurants with neighborhood customers, emphasizing sustainability and local economy.",
+    name: "LifeGPT",
+    tagline: "AI reflection buddy for personal growth",
+    description: "Innovative personal development platform where users chat with AI personas of their future self, 60-year-old self, biggest fan, and brutally honest friend for deeper self-reflection.",
     metrics: {
-      users: "2,000+",
-      revenue: "$4,200",
+      users: "800+",
+      revenue: "$950",
       period: "Monthly",
-      growth: "+25%",
+      growth: "+140%",
       since: "2024"
     },
     highlights: [
-      "Partnership with 35+ local restaurants",
-      "Carbon-neutral delivery model",
-      "15% commission vs 30% industry standard",
-      "Focus on 5km radius delivery zones"
+      "4 unique AI personas for different perspectives",
+      "Deeper than traditional journaling",
+      "Private and secure conversations",
+      "Focus on personal growth and self-awareness"
     ],
-    status: "Launching Q2",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=400&fit=crop"
+    status: "Active",
+    link: "https://hesitant-dock-production.up.railway.app/",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop"
   },
   {
     id: 5,
-    name: "PropertyPulse",
-    tagline: "Real estate market intelligence",
-    description: "AI-driven property investment analysis tool providing real-time market insights, suburb analytics, and investment recommendations.",
-    metrics: {
-      users: "300+",
-      revenue: "$2,800",
-      period: "Monthly",
-      growth: "+90%",
-      since: "2024"
-    },
-    highlights: [
-      "Covers 15,000+ Melbourne suburbs",
-      "Freemium model with premium insights",
-      "Used by property investors and agents",
-      "Real-time market trend analysis"
-    ],
-    status: "Active",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=400&fit=crop"
-  },
-  {
-    id: 6,
     name: "SkillBridge",
     tagline: "Corporate training marketplace",
     description: "B2B platform connecting companies with specialized trainers for upskilling programs, focusing on tech and leadership development.",
@@ -198,15 +176,15 @@ export default function ProjectsPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-8 text-center">
               <div>
-                <div className="text-3xl font-bold text-emerald-600">$25K+</div>
+                <div className="text-3xl font-bold text-emerald-600">$11K+</div>
                 <div className="text-gray-600">Monthly Revenue</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-emerald-600">13,000+</div>
+                <div className="text-3xl font-bold text-emerald-600">12,000+</div>
                 <div className="text-gray-600">Active Users</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-emerald-600">6</div>
+                <div className="text-3xl font-bold text-emerald-600">5</div>
                 <div className="text-gray-600">Active Products</div>
               </div>
               <div>

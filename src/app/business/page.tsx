@@ -70,6 +70,7 @@ export default function BusinessPortfolio() {
       description: 'Developing holistic wellness solutions that promote mental health, physical fitness, and overall life balance.',
       image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2320&q=80',
       projects: [
+        'LifeGPT - AI Reflection Platform',
         'Mental Health Apps',
         'Fitness Tracking Solutions',
         'Wellness Community Platforms'
