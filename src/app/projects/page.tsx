@@ -52,25 +52,25 @@ const projects = [
   },
   {
     id: 3,
-    name: "MedFlow Analytics",
-    tagline: "Healthcare workflow optimization",
-    description: "Data analytics platform helping medical practices optimize patient flow, reduce wait times, and improve operational efficiency.",
+    name: "EssentialsDash",
+    tagline: "Curated product discovery platform",
+    description: "Trend-focused e-commerce discovery platform helping users find the latest essentials across shoes, tech, watches, cars, and style with direct buy links.",
     metrics: {
-      users: "50+",
-      revenue: "$8,500",
+      users: "1,500+",
+      revenue: "$1,800",
       period: "Monthly",
-      growth: "+80%",
+      growth: "+65%",
       since: "2024"
     },
     highlights: [
-      "Serving 12 medical practices",
-      "Average 30% reduction in patient wait times",
-      "B2B SaaS with annual contracts",
-      "Integration with major practice management systems"
+      "Curated trending products across 6 categories",
+      "Direct affiliate integration with major retailers",
+      "Clean, modern product discovery interface",
+      "Focus on premium lifestyle essentials"
     ],
-    status: "Beta",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=400&fit=crop"
+    status: "Active",
+    link: "https://essentials-life-production.up.railway.app/",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=400&fit=crop"
   },
   {
     id: 4,

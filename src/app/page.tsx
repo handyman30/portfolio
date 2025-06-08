@@ -71,6 +71,7 @@ export default function Home() {
           <div className="flex space-x-6">
             <a href="#experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
             <Link href="/projects" className="text-gray-600 hover:text-gray-900 transition-colors">Projects</Link>
+            <Link href="/business" className="text-gray-900 hover:text-gray-700 font-medium transition-colors">Business</Link>
             <a href="#blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
             <Link href="/break-into-tech" className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors">Course</Link>
             <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
@@ -124,6 +125,12 @@ export default function Home() {
               >
                 Hire Me
               </a>
+              <Link 
+                href="/business" 
+                className="bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors font-medium border border-gray-800"
+              >
+                Business Portfolio
+              </Link>
               <a 
                 href="#blog" 
                 className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
@@ -395,7 +402,7 @@ export default function Home() {
             Personal Apps
           </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Hangtime Melbourne */}
             <motion.a 
               href="https://apps.apple.com/au/app/hangtime-basketball/id6450975691" 
@@ -465,6 +472,41 @@ export default function Home() {
                   </span>
                   <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
                     AI-Powered
+                  </span>
+                </div>
+              </div>
+            </motion.a>
+
+            {/* EssentialsDash */}
+            <motion.a 
+              href="https://essentials-life-production.up.railway.app/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="h-48 bg-gradient-to-br from-purple-400 to-pink-400 relative flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🛍️</div>
+                  <div className="text-xl font-bold">EssentialsDash</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">EssentialsDash</h3>
+                <p className="text-gray-600 mb-4">
+                  Curated product discovery platform for trending essentials across shoes, tech, watches, cars, and style. Discover the latest trends with direct buy links.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
+                    Discover Products
+                  </span>
+                  <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
+                    Trending
                   </span>
                 </div>
               </div>
