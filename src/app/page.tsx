@@ -70,7 +70,7 @@ export default function Home() {
           <div className="font-bold text-xl text-gray-900">Handy Hasan</div>
           <div className="flex space-x-6">
             <a href="#experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
-            <a href="#projects" className="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+            <Link href="/projects" className="text-gray-600 hover:text-gray-900 transition-colors">Projects</Link>
             <a href="#blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
             <Link href="/break-into-tech" className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors">Course</Link>
             <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
@@ -133,12 +133,12 @@ export default function Home() {
                   <path fillRule="evenodd" d="M10 2a1 1 0 011 1v9.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 12.586V3a1 1 0 011-1z" clipRule="evenodd" />
                 </svg>
               </a>
-              <a 
-                href="#projects" 
+              <Link 
+                href="/projects" 
                 className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
               >
                 View My Work
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
