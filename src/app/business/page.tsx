@@ -95,7 +95,7 @@ export default function BusinessPortfolio() {
       <header className="fixed top-0 w-full bg-black/90 backdrop-blur-sm z-50 border-b border-gray-800">
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold text-white">
-            HANDY HASAN
+            HANDYLABS
           </Link>
           <div className="flex space-x-8">
             <a 
@@ -131,7 +131,7 @@ export default function BusinessPortfolio() {
             className="text-center"
           >
             <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-              HANDY HASAN
+              HANDYLABS
             </h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -139,7 +139,7 @@ export default function BusinessPortfolio() {
               transition={{ delay: 0.5, duration: 1 }}
               className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
             >
-              Entrepreneur & Technology Leader building the future across Healthcare, Commerce, Sports, Wellbeing, and Fintech
+              Technology Studio building the future across Healthcare, Commerce, Sports, Wellbeing, and Fintech
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -157,7 +157,7 @@ export default function BusinessPortfolio() {
                 href="#journey" 
                 className="border border-white px-8 py-4 text-lg font-medium hover:bg-white hover:text-black transition-colors"
               >
-                My Story
+                Our Story
               </a>
             </motion.div>
           </motion.div>
@@ -229,7 +229,7 @@ export default function BusinessPortfolio() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-bold text-center mb-16"
           >
-            MY JOURNEY
+            OUR JOURNEY
           </motion.h2>
           
           <div className="max-w-4xl mx-auto">
@@ -347,7 +347,7 @@ export default function BusinessPortfolio() {
       {/* Footer */}
       <footer className="py-8 border-t border-gray-800">
         <div className="container mx-auto px-6 text-center text-gray-400">
-          <p>&copy; 2024 Handy Hasan. All rights reserved.</p>
+          <p>&copy; 2024 HandyLabs. All rights reserved.</p>
         </div>
       </footer>
     </div>
