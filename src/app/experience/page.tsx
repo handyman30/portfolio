@@ -14,11 +14,11 @@ export default function Experience() {
             Handy Hasan
           </Link>
           <div className="flex space-x-6">
-            <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">Home</Link>
+            <Link href="/experience" className="text-gray-900 hover:text-gray-700 font-medium transition-colors">Experience</Link>
             <Link href="/projects" className="text-gray-600 hover:text-gray-900 transition-colors">Projects</Link>
-            <Link href="/business" className="text-gray-600 hover:text-gray-900 transition-colors">Business</Link>
-            <Link href="/#blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</Link>
+            <a href="/#blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
             <Link href="/break-into-tech" className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors">Course</Link>
+            <a href="/#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
           </div>
         </nav>
       </header>
