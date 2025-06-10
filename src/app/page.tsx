@@ -95,69 +95,94 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div 
-            className="w-full flex flex-col items-center text-center"
+            className="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto"
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
           >
-            <motion.span 
-              variants={fadeIn}
-              className="text-lg text-gray-600 mb-2"
-            >
-              Hello, I&apos;m
-            </motion.span>
-            <motion.h1 
-              variants={fadeIn}
-              className="text-5xl font-bold mb-4 text-gray-900"
-            >
-              Handy Hasan
-            </motion.h1>
+            {/* Profile Image */}
             <motion.div 
               variants={fadeIn}
-              className="flex flex-wrap items-center justify-center gap-3 mb-6"
+              className="flex-shrink-0"
             >
-              <h2 className="text-2xl text-gray-700">Full-Stack Software Engineer</h2>
+              <div className="relative">
+                <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Handy Hasan"
+                    width={320}
+                    height={320}
+                    className="object-cover w-full h-full"
+                    priority
+                  />
+                </div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/20 to-blue-500/20"></div>
+              </div>
             </motion.div>
+
+            {/* Content */}
             <motion.div 
-              variants={fadeIn}
-              className="mb-8 max-w-2xl"
+              className="flex-1 text-center lg:text-left"
             >
-              <TypeAnimation 
-                text="👋 Hi! I'm Handy — a passionate Software Engineer specializing in Full-Stack Web and Mobile Development." 
-                className="text-lg text-gray-600"
-              />
-            </motion.div>
-            <motion.div 
-              variants={fadeIn}
-              className="flex flex-wrap space-x-0 sm:space-x-4 gap-4 sm:gap-0"
-            >
-              <a 
-                href="#contact" 
-                className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors"
+              <motion.span 
+                variants={fadeIn}
+                className="text-lg text-gray-600 mb-2 block"
               >
-                Hire Me
-              </a>
-              <Link 
-                href="/projects" 
-                className="bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors font-medium border border-gray-800"
+                Hello, I&apos;m
+              </motion.span>
+              <motion.h1 
+                variants={fadeIn}
+                className="text-5xl font-bold mb-4 text-gray-900"
               >
-                View Projects
-              </Link>
-              <a 
-                href="#blog" 
-                className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+                Handy Hasan
+              </motion.h1>
+              <motion.div 
+                variants={fadeIn}
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6"
               >
-                Read My Blog
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v9.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 12.586V3a1 1 0 011-1z" clipRule="evenodd" />
-                </svg>
-              </a>
-              <Link 
-                href="/projects" 
-                className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
+                <h2 className="text-2xl text-gray-700">Full-Stack Software Engineer</h2>
+              </motion.div>
+              <motion.div 
+                variants={fadeIn}
+                className="mb-8 max-w-2xl"
               >
-                View My Work
-              </Link>
+                <TypeAnimation 
+                  text="👋 Hi! I'm Handy — a passionate Software Engineer specializing in Full-Stack Web and Mobile Development." 
+                  className="text-lg text-gray-600"
+                />
+              </motion.div>
+              <motion.div 
+                variants={fadeIn}
+                className="flex flex-wrap justify-center lg:justify-start space-x-0 sm:space-x-4 gap-4 sm:gap-0"
+              >
+                <a 
+                  href="#contact" 
+                  className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors"
+                >
+                  Hire Me
+                </a>
+                <Link 
+                  href="/projects" 
+                  className="bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors font-medium border border-gray-800"
+                >
+                  View Projects
+                </Link>
+                <a 
+                  href="#blog" 
+                  className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+                >
+                  Read My Blog
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v9.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 12.586V3a1 1 0 011-1z" clipRule="evenodd" />
+                  </svg>
+                </a>
+                <Link 
+                  href="/projects" 
+                  className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
+                >
+                  View My Work
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
