@@ -137,14 +137,14 @@ export default function Home() {
                 variants={fadeIn}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6"
               >
-                <h2 className="text-2xl text-gray-700">Full-Stack Software Engineer</h2>
+                <h2 className="text-2xl text-gray-700">Senior Full-Stack Software Engineer | Melbourne</h2>
               </motion.div>
               <motion.div 
                 variants={fadeIn}
                 className="mb-8 max-w-2xl"
               >
                 <TypeAnimation 
-                  text="👋 Hi! I'm Handy — a passionate Software Engineer specializing in Full-Stack Web and Mobile Development." 
+                  text="👋 Hi! I'm Handy — a Senior Software Engineer in Melbourne with 7+ years experience in full-stack development, specializing in React, Python, AWS, and mobile applications. Available for hire by Melbourne tech companies and startups." 
                   className="text-lg text-gray-600"
                 />
               </motion.div>
@@ -313,6 +313,63 @@ export default function Home() {
           </div>
         </div>
       </motion.div>
+
+      {/* SEO Section for Recruiters - Melbourne Software Engineer */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h2 
+              className="text-3xl font-bold mb-6 text-gray-900"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+            >
+              Hire a Senior Software Engineer in Melbourne
+            </motion.h2>
+            <motion.div 
+              className="text-lg text-gray-700 leading-relaxed space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <p>
+                Looking for a <strong>top software engineer in Melbourne</strong>? I'm a senior full-stack developer with <strong>7+ years of professional experience</strong> working with leading Melbourne companies including 4DMedical (ASX listed) and The Good Guys.
+              </p>
+              <p>
+                As a <strong>Melbourne-based software engineer</strong>, I specialize in building scalable web applications, mobile apps, and cloud solutions. My expertise includes <strong>React, Python, AWS, Node.js, and mobile development</strong> - perfect for startups and enterprise companies looking to scale their tech teams.
+              </p>
+              <p>
+                <strong>Available for hire</strong> as a senior developer, tech lead, or consultant for Melbourne companies. I have a proven track record of delivering high-impact projects, from medical imaging platforms processing 3,000+ daily scans to mobile apps with 10,000+ active users.
+              </p>
+            </motion.div>
+            <motion.div 
+              className="mt-8 flex flex-wrap justify-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <a 
+                href="#contact" 
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition-colors font-medium inline-flex items-center gap-2"
+              >
+                Hire Me Now
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </a>
+              <Link 
+                href="/experience" 
+                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 rounded-lg transition-colors font-medium"
+              >
+                View Full Resume
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Experience Section - Brief Summary */}
       <section id="experience" className="py-20 bg-white">

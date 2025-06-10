@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://handyhasan.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1 
