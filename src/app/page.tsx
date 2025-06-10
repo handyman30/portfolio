@@ -112,7 +112,8 @@ export default function Home() {
                     alt="Handy Hasan"
                     width={320}
                     height={320}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full object-top"
+                    style={{ objectPosition: 'center 20%' }}
                     priority
                   />
                 </div>
