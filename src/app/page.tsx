@@ -692,6 +692,47 @@ export default function Home() {
           
           {/* Blog Posts Grid - Previews only for better performance */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            {/* Vector Embeddings & RAG - NEW */}
+            <motion.a 
+              href="/blog/vector-embeddings-rag"
+              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="h-48 bg-gradient-to-br from-purple-500 to-indigo-600 relative flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🧠</div>
+                  <div className="text-xl font-bold">Vector Embeddings & RAG</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center mb-3 gap-2">
+                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
+                    Machine Learning
+                  </span>
+                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
+                    Vector Databases
+                  </span>
+                  <span className="px-2 py-1 bg-purple-500 text-white rounded-full text-xs">
+                    Latest
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-gray-900">Vector Embeddings & RAG: From Text to Intelligent Search</h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  A comprehensive guide to understanding vector embeddings and building production-ready RAG systems. Learn how text becomes numbers and how to build enterprise document intelligence systems...
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-500">25 min read</span>
+                  <span className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors">
+                    Read More →
+                  </span>
+                </div>
+              </div>
+            </motion.a>
+
             {/* Quality Engineering Preview */}
             <motion.div 
               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
@@ -777,7 +818,7 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-
+            
             {/* Railway Deployment Preview */}
             <motion.div 
               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
