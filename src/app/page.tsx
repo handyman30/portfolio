@@ -169,7 +169,7 @@ export default function Home() {
                 </Link>
                 <Link 
                   href="/projects" 
-                  className="bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors font-medium border border-gray-800"
+                  className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
                 >
                   View Projects
                 </Link>
@@ -182,12 +182,6 @@ export default function Home() {
                     <path fillRule="evenodd" d="M10 2a1 1 0 011 1v9.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 12.586V3a1 1 0 011-1z" clipRule="evenodd" />
                   </svg>
                 </a>
-                <Link 
-                  href="/projects" 
-                  className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
-                >
-                  View My Work
-                </Link>
               </motion.div>
             </motion.div>
           </div>
