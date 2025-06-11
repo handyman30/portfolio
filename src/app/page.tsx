@@ -49,7 +49,7 @@ export default function Home() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
-
+  
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 relative">
       {/* Sticky CTA */}
@@ -96,7 +96,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             {/* Profile Image */}
-            <motion.div 
+          <motion.div 
               className="flex-shrink-0"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -116,52 +116,52 @@ export default function Home() {
             {/* Content */}
             <motion.div 
               className="flex-1 text-center lg:text-left"
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-            >
-              <motion.span 
-                variants={fadeIn}
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            <motion.span 
+              variants={fadeIn}
                 className="text-lg text-gray-600 mb-2 block"
-              >
-                Hello, I&apos;m
-              </motion.span>
-              <motion.h1 
-                variants={fadeIn}
-                className="text-5xl font-bold mb-4 text-gray-900"
-              >
-                Handy Hasan
-              </motion.h1>
-              <motion.div 
-                variants={fadeIn}
+            >
+              Hello, I&apos;m
+            </motion.span>
+            <motion.h1 
+              variants={fadeIn}
+              className="text-5xl font-bold mb-4 text-gray-900"
+            >
+              Handy Hasan
+            </motion.h1>
+            <motion.div 
+              variants={fadeIn}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6"
-              >
+            >
                 <h2 className="text-2xl text-gray-700">Senior Full-Stack Software Engineer | Melbourne</h2>
-              </motion.div>
-              <motion.div 
-                variants={fadeIn}
-                className="mb-8 max-w-2xl"
-              >
-                <TypeAnimation 
+            </motion.div>
+            <motion.div 
+              variants={fadeIn}
+              className="mb-8 max-w-2xl"
+            >
+              <TypeAnimation 
                   text="👋 Hi! I'm Handy — a Senior Software Engineer in Melbourne with 7+ years experience in full-stack development, specializing in React, Python, AWS, and mobile applications. Available for hire by Melbourne tech companies and startups." 
-                  className="text-lg text-gray-600"
-                />
-              </motion.div>
-              <motion.div 
-                variants={fadeIn}
+                className="text-lg text-gray-600"
+              />
+            </motion.div>
+            <motion.div 
+              variants={fadeIn}
                 className="flex flex-wrap justify-center lg:justify-start space-x-0 sm:space-x-4 gap-4 sm:gap-0"
+            >
+              <a 
+                href="#contact" 
+                className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors"
               >
-                <a 
-                  href="#contact" 
-                  className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors"
-                >
-                  Hire Me
-                </a>
-                <Link 
-                  href="/demos/fintech-dashboard" 
+                Hire Me
+              </a>
+              <Link 
+                  href="/demos/lung-3d" 
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-all font-medium flex items-center gap-2"
                 >
-                  View Live Demos
+                  View 3D Demos
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
@@ -169,20 +169,20 @@ export default function Home() {
                 <Link 
                   href="/projects" 
                   className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
-                >
+              >
                   View Projects
-                </Link>
-                <a 
-                  href="#blog" 
-                  className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
-                >
-                  Read My Blog
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v9.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 12.586V3a1 1 0 011-1z" clipRule="evenodd" />
-                  </svg>
-                </a>
-              </motion.div>
+              </Link>
+              <a 
+                href="#blog" 
+                className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+              >
+                Read My Blog
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v9.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 12.586V3a1 1 0 011-1z" clipRule="evenodd" />
+                </svg>
+              </a>
             </motion.div>
+          </motion.div>
           </div>
         </div>
       </section>
@@ -399,29 +399,29 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Senior Software Engineer</h3>
                 <div className="text-blue-600 font-medium mb-1">4DMedical (ASX: 4DX)</div>
                 <div className="text-sm text-gray-600">Oct 2021 - Present (3+ years)</div>
-              </div>
+                    </div>
               
               <p className="text-gray-700 mb-4 leading-relaxed">
                 Leading development of medical imaging platform processing 3,290+ daily DICOM scans. Built gRPC systems connecting XVD hardware to cloud backend, achieving 80% bandwidth reduction and medical-grade reliability.
-              </p>
-              
+                    </p>
+                    
               <div className="flex flex-wrap gap-2 mb-4">
                 {["Python", "gRPC", "AWS", "Medical Imaging", "Microservices"].map((tech) => (
                   <span key={tech} className="px-2 py-1 bg-gray-100 text-gray-700 rounded-md text-xs border border-gray-200">
                     {tech}
                   </span>
                 ))}
-              </div>
+                    </div>
                     
               <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
                 <p className="text-gray-800 text-sm font-medium">
                   🚀 Key Impact: Enabling 10x more accurate lung imaging for hospitals worldwide
                 </p>
-              </div>
-            </motion.div>
+                  </div>
+              </motion.div>
 
-            {/* The Good Guys */}
-            <motion.div 
+              {/* The Good Guys */}
+              <motion.div 
               className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -432,11 +432,11 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Software Developer</h3>
                 <div className="text-orange-600 font-medium mb-1">The Good Guys (JB Hi-Fi Group)</div>
                 <div className="text-sm text-gray-600">Oct 2019 - Oct 2021 (2 years)</div>
-              </div>
+                    </div>
               
               <p className="text-gray-700 mb-4 leading-relaxed">
                 Developed e-commerce platform features for Australia's largest electronics retailer. Reduced page load times by 35%, built real-time inventory systems, and optimized mobile checkout flows.
-              </p>
+                    </p>
                     
               <div className="flex flex-wrap gap-2 mb-4">
                 {["React", "Node.js", "E-commerce", "Performance", "Mobile-First"].map((tech) => (
@@ -444,13 +444,13 @@ export default function Home() {
                     {tech}
                   </span>
                 ))}
-              </div>
+                        </div>
               
               <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
                 <p className="text-gray-800 text-sm font-medium">
                   📈 Key Impact: Millions of daily transactions, 25% mobile conversion increase
                 </p>
-              </div>
+                        </div>
             </motion.div>
                       </div>
           
@@ -485,6 +485,53 @@ export default function Home() {
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Lung 3D Visualization - NEW MEDICAL IMAGING DEMO */}
+            <motion.a 
+              href="/demos/lung-3d" 
+              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl relative"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute top-3 right-3 z-10 flex gap-2">
+                <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">
+                  NEW
+                </span>
+                <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                  3D DEMO
+                </span>
+              </div>
+              <div className="h-48 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 relative flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🫁</div>
+                  <div className="text-xl font-bold">Lung 3D Imaging</div>
+                  <div className="text-sm opacity-80 mt-1">Medical Visualization</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">Interactive Lung 3D Visualization</h3>
+                <p className="text-gray-600 mb-4">
+                  Professional medical imaging system with breathing animation, DICOM slice viewing, and real-time respiratory data. Built with Three.js showcasing 4DMedical expertise.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
+                    Try 3D Demo
+                  </span>
+                  <div className="flex gap-2">
+                    <span className="text-sm px-2 py-1 bg-red-100 text-red-800 rounded-full">
+                      Three.js
+                    </span>
+                    <span className="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
+                      Medical
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.a>
+
             {/* FinPay Analytics Dashboard - LIVE DEMO */}
             <motion.a 
               href="/demos/fintech-dashboard" 
@@ -492,7 +539,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -729,8 +776,8 @@ export default function Home() {
                   <span className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors">
                     Read More →
                   </span>
-                </div>
-              </div>
+                    </div>
+                    </div>
             </motion.a>
 
             {/* Quality Engineering Preview */}
@@ -746,8 +793,8 @@ export default function Home() {
                 <div className="text-white text-center">
                   <div className="text-4xl mb-2">🧪</div>
                   <div className="text-xl font-bold">Quality Engineering</div>
+                  </div>
                 </div>
-              </div>
               <div className="p-6">
                 <div className="flex flex-wrap items-center mb-3 gap-2">
                   <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
@@ -775,7 +822,7 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-
+            
             {/* gRPC Medical Devices Preview */}
             <motion.div 
               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
@@ -815,8 +862,8 @@ export default function Home() {
                   >
                     Read More →
                   </Link>
-                </div>
-              </div>
+                    </div>
+                    </div>
             </motion.div>
             
             {/* Railway Deployment Preview */}
@@ -832,8 +879,8 @@ export default function Home() {
                 <div className="text-white text-center">
                   <div className="text-4xl mb-2">🚀</div>
                   <div className="text-xl font-bold">Railway Deployment</div>
+                  </div>
                 </div>
-              </div>
               <div className="p-6">
                 <div className="flex flex-wrap items-center mb-3 gap-2">
                   <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
@@ -895,8 +942,8 @@ export default function Home() {
                   >
                     Read More →
                   </Link>
-                </div>
-              </div>
+                    </div>
+                    </div>
             </motion.div>
 
             {/* Microservices Preview */}
@@ -912,8 +959,8 @@ export default function Home() {
                 <div className="text-white text-center">
                   <div className="text-4xl mb-2">🧩</div>
                   <div className="text-xl font-bold">Microservices</div>
+                  </div>
                 </div>
-              </div>
               <div className="p-6">
                 <div className="flex flex-wrap items-center mb-3 gap-2">
                   <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
@@ -938,7 +985,7 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-
+            
             {/* Hangtime App Preview */}
             <motion.div 
               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
@@ -975,8 +1022,8 @@ export default function Home() {
                   >
                     Read More →
                   </Link>
-                </div>
-              </div>
+                    </div>
+                  </div>
             </motion.div>
 
             {/* Beyond Stripe Preview */}
@@ -992,8 +1039,8 @@ export default function Home() {
                 <div className="text-white text-center">
                   <div className="text-4xl mb-2">💳</div>
                   <div className="text-xl font-bold">Beyond Stripe</div>
-                </div>
-              </div>
+                  </div>
+                  </div>
               <div className="p-6">
                 <div className="flex flex-wrap items-center mb-3 gap-2">
                   <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
@@ -1018,7 +1065,7 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-
+            
             {/* Medical Imaging Preview */}
             <motion.div 
               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
@@ -1058,7 +1105,7 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-
+            
             {/* Aussie E-commerce Asia Preview */}
             <motion.div 
               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
@@ -1162,78 +1209,78 @@ export default function Home() {
               
               <div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">Send Me a Message</h3>
-                  <form className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
-                        required
-                      ></textarea>
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded-md transition-colors"
-                    >
-                      Send Message
-                    </button>
-                  </form>
-                </div>
+                <form className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+                      required
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded-md transition-colors"
+                  >
+                    Send Message
+                  </button>
+                </form>
               </div>
-            </motion.div>
-          </div>
-        </section>
-        
-        {/* Footer */}
-        <footer className="bg-gray-100 py-8">
-          <div className="container mx-auto px-6 text-center">
-            <p className="text-gray-600">
-              © {new Date().getFullYear()} Handy Hasan. All rights reserved.
-            </p>
-            <div className="flex justify-center space-x-6 mt-4">
-              <a href="https://linkedin.com/in/handy-hasan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-700 transition-colors">
-                <span className="sr-only">LinkedIn</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-              <a href="https://github.com/handyhasan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
-                <span className="sr-only">GitHub</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
-              </a>
             </div>
+          </motion.div>
+        </div>
+      </section>
+      
+      {/* Footer */}
+      <footer className="bg-gray-100 py-8">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-gray-600">
+            © {new Date().getFullYear()} Handy Hasan. All rights reserved.
+          </p>
+          <div className="flex justify-center space-x-6 mt-4">
+            <a href="https://linkedin.com/in/handy-hasan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-700 transition-colors">
+              <span className="sr-only">LinkedIn</span>
+              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a href="https://github.com/handyhasan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+              <span className="sr-only">GitHub</span>
+              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+              </svg>
+            </a>
           </div>
-        </footer>
-      </div>
-    );
-  }
+        </div>
+      </footer>
+    </div>
+  );
+}
