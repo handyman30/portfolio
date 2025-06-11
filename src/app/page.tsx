@@ -159,6 +159,15 @@ export default function Home() {
                   Hire Me
                 </a>
                 <Link 
+                  href="/demos/fintech-dashboard" 
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-all font-medium flex items-center gap-2"
+                >
+                  View Live Demos
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </Link>
+                <Link 
                   href="/projects" 
                   className="bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors font-medium border border-gray-800"
                 >
@@ -483,6 +492,44 @@ export default function Home() {
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* FinPay Analytics Dashboard - LIVE DEMO */}
+            <motion.a 
+              href="/demos/fintech-dashboard" 
+              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl relative"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute top-3 right-3 z-10">
+                <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                  LIVE DEMO
+                </span>
+              </div>
+              <div className="h-48 bg-gradient-to-br from-blue-600 to-purple-600 relative flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">💰</div>
+                  <div className="text-xl font-bold">FinPay Dashboard</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">FinPay Dashboard</h3>
+                <p className="text-gray-600 mb-4">
+                  Interactive fintech analytics dashboard with real-time transaction monitoring, payment method distribution, risk scoring, and regional insights. Built with React & TypeScript.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
+                    Try Live Demo
+                  </span>
+                  <span className="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
+                    Interactive
+                  </span>
+                </div>
+              </div>
+            </motion.a>
+
             {/* Hangtime Melbourne */}
             <motion.a 
               href="https://apps.apple.com/au/app/hangtime-basketball/id6450975691" 
