@@ -84,7 +84,6 @@ export default function Home() {
           <div className="font-bold text-xl text-gray-900">Handy Hasan</div>
           <div className="flex space-x-6">
             <Link href="/experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</Link>
-            <Link href="/projects" className="text-gray-600 hover:text-gray-900 transition-colors">Projects</Link>
             <a href="#blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
             <Link href="/break-into-tech" className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors">Course</Link>
             <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
@@ -167,12 +166,12 @@ export default function Home() {
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </Link>
-                <Link 
-                  href="/projects" 
+                <a 
+                  href="#projects" 
                   className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
               >
                   View Projects
-              </Link>
+              </a>
               <a 
                 href="#blog" 
                 className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
@@ -427,9 +426,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-              <div className="mb-6">
+                               transition={{ duration: 0.7, delay: 0.5 }}
+             >
+               <div className="mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Software Developer</h3>
                 <div className="text-orange-600 font-medium mb-1">The Good Guys (JB Hi-Fi Group)</div>
                 <div className="text-sm text-gray-600">Oct 2019 - Oct 2021 (2 years)</div>
@@ -549,11 +548,13 @@ export default function Home() {
                   LIVE DEMO
                 </span>
               </div>
-              <div className="h-48 bg-gradient-to-br from-blue-600 to-purple-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">💰</div>
-                  <div className="text-xl font-bold">FinPay Dashboard</div>
-                </div>
+              <div className="h-48 bg-white relative">
+                <Image
+                  src="/images/fintech-dashboard.png"
+                  alt="FinPay Dashboard"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-gray-900">FinPay Dashboard</h3>
@@ -571,6 +572,49 @@ export default function Home() {
               </div>
             </motion.a>
 
+            {/* Re-Coded */}
+            <motion.a 
+              href="https://re-coded.com.au" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="h-48 bg-white relative">
+                <Image
+                  src="/images/pink-fluid.png"
+                  alt="Re-Coded"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">Re-Coded</h3>
+                <p className="text-gray-600 mb-4">
+                  Professional recruitment agency website featuring modern design, mobile-first approach, and optimized user experience for both clients and candidates.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
+                    Visit Website
+                  </span>
+                  <span className="text-sm px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full">
+                    Client Project
+                  </span>
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-200">
+                  <div className="bg-emerald-50 p-3 rounded-lg">
+                    <p className="text-sm text-emerald-800 italic mb-2">"Recommend Handy for website/mobile apps and software solutions for your project"</p>
+                    <p className="text-xs text-emerald-700 font-medium">- Charlie Beattle, Partner at Re-Coded</p>
+                  </div>
+                </div>
+              </div>
+            </motion.a>
+
             {/* Hangtime Melbourne */}
             <motion.a 
               href="https://apps.apple.com/au/app/hangtime-basketball/id6450975691" 
@@ -580,7 +624,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -621,11 +665,13 @@ export default function Home() {
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🤖</div>
-                  <div className="text-xl font-bold">Recruiter Copilot AI</div>
-                </div>
+              <div className="h-48 bg-white relative">
+                <Image
+                  src="/images/recruiter-copilot.png"
+                  alt="Recruiter Copilot AI"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-gray-900">Recruiter Copilot AI</h3>
@@ -643,40 +689,7 @@ export default function Home() {
               </div>
             </motion.a>
 
-            {/* EssentialsDash */}
-            <motion.a 
-              href="https://essentials-life-production.up.railway.app/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-purple-400 to-pink-400 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🛍️</div>
-                  <div className="text-xl font-bold">EssentialsDash</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">EssentialsDash</h3>
-                <p className="text-gray-600 mb-4">
-                  Curated product discovery platform for trending essentials across shoes, tech, watches, cars, and style. Discover the latest trends with direct buy links.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
-                    Discover Products
-                  </span>
-                  <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
-                    Trending
-                  </span>
-                </div>
-              </div>
-            </motion.a>
+
 
             {/* LifeGPT */}
             <motion.a 
@@ -687,15 +700,17 @@ export default function Home() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🧠</div>
-                  <div className="text-xl font-bold">LifeGPT</div>
-                </div>
+              <div className="h-48 bg-white relative">
+                <Image
+                  src="/images/lifegpt.png"
+                  alt="LifeGPT"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-gray-900">LifeGPT</h3>
@@ -740,7 +755,7 @@ export default function Home() {
           
           {/* Blog Posts Grid - Previews only for better performance */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-            {/* Vector Embeddings & RAG - NEW */}
+            {/* Vector Embeddings & RAG */}
             <motion.a 
               href="/blog/vector-embeddings-rag"
               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
@@ -765,7 +780,7 @@ export default function Home() {
                     Vector Databases
                   </span>
                   <span className="px-2 py-1 bg-purple-500 text-white rounded-full text-xs">
-                    Latest
+                    Popular
                   </span>
                 </div>
                 <h3 className="text-lg font-bold mb-2 text-gray-900">Vector Embeddings & RAG: From Text to Intelligent Search</h3>
@@ -777,8 +792,131 @@ export default function Home() {
                   <span className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors">
                     Read More →
                   </span>
-                    </div>
-                    </div>
+                </div>
+              </div>
+            </motion.a>
+
+            {/* React Energy Footprint - NEW */}
+            <motion.a 
+              href="/blog/react-energy-footprint"
+              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="h-48 bg-gradient-to-br from-green-500 to-emerald-600 relative flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🔋</div>
+                  <div className="text-xl font-bold">React Energy Optimization</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center mb-3 gap-2">
+                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
+                    React
+                  </span>
+                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
+                    Performance
+                  </span>
+                  <span className="px-2 py-1 bg-green-500 text-white rounded-full text-xs">
+                    Latest
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-gray-900">Profiling and Slashing Your React App's Energy Footprint in Six Steps</h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  Energy efficiency isn't just about performance—it's about sustainability and respecting your users' battery life. Learn systematic steps to reduce energy consumption by up to 60%...
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-500">18 min read</span>
+                  <span className="text-green-600 hover:text-green-800 font-medium text-sm transition-colors">
+                    Read More →
+                  </span>
+                </div>
+              </div>
+            </motion.a>
+
+                         {/* Incident Management Stack - NEW */}
+             <motion.a 
+               href="/blog/incident-management-stack-2025"
+               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, margin: "-100px" }}
+               transition={{ duration: 0.7, delay: 0.3 }}
+               whileHover={{ y: -5 }}
+             >
+              <div className="h-48 bg-gradient-to-br from-red-500 to-orange-600 relative flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🚨</div>
+                  <div className="text-xl font-bold">Incident Management 2025</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center mb-3 gap-2">
+                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
+                    DevOps
+                  </span>
+                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
+                    Monitoring
+                  </span>
+                  <span className="px-2 py-1 bg-red-500 text-white rounded-full text-xs">
+                    Latest
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-gray-900">Choosing the Right Incident Management Stack in 2025: From FullStory to OpsGenie</h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  Building a robust incident management stack isn't just about picking the latest tools—it's about creating a seamless flow from detection to resolution...
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-500">22 min read</span>
+                  <span className="text-red-600 hover:text-red-800 font-medium text-sm transition-colors">
+                    Read More →
+                  </span>
+                </div>
+              </div>
+            </motion.a>
+
+                         {/* Polling vs WebSockets vs Server Actions - NEW */}
+             <motion.a 
+               href="/blog/polling-websockets-server-actions"
+               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, margin: "-100px" }}
+               transition={{ duration: 0.7, delay: 0.4 }}
+               whileHover={{ y: -5 }}
+             >
+              <div className="h-48 bg-gradient-to-br from-purple-500 to-blue-600 relative flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🔄</div>
+                  <div className="text-xl font-bold">React Real-time Data</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center mb-3 gap-2">
+                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
+                    React
+                  </span>
+                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
+                    Next.js
+                  </span>
+                  <span className="px-2 py-1 bg-purple-500 text-white rounded-full text-xs">
+                    Latest
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-gray-900">Polling vs. WebSockets vs. Server Actions in React/Next.js</h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  Choosing the right data synchronization strategy can make or break your user experience. Learn when to use polling, WebSockets, or Next.js Server Actions...
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-500">16 min read</span>
+                  <span className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors">
+                    Read More →
+                  </span>
+                </div>
+              </div>
             </motion.a>
 
             {/* Quality Engineering Preview */}
