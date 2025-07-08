@@ -1288,6 +1288,261 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.h2 
+            className="text-3xl font-bold mb-4 text-center text-gray-900"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            What People Say
+          </motion.h2>
+          <motion.p
+            className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Recommendations from colleagues, clients, and team members
+          </motion.p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {/* Charlie Beattie - Featured */}
+            <motion.div 
+              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs px-3 py-1 rounded-full font-medium">
+                Client
+              </div>
+              <div className="mb-4">
+                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
+                </svg>
+              </div>
+              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
+                "Handy is a rare breed of engineer; not only does he bring <strong>deep technical capability across a broad range of verticals</strong>, but he also has a sharp eye for design and detail that sets him apart. Having placed over 500 technologists into roles over the past decade, I can confidently say <strong>Handy stands out as a uniquely valuable asset</strong>."
+              </blockquote>
+              <div className="border-t border-gray-200 pt-4">
+                <div className="font-semibold text-gray-900">Charlie Beattie</div>
+                <div className="text-sm text-gray-600">Director & Principal at Recoded | CSM®</div>
+                <div className="flex items-center mt-2 text-xs text-gray-500">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn Recommendation
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Jeff Ma - Technical */}
+            <motion.div 
+              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-medium">
+                4DMedical
+              </div>
+              <div className="mb-4">
+                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
+                </svg>
+              </div>
+              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
+                "Handy has a <strong>deep understanding of system architecture, scalability, and performance optimization</strong>. On the DRRD project, he took initiative to ensure all team members were aligned, proposed innovative solutions, and <strong>completed his work promptly with high quality</strong>. An excellent Full Stack Engineer."
+              </blockquote>
+              <div className="border-t border-gray-200 pt-4">
+                <div className="font-semibold text-gray-900">Jeff Ma</div>
+                <div className="text-sm text-gray-600">Lead Software Engineer at 4DMedical</div>
+                <div className="flex items-center mt-2 text-xs text-gray-500">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn Recommendation
+                </div>
+              </div>
+            </motion.div>
+
+            {/* ChengJu Tsai - Research Collaboration */}
+            <motion.div 
+              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-medium">
+                Research
+              </div>
+              <div className="mb-4">
+                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
+                </svg>
+              </div>
+              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
+                "Handy brings <strong>strong depth in algorithms and computer science fundamentals</strong>. His thoughtful approach to translating complex research ideas into practical solutions made him an <strong>invaluable bridge between research and software teams</strong>. A genuinely approachable colleague who contributes to a healthy team culture."
+              </blockquote>
+              <div className="border-t border-gray-200 pt-4">
+                <div className="font-semibold text-gray-900">ChengJu Tsai</div>
+                <div className="text-sm text-gray-600">Master of Engineering</div>
+                <div className="flex items-center mt-2 text-xs text-gray-500">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn Recommendation
+                </div>
+              </div>
+            </motion.div>
+
+            {/* More Testimonials - Initially Hidden */}
+            <motion.div 
+              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative hidden testimonial-extra"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-4">
+                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
+                </svg>
+              </div>
+              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
+                "A talented and resourceful Software Engineer with a <strong>passion for clean, scalable code</strong>. Handy consistently delivers beyond expectations—bringing not just technical skills but also a <strong>collaborative and solutions-driven mindset</strong> to every project."
+              </blockquote>
+              <div className="border-t border-gray-200 pt-4">
+                <div className="font-semibold text-gray-900">Emanuela Yuliana</div>
+                <div className="text-sm text-gray-600">Graphic Designer</div>
+                <div className="flex items-center mt-2 text-xs text-gray-500">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn Recommendation
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative hidden testimonial-extra"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="mb-4">
+                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
+                </svg>
+              </div>
+              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
+                "Highly capable of developing both greenfield and brownfield projects. <strong>Well-versed in cutting-edge technologies</strong> with a deep understanding of architecture. His contributions during grooming sessions often led to the creation of <strong>thoughtful and user-friendly features</strong>."
+              </blockquote>
+              <div className="border-t border-gray-200 pt-4">
+                <div className="font-semibold text-gray-900">Daniel Ramezani</div>
+                <div className="text-sm text-gray-600">Frontend Developer</div>
+                <div className="flex items-center mt-2 text-xs text-gray-500">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn Recommendation
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative hidden testimonial-extra"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="mb-4">
+                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
+                </svg>
+              </div>
+              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
+                "Handy has all the traits you want in a team member. <strong>Amazing social skills, attentive to detail, and a fast learner</strong>. But most importantly, he has unparalleled enthusiasm and thirst for both learning and transmitting knowledge. Perfect for <strong>close team environments where social skills and code review are key</strong>."
+              </blockquote>
+              <div className="border-t border-gray-200 pt-4">
+                <div className="font-semibold text-gray-900">Jonathan Nicholas</div>
+                <div className="text-sm text-gray-600">Senior Software Engineer at Dye & Durham</div>
+                <div className="flex items-center mt-2 text-xs text-gray-500">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn Recommendation
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative hidden testimonial-extra"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-4">
+                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
+                </svg>
+              </div>
+              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
+                "Handy's knack for <strong>breaking down complex problems and delivering robust, scalable solutions</strong> made a huge difference on our project. He communicates clearly, collaborates effortlessly across teams, and writes <strong>clean, maintainable code</strong>."
+              </blockquote>
+              <div className="border-t border-gray-200 pt-4">
+                <div className="font-semibold text-gray-900">Hillary Gracella</div>
+                <div className="text-sm text-gray-600">Software Professional</div>
+                <div className="flex items-center mt-2 text-xs text-gray-500">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn Recommendation
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Show More Button */}
+          <motion.div 
+            className="text-center mt-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <button
+              onClick={() => {
+                const extras = document.querySelectorAll('.testimonial-extra');
+                const button = document.getElementById('show-more-btn');
+                extras.forEach(el => el.classList.toggle('hidden'));
+                if (button) {
+                  button.textContent = button.textContent === 'Show More Recommendations' ? 'Show Less' : 'Show More Recommendations';
+                }
+              }}
+              id="show-more-btn"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+            >
+              Show More Recommendations
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
