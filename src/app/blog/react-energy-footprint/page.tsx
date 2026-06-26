@@ -42,52 +42,55 @@ export default function ReactEnergyFootprintBlog() {
                 Latest
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">Profiling and Slashing Your React App's Energy Footprint in Six Steps</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">Cutting a React app's energy footprint in six steps</h1>
             <p className="text-gray-600 mb-4">
               January 15, 2025 • 18 min read
             </p>
-            
+            <p className="text-lg text-gray-600 mb-4">
+              Battery and CPU are a UX cost too. Here's a repeatable way to profile and trim the waste.
+            </p>
+
             <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Energy Optimization Fundamentals</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">The basics</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">🔋</span>
-                      <span><strong>CPU Usage Profiling</strong> – Identify energy-intensive components</span>
+                      <span className="text-green-500 mr-2">•</span>
+                      <span><strong>CPU profiling</strong> – find the components doing the most work</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">⚡</span>
-                      <span><strong>Memory Leak Detection</strong> – Track and eliminate memory bloat</span>
+                      <span className="text-green-500 mr-2">•</span>
+                      <span><strong>Memory leaks</strong> – track them down and stop the bloat</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">📊</span>
-                      <span><strong>Rendering Optimization</strong> – Minimize unnecessary re-renders</span>
+                      <span className="text-green-500 mr-2">•</span>
+                      <span><strong>Rendering</strong> – cut the re-renders you don't need</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">🎯</span>
-                      <span><strong>Bundle Analysis</strong> – Reduce JavaScript payload</span>
+                      <span className="text-green-500 mr-2">•</span>
+                      <span><strong>Bundle size</strong> – ship less JavaScript</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Advanced Optimization Techniques</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">The next layer</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">🚀</span>
-                      <span><strong>Code Splitting</strong> – Load only what you need</span>
+                      <span className="text-green-500 mr-2">•</span>
+                      <span><strong>Code splitting</strong> – only load what the page actually needs</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">💾</span>
-                      <span><strong>Caching Strategies</strong> – Reduce network requests</span>
+                      <span className="text-green-500 mr-2">•</span>
+                      <span><strong>Caching</strong> – stop fetching the same thing twice</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">🔄</span>
-                      <span><strong>Virtualization</strong> – Handle large datasets efficiently</span>
+                      <span className="text-green-500 mr-2">•</span>
+                      <span><strong>Virtualization</strong> – render long lists without rendering all of them</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">📱</span>
-                      <span><strong>Mobile Optimization</strong> – Battery-conscious mobile patterns</span>
+                      <span className="text-green-500 mr-2">•</span>
+                      <span><strong>Mobile</strong> – patterns that go easy on the battery</span>
                     </li>
                   </ul>
                 </div>
@@ -95,13 +98,13 @@ export default function ReactEnergyFootprintBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Energy efficiency isn't just about performance—it's about sustainability, user experience, and respecting your users' battery life. After optimizing multiple React applications for energy consumption, I've identified six systematic steps that can reduce your app's energy footprint by up to 60% while improving performance.
+              We tend to treat energy as someone else's problem. But a chatty React app drains a phone battery and spins up fans on a laptop, and that's a UX cost the same way a slow load is. Over a few projects I've ended up running the same six steps to find where the waste is and trim it. In the best cases that's cut CPU work by around 60%, and the app felt faster afterwards too.
             </p>
             
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-4 text-gray-900">Step 1: Profile Your App's Energy Consumption</h2>
               <p className="text-gray-700 mb-4">
-                Before optimizing, you need to understand where your app consumes the most energy. Modern browsers provide excellent profiling tools:
+                Don't guess. Before you change anything, find out where the work is actually going. The React DevTools Profiler is enough to start:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -136,7 +139,7 @@ function App() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-4 text-gray-900">Step 2: Eliminate Memory Leaks</h2>
               <p className="text-gray-700 mb-4">
-                Memory leaks are silent energy killers. Here's how to identify and fix them:
+                Leaks don't announce themselves. They just quietly keep the CPU busy. Here's a small hook I use to flag components that re-render far more than they should:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -160,7 +163,7 @@ function useMemoryLeakDetection(componentName) {
             </div>
             
             <div className="mb-6 bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 className="font-semibold mb-3 text-green-900">Energy Optimization Results</h4>
+              <h4 className="font-semibold mb-3 text-green-900">What this added up to</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-white p-4 rounded-md">
                   <div className="text-2xl font-bold text-green-600">-60%</div>
@@ -178,7 +181,7 @@ function useMemoryLeakDetection(componentName) {
             </div>
             
             <p className="text-gray-600 mb-6 italic">
-              Implementing these six steps in production React applications has consistently delivered 40-60% energy savings while improving user experience. The key is to profile first, optimize systematically, and always consider the user's device constraints.
+              On real apps these steps have landed somewhere in the 40-60% range for energy, and nothing here made the UX worse. The order matters though: profile first so you're fixing the thing that's actually expensive, not the thing you assume is. And remember the device on the other end isn't your dev machine.
             </p>
             
             {/* Back to Blog Link */}

@@ -2,1624 +2,339 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer, highlightVariant, TypeAnimation } from "./AnimatedComponents";
-import { useEffect, useState } from "react";
 import Link from 'next/link';
 import ContactForm from '../components/ContactForm';
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const skills = {
+  "Frontend": ["React", "Next.js", "TypeScript", "React Native", "Tailwind"],
+  "Backend": ["Python", "Django", "FastAPI", "Node.js", "gRPC", "GraphQL"],
+  "Infra & data": ["AWS", "Docker", "CI/CD", "Terraform", "PostgreSQL", "Redis"],
+};
+
+const experience = [
+  {
+    role: "Software Engineer",
+    company: "4DMedical",
+    tag: "ASX: 4DX",
+    period: "Jan 2023 — Present",
+    blurb: "Backend services and front-ends for a lung imaging platform that ingests large volumes of patient scans. Folded ML models into the image pipeline and cut average incident resolution time by about half.",
+  },
+  {
+    role: "Software Engineer",
+    company: "Who Gives A Crap",
+    tag: "B Corp",
+    period: "Jan 2022 — Jan 2023",
+    blurb: "Ran A/B tests and CRO experiments across sign-up, checkout and subscription flows on a React + Shopify stack, and built the experimentation tooling other engineers shipped on.",
+  },
+  {
+    role: "Software Engineer",
+    company: "The Good Guys",
+    tag: "JB Hi-Fi · ASX: JBH",
+    period: "Jul 2019 — Dec 2021",
+    blurb: "Helped move a monolithic e-commerce app to microservices, built catalog and checkout interfaces, and kept inventory and pricing in sync across channels.",
+  },
+];
+
+const projects = [
+  {
+    href: "/demos/lung-3d",
+    title: "Interactive Lung 3D",
+    desc: "A browser-based medical imaging demo: a breathing 3D lung, DICOM slice scrubbing and a respiratory data overlay. Built with Three.js, drawn from my day job at 4DMedical.",
+    label: "WebGL · Three.js",
+    meta: "Demo",
+    image: null,
+    external: false,
+  },
+  {
+    href: "/demos/fintech-dashboard",
+    title: "FinPay Dashboard",
+    desc: "A fintech analytics dashboard with live transaction monitoring, payment-method breakdowns, risk scoring and regional views. React and TypeScript.",
+    label: "React · TypeScript",
+    meta: "Demo",
+    image: "/images/fintech-dashboard.png",
+    external: false,
+  },
+  {
+    href: "https://apps.apple.com/au/app/hangtime-basketball/id6450975691",
+    title: "Hangtime",
+    desc: "A mobile app for finding local basketball runs and pickup games around Melbourne. Around 10,000 people have used it.",
+    label: "React Native · iOS",
+    meta: "App Store",
+    image: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/d7/86/60d78611-8a19-5e58-02e0-c636059f564c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/230x0w.webp",
+    external: true,
+  },
+  {
+    href: "https://recruiter-copilot-ai-production.up.railway.app/dashboard",
+    title: "Recruiter Copilot",
+    desc: "A recruiting dashboard that does candidate matching and first-pass screening, with the data views recruiters actually look at day to day.",
+    label: "Next.js · LLM",
+    meta: "Live",
+    image: "/images/recruiter-copilot.png",
+    external: true,
+  },
+  {
+    href: "https://hesitant-dock-production.up.railway.app/",
+    title: "LifeGPT",
+    desc: "A reflection app where you talk to different versions of yourself — your future self, your 60-year-old self, your harshest critic. A small side project about self-awareness.",
+    label: "Next.js · LLM",
+    meta: "Live",
+    image: "/images/lifegpt.png",
+    external: true,
+  },
+  {
+    href: "https://re-coded.com.au",
+    title: "Re-Coded",
+    desc: "A site for a recruitment agency — clean, mobile-first, built to make it easy for both clients and candidates to get in touch.",
+    label: "Client work",
+    meta: "Live",
+    image: "/images/pink-fluid.png",
+    external: true,
+  },
+];
+
+const posts = [
+  { href: "/blog/vector-embeddings-rag", title: "Vector embeddings and RAG, explained from scratch", dek: "How text turns into numbers, why keyword search falls down, and what it actually takes to put a retrieval system into production.", read: "25 min", tag: "Machine learning" },
+  { href: "/blog/react-energy-footprint", title: "Cutting a React app's energy footprint in six steps", dek: "Battery and CPU are a UX cost too. A repeatable way to profile a React app and trim the waste.", read: "18 min", tag: "React · Performance" },
+  { href: "/blog/incident-management-stack-2025", title: "Picking an incident management stack in 2025", dek: "What I'd reach for to get from 'something's wrong' to 'it's fixed' without ten dashboards in between.", read: "22 min", tag: "DevOps" },
+  { href: "/blog/polling-websockets-server-actions", title: "Polling vs. WebSockets vs. Server Actions", dek: "Three ways to keep a React/Next.js UI in sync, and how I decide which one a feature actually needs.", read: "16 min", tag: "React · Next.js" },
+  { href: "/blog/quality-engineering-testing", title: "Testing at scale: unit tests, Cypress and SonarCloud", dek: "Tests are less about coverage numbers and more about the habits that keep bugs out of prod.", read: "15 min", tag: "Testing" },
+  { href: "/blog/grpc-medical-devices", title: "Talking to medical devices over gRPC", dek: "Connecting 4DMedical's XVD hardware to the cloud, and how the protocol choice cut bandwidth by 80%.", read: "12 min", tag: "gRPC · Medical" },
+  { href: "/blog/railway-deployment-guide", title: "Shipping on Railway with Postgres and Git", dek: "Deployment shouldn't be the hard part. How I get small projects live without a weekend of YAML.", read: "10 min", tag: "DevOps" },
+  { href: "/blog/ecommerce-observability", title: "The invisible layer of e-commerce: observability", dek: "Mixpanel, New Relic and Sumo Logic — what they each tell you, and how they fit together.", read: "12 min", tag: "E-commerce · DevOps" },
+  { href: "/blog/monolith-to-microservices", title: "From monolith to microservices, without the dogma", dek: "Most platforms start as a monolith for good reasons. When splitting it up is worth the pain.", read: "8 min", tag: "Architecture" },
+  { href: "/blog/hangtime-app", title: "Building Hangtime: basketball meets software", dek: "The business side and the technical side of building a sports community app as a side project.", read: "10 min", tag: "Mobile" },
+  { href: "/blog/beyond-stripe", title: "Beyond Stripe: when to build your own payments", dek: "Stripe covers most cases. The handful where it doesn't, and how to roll your own safely.", read: "12 min", tag: "Payments" },
+  { href: "/blog/medical-imaging", title: "Medical imaging in the cloud: DICOM, PACS and ML", dek: "The standards and plumbing behind processing medical images at scale.", read: "14 min", tag: "Healthcare" },
+  { href: "/blog/aussie-ecommerce-asia", title: "Scaling an Aussie e-commerce brand into Asia", dek: "Currency, localization, logistics and the cultural things you only learn by getting them wrong first.", read: "11 min", tag: "E-commerce" },
+];
+
+const testimonials = [
+  { quote: "Handy is a rare breed of engineer. He brings deep technical capability across a broad range of verticals, but he also has a sharp eye for design and detail that sets him apart. Having placed over 500 technologists into roles over the past decade, I can confidently say Handy stands out.", name: "Charlie Beattie", title: "Director & Principal, Re-Coded" },
+  { quote: "Handy has a deep understanding of system architecture, scalability and performance. On the DRRD project he kept everyone aligned, proposed solutions, and completed his work promptly and at high quality. An excellent full-stack engineer.", name: "Jeff Ma", title: "Lead Software Engineer, 4DMedical" },
+  { quote: "Strong depth in algorithms and CS fundamentals. His thoughtful approach to turning complex research ideas into practical software made him an invaluable bridge between the research and engineering teams.", name: "ChengJu Tsai", title: "Master of Engineering" },
+  { quote: "A talented and resourceful engineer with a real passion for clean, scalable code. Handy consistently delivers beyond expectations and brings a collaborative, solutions-driven mindset to every project.", name: "Emanuela Yuliana", title: "Graphic Designer" },
+  { quote: "Highly capable across both greenfield and brownfield work, and well-versed in the architecture behind it. His input in grooming sessions often turned into the most thoughtful, user-friendly features.", name: "Daniel Ramezani", title: "Frontend Developer" },
+  { quote: "Handy has all the traits you want in a teammate: attentive to detail, a fast learner, and genuine enthusiasm for both learning and sharing knowledge. Great in close teams where code review really matters.", name: "Jonathan Nicholas", title: "Senior Software Engineer, Dye & Durham" },
+];
+
 export default function Home() {
-  const [, setBaseUrl] = useState('');
-  
-  useEffect(() => {
-    // Set the base URL only on the client side
-    setBaseUrl(window.location.origin);
-    
-    // Check for hash in URL and scroll to that section if present
-    if (typeof window !== 'undefined' && window.location.hash) {
-      const hash = window.location.hash;
-      setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
-          // Show blog content if it's a blog hash
-          if (hash.startsWith('#blog-')) {
-            element.classList.remove('hidden');
-            element.scrollIntoView({ behavior: 'smooth' });
-          } else {
-          element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      }, 100);
-    }
-
-    // Handle hash changes for blog content
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      // Hide all blog content first
-      document.querySelectorAll('[id^="blog-"]').forEach(el => el.classList.add('hidden'));
-      
-      // Show the targeted blog content
-      if (hash.startsWith('#blog-')) {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.classList.remove('hidden');
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-  
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 relative">
-      {/* Sticky CTA */}
-      <div className="fixed right-8 top-24 z-50 hidden md:block">
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="bg-emerald-500 hover:bg-emerald-600 text-white p-3 rounded-full shadow-lg transition-all transform hover:scale-105 cursor-pointer flex items-center gap-2 pr-4 group"
-          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center text-emerald-500">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <motion.span 
-            initial={{ width: 0, opacity: 0 }}
-            animate={{ width: "auto", opacity: 1 }}
-            transition={{ delay: 1.3, duration: 0.3 }}
-            className="font-bold whitespace-nowrap overflow-hidden"
-          >
-            Get In Touch
-          </motion.span>
-        </motion.div>
-      </div>
-
-      {/* Header/Navigation */}
-      <header className="sticky top-0 bg-white shadow-sm z-10 border-b border-gray-200">
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="font-bold text-xl text-gray-900">Handy Hasan</div>
-          <div className="flex space-x-6">
-            <Link href="/experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</Link>
-            <a href="#blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
-            <Link href="/break-into-tech" className="text-emerald-600 hover:text-emerald-700 font-medium transition-colors">Course</Link>
-            <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+    <div className="min-h-screen bg-[#fbfbf9] text-[#1a1a1a]">
+      {/* Header */}
+      <header className="sticky top-0 z-20 bg-[#fbfbf9]/85 backdrop-blur border-b border-[#e6e4dd]">
+        <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Link href="/" className="font-medium tracking-tight">Handy Hasan</Link>
+          <div className="flex items-center gap-7 text-sm text-[#6b6b6b]">
+            <a href="#work" className="hover:text-[#1a1a1a] transition-colors">Work</a>
+            <a href="#writing" className="hover:text-[#1a1a1a] transition-colors">Writing</a>
+            <Link href="/experience" className="hover:text-[#1a1a1a] transition-colors">Experience</Link>
+            <a href="#contact" className="hover:text-[#1a1a1a] transition-colors">Contact</a>
           </div>
         </nav>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            {/* Profile Image */}
-          <motion.div 
-              className="flex-shrink-0"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
-                <Image
-                  src="/images/profile.jpg"
-                  alt="Handy Hasan"
-                  width={320}
-                  height={320}
-                  className="w-full h-full object-cover object-[75%_25%]"
-                />
-              </div>
-            </motion.div>
+      {/* Hero */}
+      <section className="max-w-5xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="flex flex-col-reverse md:flex-row md:items-end gap-10 md:gap-16"
+        >
+          <div className="flex-1">
+            <p className="kicker mb-5">Software engineer · Melbourne</p>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] mb-6">
+              Hi, I&apos;m Handy.
+            </h1>
+            <div className="max-w-xl text-[1.0625rem] leading-relaxed text-[#3a3a3a] space-y-4">
+              <p>
+                I&apos;m a software engineer in Melbourne with 7+ years across the full stack. Right now I&apos;m building medical imaging systems at <span className="text-[#1a1a1a] font-medium">4DMedical</span> (ASX: 4DX).
+              </p>
+              <p>
+                Before that I worked at <span className="text-[#1a1a1a] font-medium">Who Gives A Crap</span> and <span className="text-[#1a1a1a] font-medium">The Good Guys</span> (JB Hi-Fi, ASX: JBH). I mostly work in React, Python and AWS. Open to work with Melbourne tech companies and startups.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-5 mt-8 text-sm">
+              <a href="#contact" className="bg-[#1a1a1a] text-white px-5 py-2.5 rounded-md hover:bg-black transition-colors">
+                Get in touch
+              </a>
+              <a href="#work" className="text-[#1f3a5f] hover:underline underline-offset-4">Selected work</a>
+              <a href="#writing" className="text-[#1f3a5f] hover:underline underline-offset-4">Writing</a>
+            </div>
+          </div>
 
-            {/* Content */}
-            <motion.div 
-              className="flex-1 text-center lg:text-left"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
-            <motion.span 
-              variants={fadeIn}
-                className="text-lg text-gray-600 mb-2 block"
-            >
-              Hello, I&apos;m
-            </motion.span>
-            <motion.h1 
-              variants={fadeIn}
-              className="text-5xl font-bold mb-4 text-gray-900"
-            >
-              Handy Hasan
-            </motion.h1>
-            <motion.div 
-              variants={fadeIn}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6"
-            >
-                <h2 className="text-2xl text-gray-700">Senior Full-Stack Software Engineer | Melbourne</h2>
-            </motion.div>
-            <motion.div 
-              variants={fadeIn}
-              className="mb-8 max-w-2xl"
-            >
-              <TypeAnimation 
-                  text="👋 Hi! I'm Handy — a Senior Software Engineer in Melbourne with 7+ years experience in full-stack development, specializing in React, Python, AWS, and mobile applications. Available for hire by Melbourne tech companies and startups." 
-                className="text-lg text-gray-600"
+          <div className="flex-shrink-0">
+            <div className="w-44 h-52 md:w-56 md:h-64 overflow-hidden rounded-2xl border border-[#e6e4dd]">
+              <Image
+                src="/images/profile.jpg"
+                alt="Handy Hasan"
+                width={448}
+                height={512}
+                quality={100}
+                className="w-full h-full object-cover object-[72%_28%]"
+                priority
               />
-            </motion.div>
-            <motion.div 
-              variants={fadeIn}
-                className="flex flex-wrap justify-center lg:justify-start space-x-0 sm:space-x-4 gap-4 sm:gap-0"
-            >
-              <a 
-                href="#contact" 
-                className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors"
-              >
-                Hire Me
-              </a>
-              <Link 
-                  href="/demos/lung-3d" 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-all font-medium flex items-center gap-2"
-                >
-                  View 3D Demos
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </Link>
-                <a 
-                  href="#projects" 
-                  className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
-              >
-                  View Projects
-              </a>
-              <a 
-                href="#blog" 
-                className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
-              >
-                Read My Blog
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v9.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 12.586V3a1 1 0 011-1z" clipRule="evenodd" />
-                </svg>
-              </a>
-            </motion.div>
-          </motion.div>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </section>
-      
-      {/* Animated Skills Section */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-        className="py-8 bg-gray-50"
-      >
-        <div className="container mx-auto px-6">
-          <motion.h2 
-            className="text-2xl font-bold mb-8 text-center text-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-          >
-            Full-Stack Technology Expertise
-          </motion.h2>
-          
-          {/* Frontend Technologies */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4 text-center text-gray-800">Frontend Development</h3>
-          <motion.div 
-              className="flex flex-wrap justify-center gap-3 md:gap-4"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-              {["React", "TypeScript", "Next.js", "Vue.js", "Angular", "JavaScript ES6+", "HTML5/CSS3", "Tailwind CSS", "Sass/SCSS", "Webpack", "Vite", "React Native"].map((skill) => (
-              <motion.div
-                key={skill}
-                variants={highlightVariant}
-                  className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full font-medium shadow-sm border border-blue-200"
-                whileHover={{ 
-                  scale: 1.05, 
-                    backgroundColor: "rgb(239, 246, 255)",
-                    borderColor: "rgb(147, 197, 253)" 
-                }}
-              >
-                {skill}
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
 
-          {/* Backend Technologies */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4 text-center text-gray-800">Backend Development</h3>
-            <motion.div 
-              className="flex flex-wrap justify-center gap-3 md:gap-4"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              {["Python", "Django", "FastAPI", "Go", "C#/.NET", "Node.js", "Express", "GraphQL", "gRPC", "RESTful APIs", "Microservices", "WebSockets"].map((skill) => (
-                <motion.div
-                  key={skill}
-                  variants={highlightVariant}
-                  className="px-4 py-2 bg-green-50 text-green-700 rounded-full font-medium shadow-sm border border-green-200"
-                  whileHover={{ 
-                    scale: 1.05, 
-                    backgroundColor: "rgb(240, 253, 244)",
-                    borderColor: "rgb(134, 239, 172)" 
-                  }}
-                >
-                  {skill}
-      </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Cloud & DevOps */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4 text-center text-gray-800">Cloud & DevOps</h3>
-            <motion.div 
-              className="flex flex-wrap justify-center gap-3 md:gap-4"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              {["AWS", "Azure", "Google Cloud", "Terraform", "Docker", "Kubernetes", "CI/CD", "Jenkins", "GitHub Actions", "Nginx", "Redis", "Monitoring"].map((skill) => (
-                <motion.div
-                  key={skill}
-                  variants={highlightVariant}
-                  className="px-4 py-2 bg-purple-50 text-purple-700 rounded-full font-medium shadow-sm border border-purple-200"
-                  whileHover={{ 
-                    scale: 1.05, 
-                    backgroundColor: "rgb(250, 245, 255)",
-                    borderColor: "rgb(196, 181, 253)" 
-                  }}
-                >
-                  {skill}
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Databases & Tools */}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-4 text-center text-gray-800">Databases & Tools</h3>
-            <motion.div 
-              className="flex flex-wrap justify-center gap-3 md:gap-4"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              {["PostgreSQL", "MongoDB", "Redis", "MySQL", "Elasticsearch", "Git", "Linux", "VS Code", "Postman", "Figma", "Jira", "Slack"].map((skill) => (
-                <motion.div
-                  key={skill}
-                  variants={highlightVariant}
-                  className="px-4 py-2 bg-orange-50 text-orange-700 rounded-full font-medium shadow-sm border border-orange-200"
-                  whileHover={{ 
-                    scale: 1.05, 
-                    backgroundColor: "rgb(255, 251, 235)",
-                    borderColor: "rgb(254, 215, 170)" 
-                  }}
-                >
-                  {skill}
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* SEO Section for Recruiters - Melbourne Software Engineer */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h2 
-              className="text-3xl font-bold mb-6 text-gray-900"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
-            >
-              Hire a Senior Software Engineer in Melbourne
-            </motion.h2>
-            <motion.div 
-              className="text-lg text-gray-700 leading-relaxed space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <p>
-                Looking for a <strong>top software engineer in Melbourne</strong>? I'm a senior full-stack developer with <strong>7+ years of professional experience</strong> working with leading Melbourne companies including 4DMedical (ASX listed) and The Good Guys.
-              </p>
-              <p>
-                As a <strong>Melbourne-based software engineer</strong>, I specialize in building scalable web applications, mobile apps, and cloud solutions. My expertise includes <strong>React, Python, AWS, Node.js, and mobile development</strong> - perfect for startups and enterprise companies looking to scale their tech teams.
-              </p>
-              <p>
-                <strong>Available for hire</strong> as a senior developer, tech lead, or consultant for Melbourne companies. I have a proven track record of delivering high-impact projects, from medical imaging platforms processing 3,000+ daily scans to mobile apps with 10,000+ active users.
-              </p>
-            </motion.div>
-            <motion.div 
-              className="mt-8 flex flex-wrap justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <a 
-                href="#contact" 
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition-colors font-medium inline-flex items-center gap-2"
-              >
-                Hire Me Now
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
-              <Link 
-                href="/experience" 
-                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 rounded-lg transition-colors font-medium"
-              >
-                View Full Resume
-              </Link>
-            </motion.div>
-          </div>
+      {/* Skills */}
+      <section className="border-t border-[#e6e4dd] bg-white">
+        <div className="max-w-5xl mx-auto px-6 py-14 grid gap-8 sm:grid-cols-3">
+          {Object.entries(skills).map(([group, items]) => (
+            <div key={group}>
+              <p className="kicker mb-3">{group}</p>
+              <p className="text-[#3a3a3a] leading-relaxed">{items.join(", ")}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Experience Section - Brief Summary */}
-      <section id="experience" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.h2 
-            className="text-3xl font-bold mb-12 text-center text-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-          >
-            Professional Experience
-          </motion.h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* 4DMedical - Current Role */}
-            <motion.div 
-              className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7 }}
-              >
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-1">Senior Software Engineer</h3>
-                <div className="text-blue-600 font-medium mb-1">4DMedical (ASX: 4DX)</div>
-                <div className="text-sm text-gray-600">Oct 2021 - Present (3+ years)</div>
-                    </div>
-              
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Leading development of medical imaging platform processing 3,290+ daily DICOM scans. Built gRPC systems connecting XVD hardware to cloud backend, achieving 80% bandwidth reduction and medical-grade reliability.
-                    </p>
-                    
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["Python", "gRPC", "AWS", "Medical Imaging", "Microservices"].map((tech) => (
-                  <span key={tech} className="px-2 py-1 bg-gray-100 text-gray-700 rounded-md text-xs border border-gray-200">
-                    {tech}
-                  </span>
-                ))}
-                    </div>
-                    
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                <p className="text-gray-800 text-sm font-medium">
-                  🚀 Key Impact: Enabling 10x more accurate lung imaging for hospitals worldwide
-                </p>
-                  </div>
-              </motion.div>
-
-              {/* The Good Guys */}
-              <motion.div 
-              className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                               transition={{ duration: 0.7, delay: 0.5 }}
-             >
-               <div className="mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-1">Software Developer</h3>
-                <div className="text-orange-600 font-medium mb-1">The Good Guys (JB Hi-Fi Group)</div>
-                <div className="text-sm text-gray-600">Oct 2019 - Oct 2021 (2 years)</div>
-                    </div>
-              
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Developed e-commerce platform features for Australia's largest electronics retailer. Reduced page load times by 35%, built real-time inventory systems, and optimized mobile checkout flows.
-                    </p>
-                    
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["React", "Node.js", "E-commerce", "Performance", "Mobile-First"].map((tech) => (
-                  <span key={tech} className="px-2 py-1 bg-gray-100 text-gray-700 rounded-md text-xs border border-gray-200">
-                    {tech}
-                  </span>
-                ))}
-                        </div>
-              
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                <p className="text-gray-800 text-sm font-medium">
-                  📈 Key Impact: Millions of daily transactions, 25% mobile conversion increase
-                </p>
-                        </div>
+      {/* Experience */}
+      <section id="experience" className="max-w-5xl mx-auto px-6 py-16 md:py-20 scroll-mt-20">
+        <div className="flex items-baseline justify-between mb-10">
+          <h2 className="text-2xl font-semibold tracking-tight">Experience</h2>
+          <Link href="/experience" className="text-sm text-[#1f3a5f] hover:underline underline-offset-4">Full history →</Link>
+        </div>
+        <div className="divide-y divide-[#e6e4dd] border-y border-[#e6e4dd]">
+          {experience.map((job) => (
+            <motion.div
+              key={job.company}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.45 }}
+              className="py-7 grid md:grid-cols-[1fr_2fr] gap-2 md:gap-8"
+            >
+              <div>
+                <div className="font-medium">{job.company}</div>
+                <div className="text-sm text-[#6b6b6b]">{job.tag}</div>
+                <div className="text-sm text-[#6b6b6b] mt-1">{job.period}</div>
+              </div>
+              <div>
+                <div className="font-medium mb-1.5">{job.role}</div>
+                <p className="text-[#3a3a3a] leading-relaxed">{job.blurb}</p>
+              </div>
             </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Work */}
+      <section id="work" className="border-t border-[#e6e4dd] bg-white scroll-mt-20">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+          <h2 className="text-2xl font-semibold tracking-tight mb-10">Selected work</h2>
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-12">
+            {projects.map((p) => {
+              const Card = (
+                <div className="group">
+                  <div className="aspect-[16/10] rounded-lg overflow-hidden border border-[#e6e4dd] bg-[#fbfbf9] mb-4 relative">
+                    {p.image ? (
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        unoptimized={p.image.startsWith("http")}
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="kicker">{p.label}</span>
                       </div>
-          
-                <motion.div 
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-                >
-            <Link 
-              href="/experience" 
-              className="inline-block bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg transition-colors font-medium"
-            >
-              View Full Experience Details →
+                    )}
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="font-medium group-hover:text-[#1f3a5f] transition-colors">{p.title}</h3>
+                    <span className="kicker shrink-0">{p.meta}</span>
+                  </div>
+                  <p className="text-sm text-[#3a3a3a] leading-relaxed mt-2">{p.desc}</p>
+                  <p className="text-xs text-[#6b6b6b] mt-3">{p.label}</p>
+                </div>
+              );
+              return p.external ? (
+                <a key={p.title} href={p.href} target="_blank" rel="noopener noreferrer">{Card}</a>
+              ) : (
+                <Link key={p.title} href={p.href}>{Card}</Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Writing */}
+      <section id="writing" className="max-w-5xl mx-auto px-6 py-16 md:py-20 scroll-mt-20">
+        <h2 className="text-2xl font-semibold tracking-tight mb-2">Writing</h2>
+        <p className="text-[#6b6b6b] mb-10">Notes from the work — mostly things I had to figure out and wanted to write down.</p>
+        <div className="divide-y divide-[#e6e4dd] border-y border-[#e6e4dd]">
+          {posts.map((post) => (
+            <Link key={post.href} href={post.href} className="group block py-6">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6">
+                <h3 className="font-medium group-hover:text-[#1f3a5f] transition-colors sm:flex-1">{post.title}</h3>
+                <span className="kicker shrink-0">{post.tag} · {post.read}</span>
+              </div>
+              <p className="text-sm text-[#3a3a3a] leading-relaxed mt-2 max-w-2xl">{post.dek}</p>
             </Link>
-              </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <motion.h2 
-            className="text-3xl font-bold mb-12 text-center text-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-          >
-            Featured Projects
-          </motion.h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Lung 3D Visualization - NEW MEDICAL IMAGING DEMO */}
-            <motion.a 
-              href="/demos/lung-3d" 
-              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl relative"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="absolute top-3 right-3 z-10 flex gap-2">
-                <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">
-                  NEW
-                </span>
-                <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                  3D DEMO
-                </span>
-              </div>
-              <div className="h-48 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🫁</div>
-                  <div className="text-xl font-bold">Lung 3D Imaging</div>
-                  <div className="text-sm opacity-80 mt-1">Medical Visualization</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">Interactive Lung 3D Visualization</h3>
-                <p className="text-gray-600 mb-4">
-                  Professional medical imaging system with breathing animation, DICOM slice viewing, and real-time respiratory data. Built with Three.js showcasing 4DMedical expertise.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
-                    Try 3D Demo
-                  </span>
-                  <div className="flex gap-2">
-                    <span className="text-sm px-2 py-1 bg-red-100 text-red-800 rounded-full">
-                      Three.js
-                    </span>
-                    <span className="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
-                      Medical
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.a>
-
-            {/* FinPay Analytics Dashboard - LIVE DEMO */}
-            <motion.a 
-              href="/demos/fintech-dashboard" 
-              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl relative"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="absolute top-3 right-3 z-10">
-                <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                  LIVE DEMO
-                </span>
-              </div>
-              <div className="h-48 bg-white relative">
-                <Image
-                  src="/images/fintech-dashboard.png"
-                  alt="FinPay Dashboard"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">FinPay Dashboard</h3>
-                <p className="text-gray-600 mb-4">
-                  Interactive fintech analytics dashboard with real-time transaction monitoring, payment method distribution, risk scoring, and regional insights. Built with React & TypeScript.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
-                    Try Live Demo
-                  </span>
-                  <span className="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
-                    Interactive
-                  </span>
-                </div>
-              </div>
-            </motion.a>
-
-            {/* Re-Coded */}
-            <motion.a 
-              href="https://re-coded.com.au" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="h-48 bg-white relative">
-                <Image
-                  src="/images/pink-fluid.png"
-                  alt="Re-Coded"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">Re-Coded</h3>
-                <p className="text-gray-600 mb-4">
-                  Professional recruitment agency website featuring modern design, mobile-first approach, and optimized user experience for both clients and candidates.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
-                    Visit Website
-                  </span>
-                  <span className="text-sm px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full">
-                    Client Project
-                  </span>
-                </div>
-                <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="bg-emerald-50 p-3 rounded-lg">
-                    <p className="text-sm text-emerald-800 italic mb-2">"Recommend Handy for website/mobile apps and software solutions for your project"</p>
-                    <p className="text-xs text-emerald-700 font-medium">- Charlie Beattle, Partner at Re-Coded</p>
-                  </div>
-                </div>
-              </div>
-            </motion.a>
-
-            {/* Hangtime Melbourne */}
-            <motion.a 
-              href="https://apps.apple.com/au/app/hangtime-basketball/id6450975691" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="h-48 bg-white relative">
-                <Image
-                  src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/d7/86/60d78611-8a19-5e58-02e0-c636059f564c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/230x0w.webp"
-                  alt="Hangtime Basketball App Icon"
-                  fill
-                  className="object-contain p-4"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">Hangtime Melbourne</h3>
-                <p className="text-gray-600 mb-4">
-                  A mobile app connecting local basketball players and creating social sport opportunities. Used by more than 10,000+ Melbourne residents.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
-                    App Store
-                  </span>
-                  <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
-                    10,000+ Users
-                  </span>
-                </div>
-              </div>
-            </motion.a>
-            
-            {/* Recruiter Copilot AI */}
-            <motion.a 
-              href="https://recruiter-copilot-ai-production.up.railway.app/dashboard" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="h-48 bg-white relative">
-                <Image
-                  src="/images/recruiter-copilot.png"
-                  alt="Recruiter Copilot AI"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">Recruiter Copilot AI</h3>
-                <p className="text-gray-600 mb-4">
-                  AI-powered recruitment dashboard that streamlines the hiring process with intelligent candidate matching, automated screening, and data-driven insights for HR teams.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
-                    View Dashboard
-                  </span>
-                  <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
-                    AI-Powered
-                  </span>
-                </div>
-              </div>
-            </motion.a>
-
-
-
-            {/* LifeGPT */}
-            <motion.a 
-              href="https://hesitant-dock-production.up.railway.app/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all hover:scale-105 hover:shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ y: -5 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="h-48 bg-white relative">
-                <Image
-                  src="/images/lifegpt.png"
-                  alt="LifeGPT"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">LifeGPT</h3>
-                <p className="text-gray-600 mb-4">
-                  AI reflection buddy for personal growth. Chat with your future self, 60-year-old self, biggest fan, and brutally honest friend for deeper self-awareness.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-700 hover:text-gray-800 transition-colors">
-                    Start Reflecting
-                  </span>
-                  <span className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded-full">
-                    Personal Growth
-                  </span>
-                </div>
-              </div>
-            </motion.a>
+      {/* Recommendations */}
+      <section className="border-t border-[#e6e4dd] bg-white">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+          <h2 className="text-2xl font-semibold tracking-tight mb-10">What people say</h2>
+          <div className="grid md:grid-cols-2 gap-x-10 gap-y-10">
+            {testimonials.map((t) => (
+              <figure key={t.name}>
+                <blockquote className="text-[#3a3a3a] leading-relaxed">&ldquo;{t.quote}&rdquo;</blockquote>
+                <figcaption className="mt-3 text-sm">
+                  <span className="font-medium text-[#1a1a1a]">{t.name}</span>
+                  <span className="text-[#6b6b6b]"> · {t.title}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Blog Section */}
-      <section id="blog" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.h2 
-            className="text-3xl font-bold mb-4 text-center text-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-          >
-            Blog
-          </motion.h2>
-          <motion.p 
-            className="text-gray-600 mb-12 text-center max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Thoughts, insights, and technical explorations based on my experience in the industry.
-          </motion.p>
-          
-          {/* Blog Posts Grid - Previews only for better performance */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-            {/* Vector Embeddings & RAG */}
-            <motion.a 
-              href="/blog/vector-embeddings-rag"
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-purple-500 to-indigo-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🧠</div>
-                  <div className="text-xl font-bold">Vector Embeddings & RAG</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Machine Learning
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Vector Databases
-                  </span>
-                  <span className="px-2 py-1 bg-purple-500 text-white rounded-full text-xs">
-                    Popular
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Vector Embeddings & RAG: From Text to Intelligent Search</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  A comprehensive guide to understanding vector embeddings and building production-ready RAG systems. Learn how text becomes numbers and how to build enterprise document intelligence systems...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">25 min read</span>
-                  <span className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors">
-                    Read More →
-                  </span>
-                </div>
-              </div>
-            </motion.a>
-
-            {/* React Energy Footprint - NEW */}
-            <motion.a 
-              href="/blog/react-energy-footprint"
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-green-500 to-emerald-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🔋</div>
-                  <div className="text-xl font-bold">React Energy Optimization</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    React
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Performance
-                  </span>
-                  <span className="px-2 py-1 bg-green-500 text-white rounded-full text-xs">
-                    Latest
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Profiling and Slashing Your React App's Energy Footprint in Six Steps</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Energy efficiency isn't just about performance—it's about sustainability and respecting your users' battery life. Learn systematic steps to reduce energy consumption by up to 60%...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">18 min read</span>
-                  <span className="text-green-600 hover:text-green-800 font-medium text-sm transition-colors">
-                    Read More →
-                  </span>
-                </div>
-              </div>
-            </motion.a>
-
-                         {/* Incident Management Stack - NEW */}
-             <motion.a 
-               href="/blog/incident-management-stack-2025"
-               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-               initial={{ opacity: 0, y: 30 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true, margin: "-100px" }}
-               transition={{ duration: 0.7, delay: 0.3 }}
-               whileHover={{ y: -5 }}
-             >
-              <div className="h-48 bg-gradient-to-br from-red-500 to-orange-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🚨</div>
-                  <div className="text-xl font-bold">Incident Management 2025</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    DevOps
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Monitoring
-                  </span>
-                  <span className="px-2 py-1 bg-red-500 text-white rounded-full text-xs">
-                    Latest
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Choosing the Right Incident Management Stack in 2025: From FullStory to OpsGenie</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Building a robust incident management stack isn't just about picking the latest tools—it's about creating a seamless flow from detection to resolution...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">22 min read</span>
-                  <span className="text-red-600 hover:text-red-800 font-medium text-sm transition-colors">
-                    Read More →
-                  </span>
-                </div>
-              </div>
-            </motion.a>
-
-                         {/* Polling vs WebSockets vs Server Actions - NEW */}
-             <motion.a 
-               href="/blog/polling-websockets-server-actions"
-               className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-               initial={{ opacity: 0, y: 30 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true, margin: "-100px" }}
-               transition={{ duration: 0.7, delay: 0.4 }}
-               whileHover={{ y: -5 }}
-             >
-              <div className="h-48 bg-gradient-to-br from-purple-500 to-blue-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🔄</div>
-                  <div className="text-xl font-bold">React Real-time Data</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    React
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Next.js
-                  </span>
-                  <span className="px-2 py-1 bg-purple-500 text-white rounded-full text-xs">
-                    Latest
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Polling vs. WebSockets vs. Server Actions in React/Next.js</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Choosing the right data synchronization strategy can make or break your user experience. Learn when to use polling, WebSockets, or Next.js Server Actions...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">16 min read</span>
-                  <span className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors">
-                    Read More →
-                  </span>
-                </div>
-              </div>
-            </motion.a>
-
-            {/* Quality Engineering Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🧪</div>
-                  <div className="text-xl font-bold">Quality Engineering</div>
-                  </div>
-                </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Testing
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Quality Engineering
-                  </span>
-                  <span className="px-2 py-1 bg-emerald-500 text-white rounded-full text-xs">
-                    Latest
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Quality Engineering at Scale: Unit Tests, Cypress & SonarCloud</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Quality isn't just about writing tests—it's about building a culture and infrastructure that prevents bugs from reaching production. Learn how to implement comprehensive testing strategies...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">15 min read</span>
-                  <Link 
-                    href="/blog/quality-engineering-testing"
-                    className="text-emerald-600 hover:text-emerald-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* gRPC Medical Devices Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">⚡</div>
-                  <div className="text-xl font-bold">gRPC & Medical Devices</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    gRPC
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Medical Devices
-                  </span>
-                  <span className="px-2 py-1 bg-blue-500 text-white rounded-full text-xs">
-                    New
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Building Medical Device Communication with gRPC</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  At 4DMedical, we connected proprietary XVD hardware to cloud infrastructure using gRPC. Learn how we achieved 80% bandwidth reduction and medical-grade reliability...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">12 min read</span>
-                  <Link 
-                    href="/blog/grpc-medical-devices"
-                    className="text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                    </div>
-                    </div>
-            </motion.div>
-            
-            {/* Railway Deployment Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-purple-500 to-pink-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🚀</div>
-                  <div className="text-xl font-bold">Railway Deployment</div>
-                  </div>
-                </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    DevOps
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Deployment
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Railway Deployment Made Easy: PostgreSQL + Git</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Deployment shouldn't be the hard part of building software. Railway combines simplicity with power, featuring built-in PostgreSQL and lightning-fast deployments...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">10 min read</span>
-                  <Link 
-                    href="/blog/railway-deployment-guide"
-                    className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* E-commerce Observability Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-orange-500 to-red-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">📊</div>
-                  <div className="text-xl font-bold">E-commerce Observability</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    E-commerce
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    DevOps
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">The Invisible Layer of E-Commerce: Enterprise Observability with Mixpanel, New Relic & Sumo Logic</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  E-commerce platforms live and die by the experience they deliver in real time. Learn how to implement enterprise observability with Mixpanel analytics, New Relic APM, and Sumo Logic...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">12 min read</span>
-                  <Link 
-                    href="/blog/ecommerce-observability"
-                    className="text-orange-600 hover:text-orange-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                    </div>
-                    </div>
-            </motion.div>
-
-            {/* Microservices Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-teal-500 to-cyan-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🧩</div>
-                  <div className="text-xl font-bold">Microservices</div>
-                  </div>
-                </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    E-commerce
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Architecture
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">From Monolith to Microservices: E-Commerce at Scale</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Most e-commerce platforms start with a monolith for good reason. Learn when and how to transition to microservices for product velocity...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">8 min read</span>
-                  <Link 
-                    href="/blog/monolith-to-microservices"
-                    className="text-teal-600 hover:text-teal-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Hangtime App Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.6 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-green-500 to-emerald-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🏀</div>
-                  <div className="text-xl font-bold">Hangtime App</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Mobile App
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Basketball
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Building Hangtime: Basketball Meets Software Engineering</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Combining passion for basketball with engineering skills to solve real problems. Learn the business strategy and technical challenges of building a sports community app...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">10 min read</span>
-                  <Link 
-                    href="/blog/hangtime-app"
-                    className="text-green-600 hover:text-green-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                    </div>
-                  </div>
-            </motion.div>
-
-            {/* Beyond Stripe Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.7 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">💳</div>
-                  <div className="text-xl font-bold">Beyond Stripe</div>
-                  </div>
-                  </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Payments
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Fintech
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Beyond Stripe: Building Custom Payment Solutions</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  While Stripe is excellent for most use cases, some businesses need custom payment flows. Learn when to build your own and how to do it safely...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">12 min read</span>
-                  <Link 
-                    href="/blog/beyond-stripe"
-                    className="text-indigo-600 hover:text-indigo-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Medical Imaging Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-red-500 to-pink-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🏥</div>
-                  <div className="text-xl font-bold">Medical Imaging</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    Healthcare
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    DICOM
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Medical Imaging in the Cloud: DICOM, PACS & ML</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Processing medical imaging data at scale requires specialized knowledge. Learn about DICOM standards, PACS integration, and machine learning applications...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">14 min read</span>
-                  <Link 
-                    href="/blog/medical-imaging"
-                    className="text-red-600 hover:text-red-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Aussie E-commerce Asia Preview */}
-            <motion.div 
-              className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.9 }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 relative flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🌏</div>
-                  <div className="text-xl font-bold">Aussie E-commerce</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center mb-3 gap-2">
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    E-commerce
-                  </span>
-                  <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                    International
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Scaling Aussie E-commerce to Asia: Lessons Learned</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                  Expanding from Australia to Asian markets brings unique challenges. Learn about currency handling, localization, logistics, and cultural considerations...
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">11 min read</span>
-                  <Link 
-                    href="/blog/aussie-ecommerce-asia"
-                    className="text-yellow-600 hover:text-yellow-800 font-medium text-sm transition-colors"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
+      {/* Contact */}
+      <section id="contact" className="max-w-5xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight mb-4">Get in touch</h2>
+            <p className="text-[#3a3a3a] leading-relaxed mb-6 max-w-md">
+              Looking for a collaborator, a contractor, or just want to talk shop? Drop me a line — I read everything.
+            </p>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href="mailto:handy.hasan@yahoo.com" className="text-[#1f3a5f] hover:underline underline-offset-4">handy.hasan@yahoo.com</a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/handy-hasan-a6aa73176" target="_blank" rel="noopener noreferrer" className="text-[#1f3a5f] hover:underline underline-offset-4">LinkedIn</a>
+              </li>
+              <li>
+                <a href="https://github.com/handyman30" target="_blank" rel="noopener noreferrer" className="text-[#1f3a5f] hover:underline underline-offset-4">GitHub</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ContactForm />
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.h2 
-            className="text-3xl font-bold mb-4 text-center text-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-          >
-            What People Say
-          </motion.h2>
-          <motion.p
-            className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Recommendations from colleagues, clients, and team members
-          </motion.p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {/* Charlie Beattie - Featured */}
-            <motion.div 
-              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs px-3 py-1 rounded-full font-medium">
-                Client
-              </div>
-              <div className="mb-4">
-                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
-                </svg>
-              </div>
-              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
-                "Handy is a rare breed of engineer; not only does he bring <strong>deep technical capability across a broad range of verticals</strong>, but he also has a sharp eye for design and detail that sets him apart. Having placed over 500 technologists into roles over the past decade, I can confidently say <strong>Handy stands out as a uniquely valuable asset</strong>."
-              </blockquote>
-              <div className="border-t border-gray-200 pt-4">
-                <div className="font-semibold text-gray-900">Charlie Beattie</div>
-                <div className="text-sm text-gray-600">Director & Principal at Recoded | CSM®</div>
-                <div className="flex items-center mt-2 text-xs text-gray-500">
-                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn Recommendation
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Jeff Ma - Technical */}
-            <motion.div 
-              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-medium">
-                4DMedical
-              </div>
-              <div className="mb-4">
-                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
-                </svg>
-              </div>
-              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
-                "Handy has a <strong>deep understanding of system architecture, scalability, and performance optimization</strong>. On the DRRD project, he took initiative to ensure all team members were aligned, proposed innovative solutions, and <strong>completed his work promptly with high quality</strong>. An excellent Full Stack Engineer."
-              </blockquote>
-              <div className="border-t border-gray-200 pt-4">
-                <div className="font-semibold text-gray-900">Jeff Ma</div>
-                <div className="text-sm text-gray-600">Lead Software Engineer at 4DMedical</div>
-                <div className="flex items-center mt-2 text-xs text-gray-500">
-                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn Recommendation
-                </div>
-              </div>
-            </motion.div>
-
-            {/* ChengJu Tsai - Research Collaboration */}
-            <motion.div 
-              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-medium">
-                Research
-              </div>
-              <div className="mb-4">
-                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
-                </svg>
-              </div>
-              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
-                "Handy brings <strong>strong depth in algorithms and computer science fundamentals</strong>. His thoughtful approach to translating complex research ideas into practical solutions made him an <strong>invaluable bridge between research and software teams</strong>. A genuinely approachable colleague who contributes to a healthy team culture."
-              </blockquote>
-              <div className="border-t border-gray-200 pt-4">
-                <div className="font-semibold text-gray-900">ChengJu Tsai</div>
-                <div className="text-sm text-gray-600">Master of Engineering</div>
-                <div className="flex items-center mt-2 text-xs text-gray-500">
-                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn Recommendation
-                </div>
-              </div>
-            </motion.div>
-
-            {/* More Testimonials - Initially Hidden */}
-            <motion.div 
-              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative hidden testimonial-extra"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-4">
-                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
-                </svg>
-              </div>
-              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
-                "A talented and resourceful Software Engineer with a <strong>passion for clean, scalable code</strong>. Handy consistently delivers beyond expectations—bringing not just technical skills but also a <strong>collaborative and solutions-driven mindset</strong> to every project."
-              </blockquote>
-              <div className="border-t border-gray-200 pt-4">
-                <div className="font-semibold text-gray-900">Emanuela Yuliana</div>
-                <div className="text-sm text-gray-600">Graphic Designer</div>
-                <div className="flex items-center mt-2 text-xs text-gray-500">
-                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn Recommendation
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative hidden testimonial-extra"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="mb-4">
-                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
-                </svg>
-              </div>
-              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
-                "Highly capable of developing both greenfield and brownfield projects. <strong>Well-versed in cutting-edge technologies</strong> with a deep understanding of architecture. His contributions during grooming sessions often led to the creation of <strong>thoughtful and user-friendly features</strong>."
-              </blockquote>
-              <div className="border-t border-gray-200 pt-4">
-                <div className="font-semibold text-gray-900">Daniel Ramezani</div>
-                <div className="text-sm text-gray-600">Frontend Developer</div>
-                <div className="flex items-center mt-2 text-xs text-gray-500">
-                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn Recommendation
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative hidden testimonial-extra"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="mb-4">
-                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
-                </svg>
-              </div>
-              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
-                "Handy has all the traits you want in a team member. <strong>Amazing social skills, attentive to detail, and a fast learner</strong>. But most importantly, he has unparalleled enthusiasm and thirst for both learning and transmitting knowledge. Perfect for <strong>close team environments where social skills and code review are key</strong>."
-              </blockquote>
-              <div className="border-t border-gray-200 pt-4">
-                <div className="font-semibold text-gray-900">Jonathan Nicholas</div>
-                <div className="text-sm text-gray-600">Senior Software Engineer at Dye & Durham</div>
-                <div className="flex items-center mt-2 text-xs text-gray-500">
-                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn Recommendation
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              className="bg-gray-50 p-6 rounded-xl border border-gray-200 relative hidden testimonial-extra"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-4">
-                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-0.5.448-0.5.773 0l2.48 3.921c0.164 0.261.496 0.289.697 0.059 0.155-0.177 0.193-0.433 0.095-0.65l-2.045-4.573c0.017-0.118 0.026-0.239 0.026-0.362 0-1.328-.456-2.548-1.216-3.507-0.543-0.686-1.239-1.242-2.026-1.608 0.474-0.653 0.766-1.466 0.766-2.36 0-2.154-1.65-3.904-3.678-3.904s-3.678 1.75-3.678 3.904c0 0.894 0.292 1.707 0.766 2.36-0.787 0.366-1.483 0.922-2.026 1.608-0.76 0.959-1.216 2.179-1.216 3.507 0 0.123 0.009 0.244 0.026 0.362l-2.045 4.573c-0.098 0.217-0.06 0.473 0.095 0.65 0.201 0.23 0.533 0.202 0.697-0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-7.391c0-0.5 0.448-0.5 0.773 0l2.48 3.921c0.164 0.261 0.496 0.289 0.697 0.059 0.201-0.23 0.533-0.202 0.697 0.059l2.48-3.921c0.325-0.5 0.773-0.5 0.773 0v7.391c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5z"/>
-                </svg>
-              </div>
-              <blockquote className="text-gray-700 mb-4 text-sm leading-relaxed">
-                "Handy's knack for <strong>breaking down complex problems and delivering robust, scalable solutions</strong> made a huge difference on our project. He communicates clearly, collaborates effortlessly across teams, and writes <strong>clean, maintainable code</strong>."
-              </blockquote>
-              <div className="border-t border-gray-200 pt-4">
-                <div className="font-semibold text-gray-900">Hillary Gracella</div>
-                <div className="text-sm text-gray-600">Software Professional</div>
-                <div className="flex items-center mt-2 text-xs text-gray-500">
-                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn Recommendation
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Show More Button */}
-          <motion.div 
-            className="text-center mt-10"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <button
-              onClick={() => {
-                const extras = document.querySelectorAll('.testimonial-extra');
-                const button = document.getElementById('show-more-btn');
-                extras.forEach(el => el.classList.toggle('hidden'));
-                if (button) {
-                  button.textContent = button.textContent === 'Show More Recommendations' ? 'Show Less' : 'Show More Recommendations';
-                }
-              }}
-              id="show-more-btn"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
-            >
-              Show More Recommendations
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <motion.h2 
-            className="text-3xl font-bold mb-12 text-center text-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-          >
-            Get In Touch
-          </motion.h2>
-          
-          <motion.div 
-            className="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8 border border-gray-200"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="mb-8 text-center">
-              <p className="text-lg text-gray-600">
-                Whether you&apos;re looking for a collaborator, contractor, or just want to chat tech — I&apos;d love to hear from you!
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Contact Information</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <a href="mailto:handy.hasan@yahoo.com" className="text-gray-600 hover:text-gray-700 transition-colors">
-                      handy.hasan@yahoo.com
-                    </a>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    <a href="https://linkedin.com/in/handy-hasan-a6aa73176" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-700 transition-colors">
-                      LinkedIn Profile
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Send Me a Message</h3>
-                <ContactForm />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      
       {/* Footer */}
-      <footer className="bg-gray-100 py-8">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-600">
-            © {new Date().getFullYear()} Handy Hasan. All rights reserved.
-          </p>
-          <div className="flex justify-center space-x-6 mt-4">
-            <a href="https://linkedin.com/in/handy-hasan-a6aa73176" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-700 transition-colors">
-              <span className="sr-only">LinkedIn</span>
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </a>
-            <a href="https://github.com/handyman30" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
-              <span className="sr-only">GitHub</span>
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-              </svg>
-            </a>
+      <footer className="border-t border-[#e6e4dd]">
+        <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#6b6b6b]">
+          <p>© {new Date().getFullYear()} Handy Hasan</p>
+          <div className="flex gap-6">
+            <a href="https://linkedin.com/in/handy-hasan-a6aa73176" target="_blank" rel="noopener noreferrer" className="hover:text-[#1a1a1a] transition-colors">LinkedIn</a>
+            <a href="https://github.com/handyman30" target="_blank" rel="noopener noreferrer" className="hover:text-[#1a1a1a] transition-colors">GitHub</a>
           </div>
         </div>
       </footer>

@@ -40,50 +40,50 @@ export default function AussieEcommerceAsiaBlog() {
                 The Good Guys
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">Scaling Aussie E-commerce to Asia: Lessons Learned</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">Scaling an Aussie e-commerce brand into Asia</h1>
             <p className="text-gray-600 mb-6">January 15, 2024 • 11 min read</p>
             
             <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Key Expansion Challenges</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">What made it hard</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-yellow-500 mr-2">💱</span>
-                      <span><strong>Multi-currency Complexity</strong> – Real-time rates, hedging, tax compliance</span>
+                      <span className="text-yellow-500 mr-2">•</span>
+                      <span><strong>Currency</strong> – live rates, hedging, and tax that differs per market</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-500 mr-2">🌏</span>
-                      <span><strong>Localization Beyond Translation</strong> – Cultural preferences and UX</span>
+                      <span className="text-yellow-500 mr-2">•</span>
+                      <span><strong>Localization</strong> – which is mostly not translation</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-500 mr-2">🚚</span>
-                      <span><strong>Cross-border Logistics</strong> – Shipping, duties, fulfillment centers</span>
+                      <span className="text-yellow-500 mr-2">•</span>
+                      <span><strong>Logistics</strong> – shipping, duties, and where you put fulfillment</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-500 mr-2">💳</span>
-                      <span><strong>Payment Methods</strong> – Local payment preferences per market</span>
+                      <span className="text-yellow-500 mr-2">•</span>
+                      <span><strong>Payments</strong> – every market has a method people actually expect</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Market Entry Success Metrics</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">How it went</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-yellow-500 mr-2">🎯</span>
-                      <span><strong>Singapore Launch</strong> – 15% conversion rate within 6 months</span>
+                      <span className="text-yellow-500 mr-2">•</span>
+                      <span><strong>Singapore</strong> – 15% conversion rate within six months</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-500 mr-2">🚀</span>
-                      <span><strong>Malaysia Expansion</strong> – 200% YoY growth in local sales</span>
+                      <span className="text-yellow-500 mr-2">•</span>
+                      <span><strong>Malaysia</strong> – 200% YoY growth in local sales</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-500 mr-2">📱</span>
-                      <span><strong>Mobile-First Strategy</strong> – 85% mobile traffic in Asian markets</span>
+                      <span className="text-yellow-500 mr-2">•</span>
+                      <span><strong>Mobile</strong> – about 85% of traffic across the Asian markets</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-500 mr-2">⭐</span>
-                      <span><strong>Customer Satisfaction</strong> – 4.6/5 rating across all Asian markets</span>
+                      <span className="text-yellow-500 mr-2">•</span>
+                      <span><strong>Satisfaction</strong> – 4.6/5 averaged across those markets</span>
                     </li>
                   </ul>
                 </div>
@@ -91,14 +91,14 @@ export default function AussieEcommerceAsiaBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Expanding from Australia to Asian markets brings unique challenges around currency handling, localization, logistics, and cultural considerations. Having worked on The Good Guys&apos; expansion strategies and international e-commerce systems, I learned that successful international scaling requires more than just translation—it demands deep understanding of local market dynamics, technical infrastructure adaptations, and cultural shopping behaviors.
+              Taking an Australian store into Asia turns up problems you don't see coming until you're in the middle of them — currency, localization, logistics, and a pile of cultural stuff you only really learn by getting it wrong first. I worked on The Good Guys' expansion and the e-commerce systems behind it, and the short version is that translating the site is the easy 10%. The rest is understanding how people in each market actually shop, and reshaping the infrastructure to match.
             </p>
             
             <div className="mb-6 bg-yellow-50 p-5 rounded-lg border border-yellow-200">
-              <h4 className="font-semibold mb-3 text-yellow-900">Multi-Currency E-commerce Architecture</h4>
+              <h4 className="font-semibold mb-3 text-yellow-900">Multi-currency, properly</h4>
               <div className="bg-white p-4 rounded-md mb-4">
                 <p className="text-gray-700 text-sm mb-2">
-                  Supporting multiple currencies isn&apos;t just about displaying different symbols—it requires complex backend systems for real-time exchange rates, tax calculations, and financial reporting.
+                  Showing a different currency symbol is the part everyone thinks of. The work is underneath it — live exchange rates, tax that varies by country, and reporting that still reconciles when money moves through several currencies.
                 </p>
                 <div className="text-center text-sm font-mono text-gray-700 space-y-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -108,20 +108,20 @@ export default function AussieEcommerceAsiaBlog() {
                     </div>
                     <div className="border border-green-300 rounded-md p-3 bg-green-50">
                       <strong>Multi-Currency Solution</strong><br/>
-                      <span className="text-xs">• Native currency pricing<br/>• Local payment methods<br/>• Real-time rate updates<br/>• Seamless checkout experience</span>
+                      <span className="text-xs">• Native currency pricing<br/>• Local payment methods<br/>• Real-time rate updates<br/>• Checkout that feels local</span>
                     </div>
                   </div>
                 </div>
               </div>
               <p className="text-yellow-800 text-sm">
-                Proper multi-currency implementation increased conversion rates by 40% in our first Asian market expansion.
+                Getting this right lifted conversion by about 40% in the first Asian market we launched. People trust a price in their own currency far more than a converted one.
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Technical Implementation: Multi-Currency System</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">The pricing service</h4>
               <p className="text-gray-700 mb-4">
-                Building a robust multi-currency e-commerce system requires careful consideration of exchange rates, pricing strategies, and financial compliance:
+                The core of it is a service that turns a base price into a local one. It has to deal with exchange rates, the pricing conventions of each market, and tax — without the numbers drifting out of sync. Here's the gist:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -211,9 +211,9 @@ public class CurrencyService
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Cultural Localization: Beyond Translation</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Localization that isn't translation</h4>
               <p className="text-gray-700 mb-4">
-                Each Asian market has unique shopping behaviors, design preferences, and cultural considerations that significantly impact conversion rates:
+                Each market shops differently — different payment habits, different colour associations, different expectations about delivery and reviews. Those differences move conversion more than the wording does. We ended up driving a lot of it from per-market config:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -296,9 +296,9 @@ export const getLocalizedProductCard = (product, market) => {
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Cross-Border Logistics & Fulfillment</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Shipping, duties and fulfillment</h4>
               <p className="text-gray-700 mb-4">
-                International shipping requires sophisticated logistics management, duty calculations, and local fulfillment strategies:
+                Cross-border shipping is where the customer experience can quietly fall apart — a duty bill at the door, or a two-week delivery, undoes a good checkout. The calculator has to weigh duties, local tax thresholds, and whether there's a fulfillment centre in-country that avoids the border entirely:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -398,33 +398,33 @@ public class InternationalShippingCalculator
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Key International E-commerce Principles</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">What I'd do differently with hindsight</h4>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">🎯</span>
-                  <span><strong>Market Research First</strong> – Understand local shopping behaviors, payment preferences, and cultural nuances before building.</span>
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span><strong>Learn the market before you build for it</strong> – how people pay, what they expect, what the local norms are. Cheaper to find out first.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">💱</span>
-                  <span><strong>Currency Strategy</strong> – Support local currencies with appropriate pricing strategies and hedging for exchange rate fluctuations.</span>
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span><strong>Have a currency strategy, not just support</strong> – local pricing is one thing; hedging against rate swings is another, and finance will care about it.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">📱</span>
-                  <span><strong>Mobile-First Design</strong> – Asian markets have higher mobile usage rates; optimize mobile experience from day one.</span>
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span><strong>Treat mobile as the default</strong> – most of the traffic in these markets is on a phone, so that's the experience to get right first.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">🚚</span>
-                  <span><strong>Logistics Partnerships</strong> – Build relationships with local fulfillment centers and shipping providers for competitive delivery times.</span>
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span><strong>Sort out logistics partners early</strong> – local fulfillment and carriers are what make delivery times competitive.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">⚖️</span>
-                  <span><strong>Compliance Planning</strong> – Understand tax obligations, import/export regulations, and data privacy laws in each target market.</span>
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span><strong>Map the compliance early too</strong> – tax, import/export and data privacy rules differ per market and aren't something to discover at launch.</span>
                 </li>
               </ul>
             </div>
             
             <div className="mb-8">
-              <h4 className="font-semibold mb-3 text-gray-900">Lessons Learned & ROI Analysis</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">The numbers, and what they cost</h4>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
 {`# The Good Guys Asian Expansion Results (2020-2022)
@@ -466,7 +466,7 @@ Biggest Challenges Overcome:
             </div>
             
             <p className="text-gray-600 mb-6 italic">
-              Expanding to Asian markets taught me that international e-commerce success isn&apos;t just about technology—it&apos;s about understanding and respecting local cultures, building trust with new customers, and adapting every aspect of your business to local market needs. The investment is significant, but the potential for growth and learning is even greater.
+              The lasting lesson for me was that the technology was rarely the bottleneck. The hard part was trust — getting customers in a new market to believe an Australian brand would deliver, charge them fairly, and handle their data properly. You earn that by adapting to how they already shop, not by asking them to adapt to you. It's expensive and slow, and it was worth it.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 mb-6">

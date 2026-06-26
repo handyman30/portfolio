@@ -36,54 +36,46 @@ export default function RailwayDeploymentBlog() {
               <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                 Deployment
               </span>
-              <span className="px-3 py-1 bg-purple-500 text-white rounded-full text-sm">
+              <span className="px-3 py-1 bg-[#1f3a5f] text-white rounded-full text-sm">
                 Railway
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">Railway Deployment Made Easy: PostgreSQL + Git Integration for Production Apps</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">Shipping on Railway with Postgres and Git</h1>
             <p className="text-gray-600 mb-4">April 18, 2024 • 14 min read</p>
             
             <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Railway Advantages</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">What Railway gets right</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-purple-500 mr-2">🚀</span>
-                      <span><strong>Sub-30s Deployments</strong> – From git push to live application</span>
+                      <span><strong>Fast deploys</strong> – Git push to a live URL in under a minute most days</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-500 mr-2">🗄️</span>
-                      <span><strong>Built-in PostgreSQL</strong> – No external database setup required</span>
+                      <span><strong>Postgres in one command</strong> – No separate database account to set up</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-500 mr-2">🔧</span>
-                      <span><strong>Zero Config</strong> – Automatic framework detection and builds</span>
+                      <span><strong>Sensible defaults</strong> – It detects the framework and builds it without a config file</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-500 mr-2">🌐</span>
-                      <span><strong>Global CDN</strong> – Edge deployment for optimal performance</span>
+                      <span><strong>TLS and a domain</strong> – Handled for you, which is one less thing to forget</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Production Projects Deployed</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">Things I've shipped on it</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-purple-500 mr-2">🤖</span>
                       <span><strong>Recruiter Copilot AI</strong> – Django + React + PostgreSQL</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-500 mr-2">🛍️</span>
-                      <span><strong>EssentialsDash</strong> – Product discovery platform</span>
+                      <span><strong>EssentialsDash</strong> – A product discovery side project</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-500 mr-2">🧠</span>
-                      <span><strong>LifeGPT</strong> – AI reflection buddy with OpenAI integration</span>
+                      <span><strong>LifeGPT</strong> – A reflection app wired up to the OpenAI API</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-500 mr-2">📊</span>
-                      <span><strong>20+ Projects</strong> – Consistent deployment success</span>
+                      <span><strong>20+ projects</strong> – All on the same workflow</span>
                     </li>
                   </ul>
                 </div>
@@ -91,34 +83,34 @@ export default function RailwayDeploymentBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Deployment shouldn't be the hard part of building software. After struggling with AWS, Heroku pricing, and complex Docker configurations, I discovered Railway—a platform that combines simplicity with production-grade power. Here's how Railway became my go-to deployment platform for rapid prototyping and production applications, with real examples from 20+ successful projects.
+              I avoided Railway for ages because I assumed it'd be another toy PaaS. It isn't. I'd been writing Dockerfiles and fighting AWS for side projects that didn't need either, and the friction was enough that I stopped shipping them. Railway reads your repo, guesses the framework, and builds it. Usually it guesses right. I've put 20-odd projects through it now, and the workflow below is the one I keep coming back to.
             </p>
             
-            <div className="mb-6 bg-purple-50 p-5 rounded-lg border border-purple-200">
-              <h4 className="font-semibold mb-3 text-purple-900">Railway vs Traditional Deployment</h4>
-              <div className="bg-white p-4 rounded-md mb-4">
+            <div className="mb-6 bg-[#fbfbf9] p-5 rounded-lg border border-[#e6e4dd]">
+              <h4 className="font-semibold mb-3 text-[#1f3a5f]">What I used to do vs what I do now</h4>
+              <div className="bg-white p-4 rounded-md mb-4 border border-[#e6e4dd]">
                 <div className="text-center text-sm font-mono text-gray-700 space-y-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="border border-red-300 rounded-md p-3 bg-red-50">
-                      <strong>Traditional AWS/Docker</strong><br/>
-                      <span className="text-xs">• Complex configurations<br/>• Manual database setup<br/>• CI/CD pipeline setup<br/>• 2-4 hours deployment</span>
+                    <div className="border border-[#e6e4dd] rounded-md p-3 bg-[#fbfbf9]">
+                      <strong>AWS / Docker</strong><br/>
+                      <span className="text-xs">• Write the Dockerfile<br/>• Stand up a database by hand<br/>• Wire up the pipeline<br/>• An afternoon, if it goes well</span>
                     </div>
-                    <div className="border border-green-300 rounded-md p-3 bg-green-50">
-                      <strong>Railway Solution</strong><br/>
-                      <span className="text-xs">• Git-based auto-deploy<br/>• One-click PostgreSQL<br/>• Built-in CI/CD<br/>• 30 seconds deployment</span>
+                    <div className="border border-[#e6e4dd] rounded-md p-3 bg-[#fbfbf9]">
+                      <strong>Railway</strong><br/>
+                      <span className="text-xs">• Git push<br/>• <code>railway add postgresql</code><br/>• Pipeline's already there<br/>• Live in under a minute</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <p className="text-purple-800 text-sm">
-                Railway eliminates infrastructure complexity while maintaining production-grade reliability.
+              <p className="text-gray-700 text-sm">
+                For a side project this is the difference between shipping it on a Sunday and not shipping it at all. For real production I'd still reach for more control, but most things aren't real production.
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Project Setup & Configuration</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Setting it up</h4>
               <p className="text-gray-700 mb-4">
-                Railway's magic lies in its intelligent project detection and zero-config deployment. Here's how to set up a production-ready application:
+                Railway reads your repo and figures out the framework on its own, so most of this is just glue. Here's the sequence I run for a new project:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -154,14 +146,14 @@ git push origin main
             </div>
 
             <p className="text-gray-600 mb-6 italic">
-              Railway transformed how I think about deployment. What used to take hours of AWS configuration now takes minutes. The platform handles infrastructure complexity while giving you the power and flexibility needed for production applications.
+              It's not magic and it's not for everything. The build minutes add up if you leave a service running idle, and the logging is fine until you actually need to debug something, at which point you'll wish for more. But for getting a thing from my laptop onto a URL someone else can open, nothing else I've used gets out of the way this fast. That's the whole pitch.
             </p>
             
             {/* Back to Blog Link */}
             <div className="mt-8 pt-6 border-t border-gray-200">
-              <Link 
-                href="/blog"
-                className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium transition-colors"
+              <Link
+                href="/#writing"
+                className="inline-flex items-center text-[#1f3a5f] hover:opacity-70 font-medium transition-colors"
               >
                 ← Back to All Posts
               </Link>

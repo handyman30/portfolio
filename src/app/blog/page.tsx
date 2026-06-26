@@ -8,7 +8,7 @@ export default function BlogIndex() {
 
   useEffect(() => {
     // Redirect to main page blog section
-    router.push('/#blog');
+    router.push('/#writing');
   }, [router]);
 
   return (

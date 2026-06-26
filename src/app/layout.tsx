@@ -5,33 +5,25 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Handy Hasan - Senior Software Engineer Melbourne | Full-Stack Developer',
-  description: 'Senior Software Engineer in Melbourne with 7+ years experience. Expert in React, Python, AWS, and mobile development. Available for hire by top Melbourne tech companies.',
+  title: 'Handy Hasan — Software Engineer, Melbourne',
+  description: 'Full-stack software engineer in Melbourne. Currently building medical imaging systems at 4DMedical. Previously Who Gives A Crap and The Good Guys (JB Hi-Fi).',
   keywords: [
+    'Handy Hasan',
     'software engineer Melbourne',
-    'senior developer Melbourne',
-    'full-stack developer Melbourne', 
-    'React developer Melbourne',
-    'Python developer Melbourne',
-    'mobile app developer Melbourne',
-    'AWS cloud engineer Melbourne',
-    'hire software engineer Melbourne',
-    'top developer Melbourne',
-    'freelance developer Melbourne',
-    'contract developer Melbourne',
-    'Handy Hasan developer',
-    'Melbourne tech talent',
-    'software engineer for hire'
+    'full-stack developer Melbourne',
+    'React developer',
+    'Python developer',
+    '4DMedical engineer'
   ].join(', '),
   authors: [{ name: 'Handy Hasan' }],
   creator: 'Handy Hasan',
   publisher: 'Handy Hasan',
   robots: 'index, follow',
   openGraph: {
-    title: 'Handy Hasan - Senior Software Engineer Melbourne',
-    description: 'Senior Full-Stack Software Engineer in Melbourne. 7+ years experience with React, Python, AWS. Available for hire.',
+    title: 'Handy Hasan — Software Engineer, Melbourne',
+    description: 'Full-stack engineer in Melbourne. Building medical imaging at 4DMedical; previously Who Gives A Crap and The Good Guys.',
     url: 'https://handyhasan.com',
-    siteName: 'Handy Hasan Portfolio',
+    siteName: 'Handy Hasan',
     locale: 'en_AU',
     type: 'profile',
     images: [
@@ -39,14 +31,14 @@ export const metadata: Metadata = {
         url: '/images/profile.jpg',
         width: 1200,
         height: 630,
-        alt: 'Handy Hasan - Senior Software Engineer Melbourne'
+        alt: 'Handy Hasan'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Handy Hasan - Senior Software Engineer Melbourne',
-    description: 'Senior Full-Stack Developer in Melbourne. Expert in React, Python, AWS. Available for hire.',
+    title: 'Handy Hasan — Software Engineer, Melbourne',
+    description: 'Full-stack engineer in Melbourne. Building medical imaging at 4DMedical.',
     images: ['/images/profile.jpg']
   },
   alternates: {
@@ -71,8 +63,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Handy Hasan",
-              "jobTitle": "Senior Software Engineer",
-              "description": "Senior Full-Stack Software Engineer with 7+ years experience in Melbourne, Australia",
+              "jobTitle": "Software Engineer",
+              "description": "Full-stack software engineer with 7+ years experience in Melbourne, Australia",
               "url": "https://handyhasan.com",
               "image": "https://handyhasan.com/images/profile.jpg",
               "address": {
@@ -95,14 +87,7 @@ export default function RootLayout({
                 "Web Development",
                 "Cloud Computing"
               ],
-              "alumniOf": {
-                "@type": "Organization",
-                "name": "University"
-              },
-              "award": [
-                "10,000+ app users for Hangtime Melbourne",
-                "Medical imaging platform processing 3,290+ daily scans"
-              ]
+              "knowsLanguage": "en-AU"
             })
           }}
         />

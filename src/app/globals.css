@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbfbf9;
+  --foreground: #1a1a1a;
+  --muted: #6b6b6b;
+  --accent: #1f3a5f;
+  --rule: #e6e4dd;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--accent);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Editorial type rhythm for long-form article bodies */
+.prose-editorial p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #3a3a3a;
+  margin-bottom: 1.4rem;
+}
+
+.prose-editorial h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.prose-editorial h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Mono label used for kickers / section eyebrows */
+.kicker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
 }

@@ -28,18 +28,18 @@ export default function VectorEmbeddingsRAG() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex justify-center mb-6">
-            <div className="flex items-center space-x-3 bg-gradient-to-r from-purple-100 to-blue-100 px-6 py-3 rounded-full">
-              <Brain className="h-6 w-6 text-purple-600" />
-              <span className="text-purple-700 font-medium">Machine Learning</span>
+            <div className="flex items-center space-x-3 bg-[#fbfbf9] border border-[#e6e4dd] px-6 py-3 rounded-full">
+              <Brain className="h-6 w-6 text-[#1f3a5f]" />
+              <span className="text-[#1f3a5f] font-medium">Machine Learning</span>
             </div>
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Vector Embeddings & RAG: From Text to Intelligent Search
+            Vector embeddings and RAG, explained from scratch
           </h1>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            A comprehensive guide to understanding vector embeddings and building production-ready RAG systems that power modern AI applications.
+            How text turns into numbers, why keyword search falls down, and what it actually takes to put a retrieval system into production.
           </p>
           
           <div className="flex items-center justify-center space-x-6 mt-8 text-sm text-gray-500">
@@ -53,18 +53,18 @@ export default function VectorEmbeddingsRAG() {
 
         {/* Key Takeaways */}
         <motion.div 
-          className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12"
+          className="bg-[#fbfbf9] border border-[#e6e4dd] rounded-lg p-6 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="font-semibold text-blue-900 mb-4">🎯 What You'll Learn</h3>
-          <ul className="space-y-2 text-blue-800">
-            <li>• How text becomes numerical vectors that machines understand</li>
-            <li>• Why traditional search fails and how vector similarity changes everything</li>
-            <li>• Building production RAG systems with vector databases</li>
-            <li>• Enterprise patterns for semantic search and document intelligence</li>
-            <li>• Practical code examples with Python, embeddings, and vector stores</li>
+          <h3 className="font-semibold text-[#1f3a5f] mb-4">What this covers</h3>
+          <ul className="space-y-2 text-gray-700">
+            <li>• How text gets turned into numerical vectors</li>
+            <li>• Why keyword search misses obvious matches, and what vector similarity does instead</li>
+            <li>• Building a RAG system on top of a vector database</li>
+            <li>• The patterns that show up when you take semantic search to production</li>
+            <li>• Working code in Python, with embeddings and a vector store</li>
           </ul>
         </motion.div>
 
@@ -76,17 +76,16 @@ export default function VectorEmbeddingsRAG() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            In my recent interview at a Melbourne AI startup, the conversation quickly turned to vector embeddings and RAG (Retrieval-Augmented Generation) systems. 
-            The interviewer asked: <em>"How would you build a system that can understand and search through 10,000 technical documents in real-time?"</em>
+            I was interviewing at a Melbourne AI startup a while back, and the conversation got to vector embeddings and RAG (Retrieval-Augmented Generation) pretty quickly.
+            The question was: <em>"How would you build something that can search 10,000 technical documents and actually understand what's being asked?"</em>
           </p>
-          
+
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Traditional keyword search would fail miserably. You'd miss documents that use synonyms, related concepts, or different terminology. 
-            This is where vector embeddings and semantic search become game-changers for enterprise applications.
+            Plain keyword search doesn't get you there. Someone searches for one phrase, the document uses a synonym, and you return nothing. That gap is the whole reason embeddings and semantic search exist.
           </p>
-          
+
           <p className="text-lg text-gray-700 leading-relaxed">
-            Let's dive deep into how text becomes numbers, how machines understand meaning, and how to build production systems that can intelligently search and understand human language.
+            So here's the path from text to numbers, why two pieces of text can be "close" mathematically, and what it takes to run a retrieval system that holds up under real traffic.
           </p>
         </motion.section>
 
@@ -98,23 +97,22 @@ export default function VectorEmbeddingsRAG() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <Code className="h-8 w-8 text-purple-600 mr-3" />
+            <Code className="h-8 w-8 text-[#1f3a5f] mr-3" />
             Part 1: Vector Embeddings Explained
           </h2>
 
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">What Are Vector Embeddings?</h3>
           
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Imagine you need to teach a computer that "king" and "monarch" are related concepts. How do you do that? 
-            You can't just tell it they're similar - computers only understand numbers.
-          </p>
-          
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            Vector embeddings solve this by converting text into high-dimensional numerical representations where semantically similar words are close together in mathematical space.
+            Say you want a computer to know that "king" and "monarch" mean roughly the same thing. You can't just tell it. A computer deals in numbers, not meaning.
           </p>
 
-          <div className="bg-gray-100 border-l-4 border-purple-500 p-6 mb-8">
-            <h4 className="font-semibold text-gray-800 mb-2">🔬 Simple Example</h4>
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            Embeddings get around that by turning text into a long list of numbers, arranged so that things with similar meaning end up near each other in that numeric space.
+          </p>
+
+          <div className="bg-[#fbfbf9] border-l-4 border-[#1f3a5f] p-6 mb-8">
+            <h4 className="font-semibold text-gray-800 mb-2">A rough example</h4>
             <div className="space-y-2 text-gray-700 font-mono text-sm">
               <div>"king" → [0.2, 0.8, 0.1, 0.9, ...]</div>
               <div>"queen" → [0.3, 0.7, 0.2, 0.8, ...]</div>
@@ -122,19 +120,18 @@ export default function VectorEmbeddingsRAG() {
               <div>"pizza" → [0.9, 0.1, 0.8, 0.2, ...]</div>
             </div>
             <p className="text-gray-600 mt-3 text-sm">
-              Notice how "king", "queen", and "monarch" have similar numbers, while "pizza" is completely different.
+              "king", "queen", and "monarch" land on similar numbers. "pizza" sits well off on its own. Real embeddings have hundreds of dimensions, not four, but the idea is the same.
             </p>
           </div>
 
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">How Text Becomes Numbers</h3>
           
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Modern embedding models like OpenAI's text-embedding-ada-002 or open-source alternatives like Sentence Transformers 
-            use neural networks trained on massive text datasets to learn these numerical representations.
+            Embedding models like OpenAI's text-embedding-ada-002, or open-source ones like Sentence Transformers, are neural networks trained on a lot of text. The training is what teaches them which numbers to assign.
           </p>
 
           <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
-            <h4 className="font-semibold text-gray-800 mb-4">🐍 Python Example: Creating Embeddings</h4>
+            <h4 className="font-semibold text-gray-800 mb-4">Python: creating embeddings</h4>
             <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`import openai
 from sentence_transformers import SentenceTransformer
@@ -172,12 +169,11 @@ print(f"Embedding dimension: {len(embeddings[0])}")  # Usually 384-1536`}
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Measuring Similarity</h3>
           
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Once we have vectors, we can measure how similar two pieces of text are using mathematical distance functions. 
-            The most common is cosine similarity, which measures the angle between vectors.
+            Once you have vectors you can ask how close two of them are. Cosine similarity is the one you'll see most often. It measures the angle between two vectors and ignores their length, which is what you want here, because you care whether two things point the same direction, not how long the arrows are.
           </p>
 
           <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
-            <h4 className="font-semibold text-gray-800 mb-4">📊 Similarity Calculation</h4>
+            <h4 className="font-semibold text-gray-800 mb-4">Similarity calculation</h4>
             <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
@@ -217,37 +213,36 @@ print("ML vs Pizza:", calculate_similarity(
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <Database className="h-8 w-8 text-blue-600 mr-3" />
+            <Database className="h-8 w-8 text-[#1f3a5f] mr-3" />
             Part 2: RAG Systems & Vector Databases
           </h2>
 
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">The Problem with Traditional Search</h3>
           
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Traditional search engines rely on keyword matching. If someone searches for "machine learning performance optimization" 
-            but your document talks about "improving AI model efficiency," you'd miss a perfect match.
+            Keyword search matches strings, not meaning. Someone searches "machine learning performance optimization," your document says "improving AI model efficiency," and you return nothing. Same idea, different words, zero results. Anyone who's used a corporate wiki search box knows the feeling.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-              <h4 className="font-semibold text-red-800 mb-3">❌ Traditional Search Limitations</h4>
-              <ul className="space-y-2 text-red-700">
-                <li>• Exact keyword matching only</li>
+            <div className="bg-[#fbfbf9] border border-[#e6e4dd] rounded-lg p-6">
+              <h4 className="font-semibold text-gray-800 mb-3">Where keyword search falls down</h4>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Matches exact words, nothing else</li>
                 <li>• Misses synonyms and related terms</li>
-                <li>• No understanding of context</li>
-                <li>• Boolean logic is rigid</li>
-                <li>• Can't handle typos or variations</li>
+                <li>• No sense of context</li>
+                <li>• Boolean queries get brittle fast</li>
+                <li>• A typo and you're empty-handed</li>
               </ul>
             </div>
-            
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-              <h4 className="font-semibold text-green-800 mb-3">✅ Vector Search Advantages</h4>
-              <ul className="space-y-2 text-green-700">
-                <li>• Semantic understanding</li>
-                <li>• Finds related concepts</li>
-                <li>• Context-aware results</li>
-                <li>• Handles synonyms naturally</li>
-                <li>• Robust to variations</li>
+
+            <div className="bg-[#fbfbf9] border border-[#e6e4dd] rounded-lg p-6">
+              <h4 className="font-semibold text-gray-800 mb-3">What vector search does instead</h4>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Matches on meaning, not spelling</li>
+                <li>• Finds related concepts you didn't name</li>
+                <li>• Context comes along for free</li>
+                <li>• Synonyms just work</li>
+                <li>• Typos mostly don't matter</li>
               </ul>
             </div>
           </div>
@@ -255,14 +250,12 @@ print("ML vs Pizza:", calculate_similarity(
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">What is RAG?</h3>
           
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            RAG (Retrieval-Augmented Generation) combines the best of both worlds: the knowledge retrieval of search engines 
-            with the natural language generation of large language models. Instead of training an LLM on your specific data, 
-            you retrieve relevant context and let the model generate responses based on that information.
+            RAG is less clever than it sounds. You don't retrain the model on your data. You search your documents for the bits that look relevant to the question, paste them into the prompt, and ask the LLM to answer using those. That's it. The model never "learned" your docs; it just got handed the right pages before answering.
           </p>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-            <h4 className="font-semibold text-blue-800 mb-4">🔄 RAG Workflow</h4>
-            <ol className="space-y-3 text-blue-700">
+          <div className="bg-[#fbfbf9] border border-[#e6e4dd] rounded-lg p-6 mb-8">
+            <h4 className="font-semibold text-gray-800 mb-4">The RAG loop</h4>
+            <ol className="space-y-3 text-gray-700">
               <li><strong>1. Document Ingestion:</strong> Convert documents to vectors and store in vector database</li>
               <li><strong>2. Query Processing:</strong> User asks a question, convert to vector</li>
               <li><strong>3. Similarity Search:</strong> Find most relevant document chunks</li>
@@ -274,8 +267,7 @@ print("ML vs Pizza:", calculate_similarity(
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Vector Database Options</h3>
           
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Vector databases are specialized systems optimized for storing and querying high-dimensional vectors. 
-            Here's a comparison of popular options:
+            A vector database is just a store that's good at "find me the closest vectors to this one" over millions of rows. You can do it in Postgres with pgvector for a while, and honestly that's where I'd start. Once you outgrow that, the usual suspects:
           </p>
 
           <div className="overflow-x-auto mb-8">
@@ -320,12 +312,11 @@ print("ML vs Pizza:", calculate_similarity(
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Building a Simple RAG System</h3>
           
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Let's build a practical example using Chroma (local vector database) and OpenAI. This system can answer questions 
-            about your company's documentation.
+            Here's a small one end to end, using Chroma locally and OpenAI for the answer. It's enough to answer questions over a pile of company docs. It's also enough to show you where the real work hides, which is the chunking, not the clever part.
           </p>
 
           <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
-            <h4 className="font-semibold text-gray-800 mb-4">🛠️ Complete RAG Implementation</h4>
+            <h4 className="font-semibold text-gray-800 mb-4">A working RAG pipeline</h4>
             <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`import chromadb
 import openai
@@ -449,36 +440,36 @@ print("Sources:", sources)`}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <Zap className="h-8 w-8 text-yellow-600 mr-3" />
-            Enterprise Patterns & Production Considerations
+            <Zap className="h-8 w-8 text-[#1f3a5f] mr-3" />
+            What changes when this hits production
           </h2>
 
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Real-World Enterprise Applications</h3>
-          
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Where it actually gets used</h3>
+
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
+            <div className="bg-white border border-[#e6e4dd] rounded-lg p-6">
               <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
-                <FileText className="h-5 w-5 text-blue-600 mr-2" />
-                Document Intelligence
+                <FileText className="h-5 w-5 text-[#1f3a5f] mr-2" />
+                Searching documents
               </h4>
               <p className="text-gray-700 mb-3">
-                Legal firms use RAG to search through thousands of case documents, finding relevant precedents and clauses in seconds.
+                Lawyers pointing it at a few thousand case files so they can ask a question instead of grepping for the right clause by hand.
               </p>
               <div className="text-sm text-gray-600">
-                <strong>Example:</strong> "Find all contracts with force majeure clauses related to pandemics"
+                <strong>Looks like:</strong> "Find contracts with force majeure clauses that mention pandemics"
               </div>
             </div>
-            
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
+
+            <div className="bg-white border border-[#e6e4dd] rounded-lg p-6">
               <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
-                <MessageCircle className="h-5 w-5 text-green-600 mr-2" />
-                Customer Support AI
+                <MessageCircle className="h-5 w-5 text-[#1f3a5f] mr-2" />
+                Support answers
               </h4>
               <p className="text-gray-700 mb-3">
-                Support teams use RAG to instantly find answers from knowledge bases, reducing response times from hours to seconds.
+                A support bot that pulls from the help centre instead of making things up. When it works it deflects tickets. When the docs are wrong, so is the bot.
               </p>
               <div className="text-sm text-gray-600">
-                <strong>Example:</strong> "How do I configure SSO for enterprise accounts?"
+                <strong>Looks like:</strong> "How do I set up SSO on an enterprise account?"
               </div>
             </div>
           </div>
@@ -486,8 +477,7 @@ print("Sources:", sources)`}
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Production Architecture</h3>
           
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Building production RAG systems requires careful consideration of scale, latency, and reliability. 
-            Here's a typical enterprise architecture:
+            The demo above is one process. In production it's a few moving parts, and most of the headaches are the boring ones: keeping the index in sync with the source docs, and what to do when the LLM call times out. Rough shape:
           </p>
 
           <div className="bg-gray-100 border border-gray-200 rounded-lg p-6 mb-8">
@@ -511,23 +501,23 @@ print("Sources:", sources)`}
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Performance Optimization</h3>
           
           <div className="space-y-6 mb-8">
-            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6">
-              <h4 className="font-semibold text-yellow-800 mb-2">⚡ Latency Optimization</h4>
-              <ul className="space-y-1 text-yellow-700">
-                <li>• Use cached embeddings for common queries</li>
-                <li>• Implement approximate nearest neighbor (ANN) search</li>
-                <li>• Pre-compute embeddings for static documents</li>
-                <li>• Use smaller, faster embedding models when appropriate</li>
+            <div className="bg-[#fbfbf9] border-l-4 border-[#1f3a5f] p-6">
+              <h4 className="font-semibold text-gray-800 mb-2">Latency</h4>
+              <ul className="space-y-1 text-gray-700">
+                <li>• Cache embeddings for queries you see over and over</li>
+                <li>• Use approximate nearest neighbour search; exact is too slow at scale</li>
+                <li>• Embed static documents once, not on every request</li>
+                <li>• A smaller embedding model is often fine and a lot faster</li>
               </ul>
             </div>
-            
-            <div className="bg-purple-50 border-l-4 border-purple-500 p-6">
-              <h4 className="font-semibold text-purple-800 mb-2">📈 Scaling Strategies</h4>
-              <ul className="space-y-1 text-purple-700">
-                <li>• Horizontal scaling with multiple vector DB replicas</li>
-                <li>• Document chunking strategies for better retrieval</li>
-                <li>• Implement hybrid search (vector + keyword)</li>
-                <li>• Use content-based routing for multi-tenant systems</li>
+
+            <div className="bg-[#fbfbf9] border-l-4 border-[#1f3a5f] p-6">
+              <h4 className="font-semibold text-gray-800 mb-2">Scale</h4>
+              <ul className="space-y-1 text-gray-700">
+                <li>• Replicas if the read load gets heavy</li>
+                <li>• Spend your time on chunking; it matters more than the database choice</li>
+                <li>• Hybrid search (vector + keyword) catches what pure vectors miss</li>
+                <li>• Keep tenants' data apart with routing, before someone leaks across them</li>
               </ul>
             </div>
           </div>

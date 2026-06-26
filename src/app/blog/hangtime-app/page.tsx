@@ -36,54 +36,54 @@ export default function HangtimeAppBlog() {
               <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                 Basketball
               </span>
-              <span className="px-3 py-1 bg-green-500 text-white rounded-full text-sm">
+              <span className="px-3 py-1 bg-gray-50 border border-[#e6e4dd] text-[#1f3a5f] rounded-full text-sm">
                 React Native
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">Building Hangtime: Basketball Meets Software Engineering</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">Building Hangtime: basketball meets software</h1>
             <p className="text-gray-600 mb-6">April 15, 2024 • 10 min read</p>
             
             <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">App Features & Technology</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">What the app does, and what it runs on</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">📱</span>
-                      <span><strong>React Native</strong> – Cross-platform mobile development</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>React Native</strong> – one codebase for iOS and Android</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">🗺️</span>
-                      <span><strong>Interactive Maps</strong> – 200+ basketball courts mapped</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>A map</strong> – 200+ Melbourne courts on it</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">👥</span>
-                      <span><strong>Social Features</strong> – Player profiles and game organizing</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>Profiles and games</strong> – so people can actually organise something</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">🏀</span>
-                      <span><strong>Game Matching</strong> – Find players and organize pickup games</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>Pickup matching</strong> – find players, fill a game</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Growth & Community Impact</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">Where it got to</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">👤</span>
-                      <span><strong>10,000+ Active Players</strong> – Organic growth through word-of-mouth</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>10,000+ players</strong> – mostly word-of-mouth, no ad budget</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">🏀</span>
-                      <span><strong>5,000+ Games Organized</strong> – Real community connections</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>5,000+ games organised</strong> – games that actually happened</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">⭐</span>
-                      <span><strong>4.8/5 App Store Rating</strong> – High user satisfaction</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>4.8/5 on the App Store</strong></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">🌏</span>
-                      <span><strong>Melbourne-wide Coverage</strong> – All major basketball venues</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>Across Melbourne</strong> – the major courts are all on there</span>
                     </li>
                   </ul>
                 </div>
@@ -91,11 +91,11 @@ export default function HangtimeAppBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Combining passion for basketball with engineering skills to solve real problems. Hangtime Melbourne connects over 10,000 basketball players across Melbourne, but the real story is how we built a community-driven platform that scaled organically through word-of-mouth and solid engineering practices. This project taught me that the best software solutions come from solving problems you&apos;re passionate about.
+              I built Hangtime because I was sick of turning up to courts with no one there. It's a side project. A Melbourne app for finding pickup basketball games. It's at about 10,000 players now, almost all of that word of mouth. I'll cover the engineering, but the part that actually kept it alive was the boring stuff — the community, the support emails, deciding what not to build.
             </p>
             
-            <div className="mb-6 bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 className="font-semibold mb-3 text-green-900">Hangtime App Architecture</h4>
+            <div className="mb-6 bg-gray-50 p-5 rounded-lg border border-[#e6e4dd]">
+              <h4 className="font-semibold mb-3 text-[#1f3a5f]">How it's put together</h4>
               <div className="bg-white p-4 rounded-md mb-4">
                 <div className="text-center text-sm font-mono text-gray-700 space-y-4">
                   <div className="border border-blue-300 rounded-md p-4 bg-blue-50">
@@ -144,16 +144,16 @@ export default function HangtimeAppBlog() {
                   </div>
                 </div>
               </div>
-              <p className="text-green-800 text-sm">
-                React Native enabled cross-platform development while Firebase provided real-time features and scalable backend infrastructure.
+              <p className="text-gray-700 text-sm">
+                React Native so I wasn't maintaining two apps. Firebase so I wasn't running servers. When it's just you, those two decisions are most of the battle.
               </p>
             </div>
             
-            <div className="mb-6 bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 className="font-semibold mb-3 text-green-900">The Problem We Solved</h4>
+            <div className="mb-6 bg-gray-50 p-5 rounded-lg border border-[#e6e4dd]">
+              <h4 className="font-semibold mb-3 text-[#1f3a5f]">The actual problem</h4>
               <div className="bg-white p-4 rounded-md mb-4">
                 <p className="text-gray-700 text-sm mb-2">
-                  Melbourne has hundreds of basketball courts, but finding active players and games was always a challenge. Players would show up to empty courts or miss out on games because they didn&apos;t know where the action was.
+                  Melbourne has hundreds of courts and plenty of people who want a game. The two don't find each other. You rock up hoping for a run and the court's dead. Or you hear later that a good game was on at a court you didn't think to check.
                 </p>
                 <div className="text-center text-sm font-mono text-gray-700 space-y-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -168,15 +168,15 @@ export default function HangtimeAppBlog() {
                   </div>
                 </div>
               </div>
-              <p className="text-green-800 text-sm">
-                By solving a real problem I personally experienced, Hangtime grew organically to become Melbourne&apos;s go-to basketball community app.
+              <p className="text-gray-700 text-sm">
+                I built it for me first. I knew what was annoying because I'd lived it. Turned out other people had the same problem.
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">React Native Implementation & Cross-Platform Architecture</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">The map screen</h4>
               <p className="text-gray-700 mb-4">
-                React Native allowed us to build for both iOS and Android with a single codebase while maintaining native performance:
+                The map is the bit people open the app for. Courts with a live game on show up in green, dead ones in grey. That's it — but it's the whole pitch in one screen:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -287,9 +287,9 @@ export default CourtMapScreen;`}
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Firebase Real-time Game Management</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Creating and joining games</h4>
               <p className="text-gray-700 mb-4">
-                Firebase Firestore enables real-time game updates and player coordination:
+                Firestore does the live updates. The one spot I had to be careful was joining a game. Two people tapping "join" on the last spot at the same time can't both get in, so it runs in a transaction:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -423,9 +423,9 @@ export default GameService;`}
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Real-time Chat Implementation</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Chat per game</h4>
               <p className="text-gray-700 mb-4">
-                In-app messaging enables players to coordinate and build community:
+                Every game gets a chat thread. Sounds minor. It's where half the coordination happens — running late, bringing a mate, calling it off when it's raining. GiftedChat over a Firestore subcollection, didn't need anything fancier:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -507,9 +507,9 @@ export default GameChatScreen;`}
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">User Growth & Community Building Strategy</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Nudging people to come back</h4>
               <p className="text-gray-700 mb-4">
-                Organic growth through community-first features and basketball culture:
+                Growth was word of mouth, but I put a bit of scaffolding behind it. A reputation score, skill-based matching, court recommendations. Nothing clever. Just small nudges that reward showing up and make the next game easier to find:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -622,7 +622,7 @@ const CommunityFeatures = {
             </div>
             
             <div className="mb-8">
-              <h4 className="font-semibold mb-3 text-gray-900">The Business Side: Passion Project to Sustainable App</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">The business side</h4>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
 {`Development Timeline:
@@ -649,7 +649,7 @@ Key Metrics:
             </div>
             
             <p className="text-gray-600 mb-6 italic">
-              Building Hangtime taught me that the most successful projects combine technical skills with genuine passion. When you&apos;re solving a problem you care about, the long hours of coding, debugging, and user support don&apos;t feel like work—they feel like building something meaningful for your community.
+              It's the project I'm fondest of, mostly because I still use it and so do my mates. The code wasn't the hard part. Answering support emails on a Sunday was the hard part. It's still going because I care about it, which is not much of a strategy but it's the honest answer.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 mb-6">
@@ -681,9 +681,9 @@ Key Metrics:
             </div>
 
             <div className="mt-8 pt-6 border-t border-gray-200">
-              <Link 
-                href="/#blog" 
-                className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+              <Link
+                href="/#writing"
+                className="inline-flex items-center text-[#1f3a5f] hover:opacity-70 transition-opacity"
               >
                 ← Back to Blog
               </Link>

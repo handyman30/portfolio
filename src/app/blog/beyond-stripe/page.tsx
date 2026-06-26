@@ -40,50 +40,50 @@ export default function BeyondStripeBlog() {
                 Custom Solutions
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">Beyond Stripe: Building Custom Payment Solutions</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">Beyond Stripe: when to build your own payments</h1>
             <p className="text-gray-600 mb-6">March 10, 2024 • 12 min read</p>
             
             <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">When to Go Beyond Stripe</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">When you might outgrow Stripe</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-indigo-500 mr-2">🏪</span>
-                      <span><strong>Multi-party Marketplaces</strong> – Complex revenue splitting and escrow</span>
+                      <span className="text-indigo-500 mr-2">•</span>
+                      <span><strong>Multi-party marketplaces</strong> – splitting money between several sellers, plus escrow</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-indigo-500 mr-2">🔍</span>
-                      <span><strong>Custom Fraud Detection</strong> – Industry-specific risk algorithms</span>
+                      <span className="text-indigo-500 mr-2">•</span>
+                      <span><strong>Your own fraud rules</strong> – risk logic tied to how your business actually works</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-indigo-500 mr-2">🏥</span>
-                      <span><strong>Specialized Compliance</strong> – Healthcare, finance, regulated industries</span>
+                      <span className="text-indigo-500 mr-2">•</span>
+                      <span><strong>Heavy compliance</strong> – healthcare, finance, anything regulated</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-indigo-500 mr-2">💰</span>
-                      <span><strong>High-volume, Low-margin</strong> – Need better processing rates</span>
+                      <span className="text-indigo-500 mr-2">•</span>
+                      <span><strong>High volume, thin margins</strong> – where the per-transaction fee starts to hurt</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Custom Payment Advantages</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">What you get in return</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-indigo-500 mr-2">🎯</span>
-                      <span><strong>Tailored User Experience</strong> – Custom flows for your business</span>
+                      <span className="text-indigo-500 mr-2">•</span>
+                      <span><strong>Checkout that fits your flow</strong> – not the other way around</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-indigo-500 mr-2">📊</span>
-                      <span><strong>Advanced Analytics</strong> – Custom reporting and insights</span>
+                      <span className="text-indigo-500 mr-2">•</span>
+                      <span><strong>The reporting you actually want</strong> – instead of what the dashboard gives you</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-indigo-500 mr-2">🔧</span>
-                      <span><strong>Complete Control</strong> – Full ownership of payment data</span>
+                      <span className="text-indigo-500 mr-2">•</span>
+                      <span><strong>Your own payment data</strong> – it lives in your systems</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-indigo-500 mr-2">💸</span>
-                      <span><strong>Cost Optimization</strong> – Potentially lower processing fees</span>
+                      <span className="text-indigo-500 mr-2">•</span>
+                      <span><strong>Possibly lower fees</strong> – at the right volume, anyway</span>
                     </li>
                   </ul>
                 </div>
@@ -91,11 +91,11 @@ export default function BeyondStripeBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              While Stripe is excellent for most use cases, some businesses need custom payment flows, multi-party marketplaces, or specialized compliance requirements. At The Good Guys, we built custom payment orchestration to handle complex B2B transactions, installment plans, and integration with legacy financial systems. Learn when to build your own payment infrastructure and how to do it safely with PCI compliance, fraud detection, and global payment methods.
+              Use Stripe. For most teams that's the whole answer, and I'd reach for it again without thinking. But some businesses hit its edges. At The Good Guys we ended up building our own payment orchestration, mostly because we had B2B transactions, installment plans, and a couple of legacy finance systems that weren't going anywhere and weren't going to bend to fit a standard checkout. This is when that's worth doing, and how not to set fire to your PCI scope while you do it.
             </p>
             
             <div className="mb-6 bg-indigo-50 p-5 rounded-lg border border-indigo-200">
-              <h4 className="font-semibold mb-3 text-indigo-900">Custom Payment Architecture</h4>
+              <h4 className="font-semibold mb-3 text-indigo-900">Off-the-shelf vs. your own</h4>
               <div className="bg-white p-4 rounded-md mb-4">
                 <div className="text-center text-sm font-mono text-gray-700 space-y-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -111,14 +111,14 @@ export default function BeyondStripeBlog() {
                 </div>
               </div>
               <p className="text-indigo-800 text-sm">
-                Custom payment systems give you complete control but require significant development and compliance investment.
+                Building your own buys you control. It also signs you up for compliance work that doesn't end. Someone owns PCI forever now, and that someone is you.
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Building PCI-Compliant Payment Infrastructure</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Keeping PCI scope small</h4>
               <p className="text-gray-700 mb-4">
-                PCI compliance is non-negotiable when handling payment data. Here&apos;s how we architected a secure payment system:
+                Get PCI scope right first. Every part of your system that touches a raw card number is a part the auditors get to inspect, so the trick is to make that surface as small as you can. Here&apos;s roughly how we laid it out:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -151,9 +151,9 @@ Payment Gateway Integration:
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Implementation Example: Multi-party Marketplace Payments</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">A marketplace split, in code</h4>
               <p className="text-gray-700 mb-4">
-                One of the most complex payment scenarios is handling marketplace transactions with multiple sellers, buyers, and service fees:
+                Marketplace payments are where it gets fiddly. One buyer pays once, but the money has to split across the sellers, your platform fee, and the processor. Get the order of operations wrong and you end up holding funds you have no right to hold, which is a regulatory problem, not a bug. Here&apos;s the shape of it:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -262,33 +262,33 @@ public class MarketplacePaymentService
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Key Custom Payment Principles</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Things I'd insist on next time</h4>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-indigo-500 mr-2">🔒</span>
-                  <span><strong>Security First</strong> – PCI compliance, tokenization, and encryption are non-negotiable from day one.</span>
+                  <span className="text-indigo-500 mr-2">•</span>
+                  <span><strong>Security from day one</strong> – PCI, tokenization and encryption aren't features you bolt on later.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-indigo-500 mr-2">🔄</span>
-                  <span><strong>Fail-Safe Design</strong> – Build comprehensive error handling, rollback mechanisms, and audit trails.</span>
+                  <span className="text-indigo-500 mr-2">•</span>
+                  <span><strong>Assume things will fail</strong> – every step needs error handling, a rollback path, and an audit trail you can read at 2am.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-indigo-500 mr-2">📊</span>
-                  <span><strong>Reconciliation Ready</strong> – Design for easy financial reconciliation and regulatory reporting.</span>
+                  <span className="text-indigo-500 mr-2">•</span>
+                  <span><strong>Reconciliation isn't an afterthought</strong> – finance will need the numbers to line up, and regulators will ask.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-indigo-500 mr-2">🌍</span>
-                  <span><strong>Global Considerations</strong> – Plan for multiple currencies, local payment methods, and regulatory differences.</span>
+                  <span className="text-indigo-500 mr-2">•</span>
+                  <span><strong>Plan for more than one country</strong> – currencies, local payment methods and rules differ more than you'd think.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-indigo-500 mr-2">⚡</span>
-                  <span><strong>Performance & Scale</strong> – Optimize for high transaction volumes and low latency requirements.</span>
+                  <span className="text-indigo-500 mr-2">•</span>
+                  <span><strong>It has to stay fast under load</strong> – payments are the one place users won't forgive a spinner.</span>
                 </li>
               </ul>
             </div>
             
             <div className="mb-8">
-              <h4 className="font-semibold mb-3 text-gray-900">ROI Analysis: When Custom Makes Sense</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">The maths on when it pays off</h4>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
 {`# Custom Payment System ROI Analysis
@@ -321,7 +321,7 @@ Additional Benefits:
             </div>
             
             <p className="text-gray-600 mb-6 italic">
-              Building custom payment solutions isn&apos;t about replacing Stripe for everyone—it&apos;s about recognizing when your business needs justify the investment. The key is understanding your specific requirements, calculating the true cost of ownership, and ensuring you have the security and compliance expertise to do it safely.
+              So none of this is a pitch to ditch Stripe. For most teams it's a bad trade. Work out what you actually need, add up the cost of owning it for years and not just building it once, and check you've got the security and compliance people to do it properly. If the numbers still say build, build. They usually don't.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 mb-6">

@@ -36,54 +36,54 @@ export default function EcommerceObservabilityBlog() {
               <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
                 DevOps
               </span>
-              <span className="px-3 py-1 bg-orange-500 text-white rounded-full text-sm">
+              <span className="px-3 py-1 bg-[#1f3a5f] text-white rounded-full text-sm">
                 The Good Guys
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">The Invisible Layer of E-Commerce: Enterprise Observability with Mixpanel, New Relic & Sumo Logic</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">The invisible layer of e-commerce: observability</h1>
             <p className="text-gray-600 mb-6">April 22, 2024 • 15 min read</p>
             
-            <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
+            <div className="mb-6 bg-gray-50 p-4 rounded-lg border border-[#e6e4dd]">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Enterprise Monitoring Stack</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">The stack we ran</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">📊</span>
-                      <span><strong>Mixpanel Analytics</strong> – User behavior and funnel analysis</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>Mixpanel</strong> – user behaviour and funnels</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">⚡</span>
-                      <span><strong>New Relic APM</strong> – Application performance monitoring</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>New Relic</strong> – application performance</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">📝</span>
-                      <span><strong>Sumo Logic</strong> – Log aggregation and analysis</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>Sumo Logic</strong> – logs, aggregated and searchable</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">🎯</span>
-                      <span><strong>Google Analytics 4</strong> – Enhanced e-commerce tracking</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>Google Analytics 4</strong> – e-commerce reporting</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Business Impact at Scale</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">What it bought us</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">💰</span>
-                      <span><strong>$2.5M Revenue Protected</strong> – Issues caught before customer impact</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>$2.5M revenue protected</strong> – issues caught before customers noticed</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">⏱️</span>
-                      <span><strong>30s Mean Detection</strong> – From incident to alert</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>30s to detect</strong> – from incident to alert</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">📈</span>
-                      <span><strong>18% Conversion Increase</strong> – Through performance optimization</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>18% lift in conversion</strong> – mostly from making pages faster</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-500 mr-2">🛡️</span>
-                      <span><strong>99.97% Uptime</strong> – During peak shopping periods</span>
+                      <span className="text-[#1f3a5f] mr-2">•</span>
+                      <span><strong>99.97% uptime</strong> – through the peak sale periods</span>
                     </li>
                   </ul>
                 </div>
@@ -91,34 +91,34 @@ export default function EcommerceObservabilityBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              E-commerce platforms live and die by the experience they deliver in real time. At The Good Guys, we processed millions of transactions daily across 100+ stores, and a few seconds of latency or a failed payment flow could cost thousands in revenue. When Black Friday brought 50x normal traffic, our observability stack was the difference between success and disaster.
+              Nobody cares about observability until checkout is down on a Saturday. At The Good Guys we ran the online store on top of 100-odd physical stores, millions of transactions a day. A couple of seconds of extra latency on a product page, or a payment step quietly failing for one card type — that&apos;s real money, and you won&apos;t see it in a dashboard unless you went looking for it first. We ran Mixpanel, New Relic and Sumo Logic. They overlap less than the marketing suggests; each answers a question the others can&apos;t. Black Friday was where I found out whether the setup actually held — traffic was somewhere north of 50x a normal day.
             </p>
             
-            <div className="mb-6 bg-orange-50 p-5 rounded-lg border border-orange-200">
-              <h4 className="font-semibold mb-3 text-orange-900">The Cost of Poor Observability</h4>
-              <div className="bg-white p-4 rounded-md mb-4">
+            <div className="mb-6 bg-gray-50 p-5 rounded-lg border border-[#e6e4dd]">
+              <h4 className="font-semibold mb-3 text-[#1f3a5f]">Before and after</h4>
+              <div className="bg-white p-4 rounded-md mb-4 border border-[#e6e4dd]">
                 <div className="text-center text-sm font-mono text-gray-700 space-y-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="border border-red-300 rounded-md p-3 bg-red-50">
-                      <strong>Before Enterprise Monitoring</strong><br/>
+                    <div className="border border-[#e6e4dd] rounded-md p-3 bg-gray-50">
+                      <strong>Before</strong><br/>
                       <span className="text-xs">• 15-minute incident detection<br/>• Manual alert triage<br/>• Reactive troubleshooting<br/>• 2.3% checkout failure rate</span>
                     </div>
-                    <div className="border border-green-300 rounded-md p-3 bg-green-50">
-                      <strong>After Observability Stack</strong><br/>
+                    <div className="border border-[#e6e4dd] rounded-md p-3 bg-gray-50">
+                      <strong>After</strong><br/>
                       <span className="text-xs">• 30-second detection<br/>• Automated alert routing<br/>• Proactive issue prevention<br/>• 0.4% checkout failure rate</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <p className="text-orange-800 text-sm">
-                A 30x improvement in detection time and 83% reduction in checkout failures directly translated to millions in protected revenue.
+              <p className="text-gray-700 text-sm">
+                Detection went from 15 minutes to 30 seconds, checkout failures from 2.3% to 0.4%. At our volume those two numbers are most of why this paid for itself.
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Mixpanel Implementation for E-commerce Analytics</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Mixpanel: what customers actually do</h4>
               <p className="text-gray-700 mb-4">
-                Mixpanel became our single source of truth for user behavior. Unlike Google Analytics, Mixpanel&apos;s event-based tracking gave us granular insights into customer journeys, allowing us to optimize conversion funnels in real-time.
+                Mixpanel was where we went to understand behaviour. It&apos;s event-based rather than page-based, so instead of pageviews you record the things that matter — viewed a product, added to cart, completed a purchase — and build funnels out of them. That made it straightforward to see exactly where people dropped out of checkout. We tracked the events with their relevant properties:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -164,9 +164,9 @@ class EcommerceAnalytics {
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">New Relic APM Performance Monitoring</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">New Relic: where the time goes</h4>
               <p className="text-gray-700 mb-4">
-                New Relic provided deep visibility into our .NET e-commerce application, tracking everything from database queries to external API calls with custom instrumentation.
+                Mixpanel tells you the customer dropped at payment. New Relic tells you it was a 4-second call to the payment gateway, on the third Tuesday, when their API was having a bad day. It traced the .NET app from request down through the database queries and outbound calls. We added custom instrumentation on the payment path specifically, because that&apos;s the bit where a slow span turns into a refund:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -202,29 +202,32 @@ public class CheckoutService
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Key E-commerce Observability Principles</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">How the three fit together</h4>
+              <p className="text-gray-700 mb-4">
+                The point isn&apos;t that one is better. They sit in a chain. Sumo Logic was where all the logs landed, so once New Relic pointed at a slow service we could go read the actual lines for that request. The order I&apos;d hit them in:
+              </p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-orange-500 mr-2">🎯</span>
-                  <span><strong>Business Metrics First</strong> – Monitor conversion rates, revenue, and customer experience metrics before technical metrics.</span>
+                  <span className="text-[#1f3a5f] mr-2">•</span>
+                  <span><strong>Mixpanel</strong> — &quot;what is the customer doing&quot;. Funnels, drop-off, conversion.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-500 mr-2">⚡</span>
-                  <span><strong>Real-Time Detection</strong> – E-commerce moves fast; 15-minute detection windows are too slow for revenue-critical issues.</span>
+                  <span className="text-[#1f3a5f] mr-2">•</span>
+                  <span><strong>New Relic</strong> — &quot;is the system slow, and where&quot;. Traces and APM.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-500 mr-2">📊</span>
-                  <span><strong>Context-Rich Alerting</strong> – Include business impact, affected customer segments, and remediation steps in every alert.</span>
+                  <span className="text-[#1f3a5f] mr-2">•</span>
+                  <span><strong>Sumo Logic</strong> — &quot;what actually happened&quot;. The raw logs, once you know which request to grep for.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-500 mr-2">💰</span>
-                  <span><strong>ROI-Driven Implementation</strong> – Measure observability success in revenue protected and customer experience improved.</span>
+                  <span className="text-[#1f3a5f] mr-2">•</span>
+                  <span>Wire the alerts to money, not to CPU. An alert that doesn&apos;t tell you whether revenue is moving gets snoozed at 2am, and then it might as well not exist.</span>
                 </li>
               </ul>
             </div>
             
             <div className="mb-8">
-              <h4 className="font-semibold mb-3 text-gray-900">Business Impact & ROI Analysis</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Did it pay for itself</h4>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
 {`# The Good Guys E-commerce Observability ROI (2019-2021)
@@ -251,7 +254,7 @@ ROI Multiple: 17.7x return on observability investment`}
             </div>
             
             <p className="text-gray-600 mb-6 italic">
-              Enterprise observability isn&apos;t just about collecting data—it&apos;s about turning that data into business advantage. At The Good Guys, our investment in Mixpanel, New Relic, and Sumo Logic didn&apos;t just prevent incidents; it enabled us to optimize for revenue and customer experience in ways we never could before.
+              The licences weren&apos;t cheap, and it&apos;s fair to ask whether three tools is one too many. For us it wasn&apos;t — each answered a different question, and the overlap was small. The honest version of the lesson is that observability only earns its keep if you wire the alerts to the things that cost money and then actually act on them. Collecting the data is the easy part.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 mb-6">

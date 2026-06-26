@@ -40,50 +40,50 @@ export default function MedicalImagingBlog() {
                 4DMedical
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">Medical Imaging in the Cloud: DICOM, PACS & Machine Learning</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">Medical imaging in the cloud: DICOM, PACS and ML</h1>
             <p className="text-gray-600 mb-6">February 28, 2024 • 14 min read</p>
             
             <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Technical Challenges</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">The hard parts</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-red-500 mr-2">📊</span>
-                      <span><strong>DICOM Processing</strong> – 1GB+ files per scan, complex metadata</span>
+                      <span className="text-red-500 mr-2">•</span>
+                      <span><strong>DICOM files</strong> – often a gigabyte or more per scan, with a lot of metadata attached</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-500 mr-2">🔒</span>
-                      <span><strong>HIPAA Compliance</strong> – Patient data protection and privacy</span>
+                      <span className="text-red-500 mr-2">•</span>
+                      <span><strong>HIPAA</strong> – patient data has to be protected at every hop</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-500 mr-2">⚡</span>
-                      <span><strong>Real-time Analysis</strong> – ML processing for diagnostic enhancement</span>
+                      <span className="text-red-500 mr-2">•</span>
+                      <span><strong>ML in the loop</strong> – running models over scans without holding up the pipeline</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-500 mr-2">🏥</span>
-                      <span><strong>PACS Integration</strong> – Hospital system compatibility</span>
+                      <span className="text-red-500 mr-2">•</span>
+                      <span><strong>PACS</strong> – talking to whatever system a given hospital already runs</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">4DMedical Scale & Impact</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">Roughly the scale at 4DMedical</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-red-500 mr-2">📈</span>
-                      <span><strong>3,290+ Daily Scans</strong> – Processing at enterprise scale</span>
+                      <span className="text-red-500 mr-2">•</span>
+                      <span><strong>3,290+ scans a day</strong> – going through the pipeline</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-500 mr-2">🌍</span>
-                      <span><strong>50+ Hospitals</strong> – Global deployment across healthcare systems</span>
+                      <span className="text-red-500 mr-2">•</span>
+                      <span><strong>50+ hospitals</strong> – across several countries</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-500 mr-2">🧠</span>
-                      <span><strong>AI-Enhanced Diagnosis</strong> – Machine learning for lung imaging</span>
+                      <span className="text-red-500 mr-2">•</span>
+                      <span><strong>ML on lung imaging</strong> – measurements, not just pictures</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-500 mr-2">⚡</span>
-                      <span><strong>99.9% Uptime</strong> – Medical-grade reliability requirements</span>
+                      <span className="text-red-500 mr-2">•</span>
+                      <span><strong>99.9% uptime</strong> – the bar for anything clinical</span>
                     </li>
                   </ul>
                 </div>
@@ -91,14 +91,14 @@ export default function MedicalImagingBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Processing medical imaging data at scale requires specialized knowledge of DICOM standards, PACS integration, and regulatory compliance. At 4DMedical, we built cloud infrastructure that processes 3,290+ daily scans while maintaining HIPAA compliance and enabling machine learning applications for diagnostic enhancement. This deep dive covers the technical architecture, compliance challenges, and AI integration required for medical-grade imaging systems.
+              Medical imaging has its own set of standards and quirks that you don't really appreciate until you're in it: DICOM, PACS, and a stack of regulatory rules sitting on top. At 4DMedical we run cloud infrastructure that processes 3,290+ scans a day, has to stay HIPAA compliant, and feeds machine learning models that pull quantitative measurements out of lung scans. This post is the practical side of that: the architecture, the compliance headaches, and where the ML actually fits.
             </p>
             
             <div className="mb-6 bg-red-50 p-5 rounded-lg border border-red-200">
-              <h4 className="font-semibold mb-3 text-red-900">DICOM Processing at Scale</h4>
+              <h4 className="font-semibold mb-3 text-red-900">Working with DICOM</h4>
               <div className="bg-white p-4 rounded-md mb-4">
                 <p className="text-gray-700 text-sm mb-2">
-                  DICOM (Digital Imaging and Communications in Medicine) is the international standard for medical images. Each scan contains not just image data but extensive metadata about the patient, procedure, and equipment.
+                  DICOM (Digital Imaging and Communications in Medicine) is the format basically every medical scanner speaks. A single file isn't just the image — it carries a long list of tags about the patient, the procedure and the machine that took it. That metadata is half the work.
                 </p>
                 <div className="text-center text-sm font-mono text-gray-700 space-y-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -114,14 +114,14 @@ export default function MedicalImagingBlog() {
                 </div>
               </div>
               <p className="text-red-800 text-sm">
-                Cloud processing enables advanced analytics and machine learning applications that weren&apos;t possible with traditional PACS systems.
+                Moving processing to the cloud is mostly about headroom — you can run analysis and ML over scans that an on-premise PACS box was never going to have the compute for.
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">HIPAA-Compliant Cloud Architecture</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">The cloud architecture, and where HIPAA bites</h4>
               <p className="text-gray-700 mb-4">
-                Medical imaging data requires the highest level of security and compliance. Our architecture ensures patient privacy while enabling advanced processing:
+                Patient data sets the bar for security here, and compliance shapes most of the design decisions. The aim is to keep the data locked down without making the processing pipeline unusable. Here's how the pieces fit:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -156,9 +156,9 @@ Data Flow: Hospital → Secure Upload → Processing → Analysis → Results
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Machine Learning for Medical Imaging</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Where the ML comes in</h4>
               <p className="text-gray-700 mb-4">
-                4DMedical&apos;s XV Technology™ uses machine learning to enhance lung imaging analysis, providing quantitative measurements that weren&apos;t previously possible:
+                4DMedical&apos;s XV Technology™ runs ML over lung scans to produce actual numbers — regional ventilation and perfusion — rather than a radiologist eyeballing the image. The pipeline looks something like this:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -218,33 +218,33 @@ class LungAnalysisML:
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Key Medical Imaging Principles</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">What I'd tell anyone starting on this</h4>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-red-500 mr-2">🔒</span>
-                  <span><strong>Privacy by Design</strong> – Implement data de-identification, encryption, and access controls from the ground up.</span>
+                  <span className="text-red-500 mr-2">•</span>
+                  <span><strong>Privacy isn't retrofittable</strong> – de-identification, encryption and access control have to be there from the start.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-red-500 mr-2">🎯</span>
-                  <span><strong>Clinical Validation</strong> – All ML models must be validated against clinical outcomes and regulatory requirements.</span>
+                  <span className="text-red-500 mr-2">•</span>
+                  <span><strong>A model isn't done when it works</strong> – it has to hold up against clinical outcomes and the regulator before it counts.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-red-500 mr-2">📊</span>
-                  <span><strong>Interoperability</strong> – Ensure compatibility with existing hospital PACS and radiology workflows.</span>
+                  <span className="text-red-500 mr-2">•</span>
+                  <span><strong>You're a guest in their workflow</strong> – fit into the hospital's existing PACS and radiology process, not the other way around.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-red-500 mr-2">⚡</span>
-                  <span><strong>Reliability & Performance</strong> – Medical systems require 99.9%+ uptime and sub-second response times for critical functions.</span>
+                  <span className="text-red-500 mr-2">•</span>
+                  <span><strong>Reliability is clinical</strong> – downtime here isn't a bad day, it's a delayed diagnosis. Plan for 99.9%+ and fast response.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-red-500 mr-2">📋</span>
-                  <span><strong>Regulatory Compliance</strong> – Meet FDA, CE, and local medical device regulations for software as a medical device (SaMD).</span>
+                  <span className="text-red-500 mr-2">•</span>
+                  <span><strong>The software is a medical device</strong> – FDA, CE and local SaMD rules apply, and they shape how you ship.</span>
                 </li>
               </ul>
             </div>
             
             <div className="mb-8">
-              <h4 className="font-semibold mb-3 text-gray-900">Impact on Healthcare Outcomes</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">What it adds up to</h4>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
 {`# 4DMedical XV Technology Clinical Impact
@@ -273,7 +273,7 @@ Technical Achievements:
             </div>
             
             <p className="text-gray-600 mb-6 italic">
-              Working on medical imaging technology at 4DMedical taught me that healthcare software isn&apos;t just about technical excellence—it&apos;s about improving patient outcomes. Every line of code, every optimization, and every security measure directly impacts real people&apos;s health and lives. The responsibility is immense, but so is the potential to make a meaningful difference.
+              The thing that's stuck with me from 4DMedical is that the code is downstream of a real clinical decision. A bug isn't an annoyance for a user — it's a measurement a doctor might lean on. That changes how you think about a security control or an edge case in the pipeline. It's a heavier kind of responsibility than most software I've worked on, and honestly that's part of why I like it.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 mb-6">

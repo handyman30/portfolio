@@ -40,50 +40,50 @@ export default function MonolithToMicroservicesBlog() {
                 The Good Guys
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">From Monolith to Microservices: The Good Guys 18-Month Transformation Journey</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">From monolith to microservices, without the dogma</h1>
             <p className="text-gray-600 mb-6">April 25, 2024 • 16 min read</p>
             
             <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Transformation Challenges</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">What we were dealing with</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-teal-500 mr-2">⚖️</span>
-                      <span><strong>Legacy .NET Monolith</strong> – 500K+ lines, 10+ years of organic growth</span>
+                      <span className="text-teal-500 mr-2">•</span>
+                      <span><strong>A .NET monolith</strong> – 500K+ lines, a decade of organic growth</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-500 mr-2">🏪</span>
-                      <span><strong>100+ Physical Stores</strong> – Real-time inventory across locations</span>
+                      <span className="text-teal-500 mr-2">•</span>
+                      <span><strong>100+ physical stores</strong> – inventory that had to stay in sync</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-500 mr-2">💰</span>
-                      <span><strong>$2B+ Annual Revenue</strong> – Zero downtime tolerance</span>
+                      <span className="text-teal-500 mr-2">•</span>
+                      <span><strong>$2B+ in annual revenue</strong> – very little tolerance for downtime</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-500 mr-2">👥</span>
-                      <span><strong>50+ Developer Team</strong> – Coordination bottlenecks</span>
+                      <span className="text-teal-500 mr-2">•</span>
+                      <span><strong>50+ developers</strong> – all stepping on each other in one codebase</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Business Impact Results</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">Where it ended up</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-teal-500 mr-2">🚀</span>
-                      <span><strong>3x Faster Delivery</strong> – Feature release velocity improvement</span>
+                      <span className="text-teal-500 mr-2">•</span>
+                      <span><strong>3x faster delivery</strong> – idea to production</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-500 mr-2">⚡</span>
-                      <span><strong>60% API Performance</strong> – Response time improvements</span>
+                      <span className="text-teal-500 mr-2">•</span>
+                      <span><strong>60% faster APIs</strong> – on response times</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-500 mr-2">📈</span>
-                      <span><strong>15% Conversion Increase</strong> – Better user experience</span>
+                      <span className="text-teal-500 mr-2">•</span>
+                      <span><strong>15% lift in conversion</strong> – mostly from faster pages</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-teal-500 mr-2">💎</span>
-                      <span><strong>$2M+ Revenue Impact</strong> – Direct business value generated</span>
+                      <span className="text-teal-500 mr-2">•</span>
+                      <span><strong>$2M+ revenue impact</strong> – attributable to shipping faster</span>
                     </li>
                   </ul>
                 </div>
@@ -91,11 +91,11 @@ export default function MonolithToMicroservicesBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              When I joined The Good Guys in 2019, we were processing millions of transactions through a massive .NET monolith that had grown organically over a decade. As Australia&apos;s largest electrical retailer, any downtime meant significant revenue loss. What followed was an 18-month transformation journey that changed how we think about software architecture, team autonomy, and business agility.
+              I want to get one thing out of the way first: the monolith wasn&apos;t a mistake. Most platforms start as one for good reasons, and The Good Guys was no exception — a single .NET app got the business a long way before I joined in 2019. The case for splitting it up only became clear once 50-odd developers were queuing to deploy and a small change anywhere meant redeploying everything. This is the story of when we decided that pain was worth fixing, and what it took. It ran about 18 months.
             </p>
             
             <div className="mb-6 bg-teal-50 p-5 rounded-lg border border-teal-200">
-              <h4 className="font-semibold mb-3 text-teal-900">Monolith to Microservices Architecture Evolution</h4>
+              <h4 className="font-semibold mb-3 text-teal-900">Before and after</h4>
               <div className="bg-white p-4 rounded-md mb-4">
                 <div className="text-center text-sm font-mono text-gray-700 space-y-4">
                   <div className="border border-red-300 rounded-md p-4 bg-red-50">
@@ -138,14 +138,14 @@ export default function MonolithToMicroservicesBlog() {
                 </div>
               </div>
               <p className="text-teal-800 text-sm">
-                The transformation from a 500K+ line monolith to domain-driven microservices improved development velocity by 3x and system reliability significantly.
+                Splitting the 500K-line monolith into services along domain lines roughly tripled how fast we could ship, and made the system easier to keep up.
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Migration Strategy: The Strangler Fig Pattern</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Strangling the monolith one route at a time</h4>
               <p className="text-gray-700 mb-4">
-                We used the Strangler Fig pattern to gradually extract services without disrupting the existing system:
+                A big-bang rewrite was never on the table — not on a system taking real orders. We used the strangler fig pattern: stand up a new service, route a slice of traffic to it behind a feature toggle, and keep the old path as a fallback until the new one earned trust. Product catalog went first because it was the most self-contained:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -227,9 +227,9 @@ public class ProductsController : ControllerBase
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Data Migration & Database Per Service</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Pulling the data apart</h4>
               <p className="text-gray-700 mb-4">
-                One of the biggest challenges was extracting data from the monolithic database while maintaining consistency:
+                The hardest part wasn&apos;t the code, it was the database. Everything shared one SQL Server, and giving each service its own store while keeping data consistent in the meantime was the part that kept me up at night. We migrated a table at a time, transformed into the new model, and emitted events so the other services could keep their own copies in step:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -306,9 +306,9 @@ public class InventoryService
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">API Gateway & Service Communication</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">The gateway and how services talk</h4>
               <p className="text-gray-700 mb-4">
-                Kong API Gateway provided routing, authentication, and rate limiting for our microservices:
+                Once you have more than a couple of services you need something in front of them. Kong handled routing, auth and rate limiting so each service didn&apos;t have to reinvent that. Service-to-service calls went through discovery, with a fallback when a dependency was down so one sick service didn&apos;t take the rest with it:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -370,9 +370,9 @@ public class ProductService
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Domain-Driven Design Implementation</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Drawing the boundaries around domains</h4>
               <p className="text-gray-700 mb-4">
-                We organized services around business domains rather than technical layers:
+                The mistake I&apos;ve seen elsewhere is slicing services by technical layer — a controllers service, a data service — which just gives you a distributed monolith. We drew the lines around business domains instead. Orders is a good example: the rules about what you can and can&apos;t do to an order live in the order aggregate, not scattered across the app:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -471,7 +471,7 @@ public class OrderService
             </div>
             
             <div className="mb-8">
-              <h4 className="font-semibold mb-3 text-gray-900">Migration Results & Lessons Learned</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Results, and what I&apos;d tell my past self</h4>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
 {`# The Good Guys Microservices Migration Results (2019-2021)

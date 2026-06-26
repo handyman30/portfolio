@@ -40,52 +40,55 @@ export default function QualityEngineeringTestingBlog() {
                 Latest
               </span>
             </div>
-            <h1 className="text-3xl font-bold mb-3 text-gray-900">Quality Engineering at Scale: Unit Tests, Cypress, Git Hooks & SonarCloud Integration</h1>
+            <h1 className="text-3xl font-bold mb-3 text-gray-900">Testing at scale: unit tests, Cypress and SonarCloud</h1>
             <p className="text-gray-600 mb-4">
               December 20, 2024 • 15 min read
             </p>
-            
+            <p className="text-lg text-gray-600 mb-4">
+              Tests are less about coverage numbers and more about the habits that keep bugs out of prod.
+            </p>
+
             <div className="mb-6 bg-gray-50 p-4 rounded-lg shadow-inner border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Testing Strategy Foundation</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">The foundation</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">🧪</span>
-                      <span><strong>Unit Testing Excellence</strong> – Jest examples with real payment logic</span>
+                      <span className="text-emerald-500 mr-2">•</span>
+                      <span><strong>Unit tests</strong> – Jest, on real payment logic rather than toy examples</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">📊</span>
-                      <span><strong>Testing Pyramid</strong> – 70% unit, 20% integration, 10% E2E</span>
+                      <span className="text-emerald-500 mr-2">•</span>
+                      <span><strong>The pyramid</strong> – roughly 70% unit, 20% integration, 10% E2E</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">🔄</span>
-                      <span><strong>Cypress Integration</strong> – Complete user journey testing</span>
+                      <span className="text-emerald-500 mr-2">•</span>
+                      <span><strong>Cypress</strong> – the few journeys that actually matter, end to end</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">🔗</span>
-                      <span><strong>API Integration Tests</strong> – Backend/frontend communication</span>
+                      <span className="text-emerald-500 mr-2">•</span>
+                      <span><strong>API tests</strong> – checking the front end and back end agree</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900">Automation & Quality Gates</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900">The automation around it</h4>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">⚡</span>
-                      <span><strong>Git Hooks Setup</strong> – Pre-commit and pre-push automation</span>
+                      <span className="text-emerald-500 mr-2">•</span>
+                      <span><strong>Git hooks</strong> – catch problems on commit, before CI even sees them</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">🔍</span>
-                      <span><strong>SonarCloud Integration</strong> – Continuous code quality inspection</span>
+                      <span className="text-emerald-500 mr-2">•</span>
+                      <span><strong>SonarCloud</strong> – static analysis on every change</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">🚀</span>
-                      <span><strong>GitHub Actions</strong> – Automated quality gate workflows</span>
+                      <span className="text-emerald-500 mr-2">•</span>
+                      <span><strong>GitHub Actions</strong> – the gate that runs it all on a PR</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-emerald-500 mr-2">📈</span>
-                      <span><strong>Quality Metrics</strong> – Coverage, maintainability, reliability</span>
+                      <span className="text-emerald-500 mr-2">•</span>
+                      <span><strong>Metrics</strong> – coverage, maintainability, reliability</span>
                     </li>
                   </ul>
                 </div>
@@ -93,11 +96,11 @@ export default function QualityEngineeringTestingBlog() {
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Quality isn't just about writing tests—it's about building a culture and infrastructure that prevents bugs from reaching production. After implementing comprehensive quality engineering practices across multiple production systems, I've learned that the best testing strategies combine automated testing, static analysis, and continuous integration into a seamless development workflow.
+              Coverage percentage is the number everyone quotes, and it's mostly the wrong one to chase. What actually keeps bugs out of prod is the habit: a test gets written when the bug gets fixed, the hooks run before you push, and the PR doesn't merge until the gate is green. I've set this up on a few production systems, and the parts that mattered weren't clever tests. They were making the boring checks automatic so nobody had to remember them.
             </p>
             
             <div className="mb-6 bg-emerald-50 p-5 rounded-lg border border-emerald-200">
-              <h4 className="font-semibold mb-3 text-emerald-900">The Testing Pyramid in Practice</h4>
+              <h4 className="font-semibold mb-3 text-emerald-900">The testing pyramid in practice</h4>
               <div className="bg-white p-4 rounded-md mb-4">
                 <div className="text-center text-sm font-mono text-gray-700 space-y-2">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -117,14 +120,14 @@ export default function QualityEngineeringTestingBlog() {
                 </div>
               </div>
               <p className="text-emerald-800 text-sm">
-                The testing pyramid ensures maximum coverage with optimal execution speed and maintainability.
+                The shape is the point: lots of cheap, fast tests at the bottom, very few slow ones at the top. Flip it and your suite takes ten minutes to run and nobody waits for it.
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Unit Testing Excellence with Jest</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Unit tests with Jest</h4>
               <p className="text-gray-700 mb-4">
-                Effective unit tests should be fast, isolated, and provide clear feedback. Here's how we structure unit tests for complex business logic:
+                A unit test should be fast, isolated, and tell you exactly what broke when it fails. Here's how I tend to lay one out for something with real business logic, like payments:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -189,9 +192,9 @@ describe('PaymentProcessor', () => {
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Cypress E2E Testing Implementation</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Cypress for end-to-end</h4>
               <p className="text-gray-700 mb-4">
-                End-to-end tests validate complete user journeys. Here's how we implement robust E2E testing:
+                E2E tests are expensive to run and easy to make flaky, so I save them for the journeys that lose money if they break. Checkout is the obvious one:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -230,9 +233,9 @@ describe('E-commerce Checkout Flow', () => {
             </div>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-gray-900">Git Hooks for Quality Gates</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">Git hooks as the first gate</h4>
               <p className="text-gray-700 mb-4">
-                Automated quality checks prevent poor code from entering the repository:
+                The cheapest place to catch a problem is before it leaves the developer's machine. A pre-commit hook running lint, types and related tests does most of that work:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
@@ -275,7 +278,7 @@ module.exports = {
             </div>
             
             <div className="mb-8">
-              <h4 className="font-semibold mb-3 text-gray-900">SonarCloud Integration & Quality Metrics</h4>
+              <h4 className="font-semibold mb-3 text-gray-900">SonarCloud in the pipeline</h4>
               <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
                 <pre className="text-sm text-gray-800">
 {`# sonar-project.properties
@@ -312,7 +315,7 @@ jobs:
             </div>
             
             <p className="text-gray-600 mb-6 italic">
-              Quality engineering transformed how we ship software at The Good Guys. Our comprehensive testing strategy reduced production bugs by 85% and increased developer confidence. The upfront investment in quality infrastructure pays dividends in faster delivery and fewer production issues.
+              At The Good Guys this setup cut our production bugs by about 85%, but the number isn't really the point. What changed was that people stopped being nervous about shipping on a Friday. The hooks and the gate did the remembering, so a release stopped feeling like a gamble. That's the payoff, and it's worth the bit of setup time up front.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 mb-6">
@@ -334,9 +337,9 @@ jobs:
             
             {/* Back to Blog Link */}
             <div className="mt-8 pt-6 border-t border-gray-200">
-              <Link 
-                href="/blog"
-                className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
+              <Link
+                href="/#writing"
+                className="inline-flex items-center text-[#1f3a5f] hover:underline underline-offset-4 font-medium transition-colors"
               >
                 ← Back to All Posts
               </Link>
